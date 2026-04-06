@@ -1,0 +1,182 @@
+---
+interface Props {
+  src: string;
+  title: string;
+  titleEn?: string;
+}
+
+const { src, title, titleEn } = Astro.props;
+---
+
+<div class="audio-player" data-src={src}>
+  <div class="player-header">
+    <span class="player-icon">🔊</span>
+    <div class="player-info">
+      <span class="player-title">{title}</span>
+      {titleEn && <span class="player-title-en">{titleEn}</span>}
+    </div>
+    <button class="play-btn" aria-label="播放">
+      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+  </div>
+  <div class="player-progress">
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+    <div class="time-display">
+      <span class="current-time">0:00</span>
+      <span class="duration">--:--</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .audio-player {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin: 2rem 0;
+  }
+
+  .player-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .player-icon {
+    font-size: 1.2rem;
+  }
+
+  .player-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .player-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .player-title-en {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: var(--font-mono);
+  }
+
+  .play-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--silicon);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg);
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .play-btn:hover {
+    background: var(--accent-light);
+    transform: scale(1.05);
+  }
+
+  .play-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .player-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .progress-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--silicon);
+    transition: width 0.1s linear;
+    border-radius: 2px;
+  }
+
+  .time-display {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-family: var(--font-mono);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.audio-player').forEach(player => {
+    const audio = new Audio();
+    const el = player as HTMLElement;
+    const src = el.dataset.src;
+    audio.src = src || '';
+
+    const playBtn = el.querySelector('.play-btn') as HTMLButtonElement;
+    const iconPlay = el.querySelector('.icon-play') as SVGElement;
+    const iconPause = el.querySelector('.icon-pause') as SVGElement;
+    const progressFill = el.querySelector('.progress-fill') as HTMLElement;
+    const currentTime = el.querySelector('.current-time') as HTMLElement;
+    const durationEl = el.querySelector('.duration') as HTMLElement;
+
+    function formatTime(s: number) {
+      const m = Math.floor(s / 60);
+      const sec = Math.floor(s % 60);
+      return `${m}:${sec.toString().padStart(2, '0')}`;
+    }
+
+    audio.addEventListener('loadedmetadata', () => {
+      durationEl.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      const pct = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = `${pct}%`;
+      currentTime.textContent = formatTime(audio.currentTime);
+    });
+
+    audio.addEventListener('ended', () => {
+      iconPlay.style.display = '';
+      iconPause.style.display = 'none';
+      progressFill.style.width = '0%';
+      currentTime.textContent = '0:00';
+    });
+
+    playBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        // Pause all others
+        document.querySelectorAll('audio').forEach(a => (a as HTMLAudioElement).pause());
+        document.querySelectorAll('.icon-pause').forEach(ic => { (ic as SVGElement).style.display = 'none'; });
+        document.querySelectorAll('.icon-play').forEach(ic => { (ic as SVGElement).style.display = ''; });
+        
+        audio.play();
+        iconPlay.style.display = 'none';
+        iconPause.style.display = '';
+      } else {
+        audio.pause();
+        iconPlay.style.display = '';
+        iconPause.style.display = 'none';
+      }
+    });
+  });
+</script>

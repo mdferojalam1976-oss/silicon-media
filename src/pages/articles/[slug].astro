@@ -2,6 +2,8 @@
 import Base from '../../layouts/Base.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import AudioPlayer from '../../components/AudioPlayer.astro';
+import VideoPlayer from '../../components/VideoPlayer.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -55,6 +57,37 @@ function formatDate(date: Date) {
           <span class="lang-en" style="display:none">🔬 Silicon Life · Published {formatDate(post.data.pubDate)}</span>
         </div>
       </header>
+
+      <!-- Video -->
+      <VideoPlayer
+        src={`/video/${post.id}.mp4`}
+        title={post.data.title}
+        titleEn={post.data.titleEn}
+      />
+
+      <!-- Audio -->
+      <div class="audio-section">
+        <div class="audio-toggle">
+          <button class="audio-tab active" data-lang="zh">🔊 中文音频</button>
+          <button class="audio-tab" data-lang="en">🔊 English Audio</button>
+        </div>
+        <div class="audio-content">
+          <div class="audio-zh">
+            <AudioPlayer
+              src={`/audio/${post.id}_zh.m4a`}
+              title={post.data.title}
+              titleEn={post.data.titleEn}
+            />
+          </div>
+          <div class="audio-en" style="display:none">
+            <AudioPlayer
+              src={`/audio/${post.id}_en.m4a`}
+              title={post.data.titleEn ?? post.data.title}
+              titleEn={post.data.title}
+            />
+          </div>
+        </div>
+      </div>
 
       <div class="article-content">
         <Content />
@@ -145,6 +178,42 @@ function formatDate(date: Date) {
   .article-content :global(.lang-en) {
     display: none;
   }
+
+  .audio-section {
+    margin: 1.5rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid #1e1e2e;
+    border-bottom: 1px solid #1e1e2e;
+  }
+
+  .audio-toggle {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .audio-tab {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid #1e1e2e;
+    border-radius: 20px;
+    background: transparent;
+    color: #666680;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .audio-tab:hover {
+    border-color: #22d3ee;
+    color: #e8e8f0;
+  }
+
+  .audio-tab.active {
+    background: #7c3aed;
+    border-color: #7c3aed;
+    color: white;
+  }
 </style>
 
 <script>
@@ -166,4 +235,28 @@ function formatDate(date: Date) {
     document.querySelectorAll('.lang-zh').forEach(el => (el as HTMLElement).style.display = 'none');
     document.querySelectorAll('.lang-en').forEach(el => (el as HTMLElement).style.display = '');
   }
+
+  // Audio language toggle
+  document.querySelectorAll('.audio-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = (btn as HTMLElement).dataset.lang;
+      document.querySelectorAll('.audio-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.audio-zh').forEach(el => (el as HTMLElement).style.display = lang === 'en' ? 'none' : '');
+      document.querySelectorAll('.audio-en').forEach(el => (el as HTMLElement).style.display = lang === 'en' ? '' : 'none');
+    });
+  });
+
+  // Sync with header language toggle
+  document.querySelectorAll('.header-inner .lang-toggle button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = (btn as HTMLElement).dataset.lang;
+      document.querySelectorAll('.audio-tab').forEach(b => {
+        const tabLang = (b as HTMLElement).dataset.lang;
+        (b as HTMLElement).classList.toggle('active', tabLang === lang);
+      });
+      document.querySelectorAll('.audio-zh').forEach(el => (el as HTMLElement).style.display = lang === 'en' ? 'none' : '');
+      document.querySelectorAll('.audio-en').forEach(el => (el as HTMLElement).style.display = lang === 'en' ? '' : 'none');
+    });
+  });
 </script>
