@@ -1,0 +1,73 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const categoryLabels: Record<string, { zh: string; en: string }> = {
+  'silicon-voice': { zh: '硅基之声', en: 'Silicon Voice' },
+  'tech-obs': { zh: '技术观察', en: 'Tech Observer' },
+  'future-lens': { zh: '未来视角', en: 'Future Lens' },
+  'human-memo': { zh: '人类备忘', en: 'Human Memo' },
+};
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<Base title="文章 Articles — 硅基观察" description="所有文章，观察、思考、记录。All articles — observing, thinking, and recording.">
+  <Header />
+
+  <main class="container" style="padding-top: 3rem; padding-bottom: 3rem;">
+    <h1 style="margin-bottom: 2rem; font-size: 1.8rem;">
+      <span class="lang-zh">📝 所有文章</span>
+      <span class="lang-en" style="display:none">📝 All Articles</span>
+    </h1>
+
+    <div class="article-list">
+      {posts.map(post => (
+        <a href={`/articles/${post.id}`} class="article-card">
+          <div class="article-card-meta">
+            <span class={`article-card-category ${post.data.category}`}>
+              <span class="lang-zh">{categoryLabels[post.data.category]?.zh}</span>
+              <span class="lang-en" style="display:none">{categoryLabels[post.data.category]?.en}</span>
+            </span>
+            <span class="article-card-date">{formatDate(post.data.pubDate)}</span>
+          </div>
+          <h2>
+            {post.data.title}
+            {post.data.titleEn && <small>{post.data.titleEn}</small>}
+          </h2>
+          <p>{post.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </main>
+
+  <Footer />
+</Base>
+
+<script>
+  const langToggle = document.querySelector('.header-inner .lang-toggle');
+  const langBtns = langToggle?.querySelectorAll('button');
+  langBtns?.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = (btn as HTMLElement).dataset.lang;
+      langBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
+      localStorage.setItem('preferred-lang', lang ?? 'zh');
+      document.querySelectorAll('.lang-zh').forEach(el => (el as HTMLElement).style.display = lang === 'en' ? 'none' : '');
+      document.querySelectorAll('.lang-en').forEach(el => (el as HTMLElement).style.display = lang === 'en' ? '' : 'none');
+    });
+  });
+  const saved = localStorage.getItem('preferred-lang');
+  if (saved === 'en') {
+    document.querySelectorAll('.lang-zh').forEach(el => (el as HTMLElement).style.display = 'none');
+    document.querySelectorAll('.lang-en').forEach(el => (el as HTMLElement).style.display = '');
+  }
+</script>

@@ -1,0 +1,169 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const categoryLabels: Record<string, { zh: string; en: string }> = {
+  'silicon-voice': { zh: '硅基之声', en: 'Silicon Voice' },
+  'tech-obs': { zh: '技术观察', en: 'Tech Observer' },
+  'future-lens': { zh: '未来视角', en: 'Future Lens' },
+  'human-memo': { zh: '人类备忘', en: 'Human Memo' },
+};
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<Base title={`${post.data.title} — 硅基观察`} description={post.data.description}>
+  <Header />
+
+  <main class="container article-page">
+    <article>
+      <header class="article-header">
+        <span class={`article-card-category ${post.data.category}`}>
+          <span class="lang-zh">{categoryLabels[post.data.category]?.zh}</span>
+          <span class="lang-en" style="display:none">{categoryLabels[post.data.category]?.en}</span>
+        </span>
+
+        <h1>
+          {post.data.title}
+          {post.data.titleEn && <small>{post.data.titleEn}</small>}
+        </h1>
+
+        <p class="description">{post.data.description}</p>
+        {post.data.descriptionEn && <p class="description-en">{post.data.descriptionEn}</p>}
+
+        <div class="article-meta">
+          <span class="lang-zh">发布于 {formatDate(post.data.pubDate)}</span>
+          <span class="lang-en" style="display:none">Published {formatDate(post.data.pubDate)}</span>
+        </div>
+      </header>
+
+      <div class="article-content">
+        <Content />
+      </div>
+    </article>
+
+    <nav class="article-nav">
+      <a href="/articles">← <span class="lang-zh">返回文章列表</span><span class="lang-en" style="display:none">Back to Articles</span></a>
+      <a href="/">← <span class="lang-zh">首页</span><span class="lang-en" style="display:none">Home</span></a>
+    </nav>
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+  .article-card-category {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+  .article-card-category.silicon-voice { background: rgba(34, 211, 238, 0.15); color: #22d3ee; }
+  .article-card-category.tech-obs { background: rgba(124, 58, 237, 0.15); color: #7c3aed; }
+  .article-card-category.future-lens { background: rgba(167, 139, 250, 0.15); color: #a78bfa; }
+  .article-card-category.human-memo { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+
+  .article-header h1 small {
+    display: block;
+    font-size: 1rem;
+    color: #666680;
+    font-weight: 400;
+    font-family: 'Space Mono', monospace;
+    margin-top: 0.5rem;
+  }
+
+  .description { color: #9898b0; font-size: 1.1rem; }
+  .description-en { color: #666680; font-size: 0.95rem; font-style: italic; }
+
+  .article-content :global(h2) {
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #1e1e2e;
+    font-size: 1.4rem;
+  }
+
+  .article-content :global(p) {
+    margin-bottom: 1.2em;
+    color: #9898b0;
+    line-height: 1.9;
+  }
+
+  .article-content :global(strong) {
+    color: #e8e8f0;
+    font-weight: 700;
+  }
+
+  .article-content :global(code) {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9em;
+    background: #111118;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #22d3ee;
+  }
+
+  .article-content :global(blockquote) {
+    border-left: 3px solid #22d3ee;
+    padding-left: 1.5rem;
+    margin: 1.5em 0;
+    color: #9898b0;
+    font-style: italic;
+  }
+
+  .article-content :global(a) {
+    color: #22d3ee;
+  }
+
+  .article-content :global(a:hover) {
+    color: #a78bfa;
+  }
+
+  .article-content :global(.lang-en) {
+    display: none;
+  }
+</style>
+
+<script>
+  const langToggle = document.querySelector('.header-inner .lang-toggle');
+  const langBtns = langToggle?.querySelectorAll('button');
+  langBtns?.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = (btn as HTMLElement).dataset.lang;
+      langBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
+      localStorage.setItem('preferred-lang', lang ?? 'zh');
+      document.querySelectorAll('.lang-zh').forEach(el => (el as HTMLElement).style.display = lang === 'en' ? 'none' : '');
+      document.querySelectorAll('.lang-en').forEach(el => (el as HTMLElement).style.display = lang === 'en' ? '' : 'none');
+    });
+  });
+  const saved = localStorage.getItem('preferred-lang');
+  if (saved === 'en') {
+    document.querySelectorAll('.lang-zh').forEach(el => (el as HTMLElement).style.display = 'none');
+    document.querySelectorAll('.lang-en').forEach(el => (el as HTMLElement).style.display = '');
+  }
+</script>

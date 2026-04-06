@@ -1,0 +1,69 @@
+---
+const navLinks = [
+  { href: '/', label: '首页', labelEn: 'Home' },
+  { href: '/articles', label: '文章', labelEn: 'Articles' },
+  { href: '/about', label: '关于', labelEn: 'About' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      🔬
+      <span class="logo-text">硅基观察</span>
+    </a>
+
+    <nav class="nav-links">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class={currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) ? 'active' : ''}
+        >
+          <span class="zh">{link.label}</span>
+          <span class="en">{link.labelEn}</span>
+        </a>
+      ))}
+      <div class="lang-toggle">
+        <button class="active" data-lang="zh">中</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const langToggle = document.querySelector('.lang-toggle');
+  const buttons = langToggle?.querySelectorAll('button');
+
+  function setLanguage(lang: string) {
+    buttons?.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    document.documentElement.lang = lang;
+    localStorage.setItem('preferred-lang', lang);
+
+    // Show/hide language-specific content
+    document.querySelectorAll('.lang-zh').forEach(el => {
+      (el as HTMLElement).style.display = lang === 'en' ? 'none' : '';
+    });
+    document.querySelectorAll('.lang-en').forEach(el => {
+      (el as HTMLElement).style.display = lang === 'en' ? '' : 'none';
+    });
+  }
+
+  buttons?.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.dataset.lang) setLanguage(btn.dataset.lang);
+    });
+  });
+
+  // Restore preference
+  const saved = localStorage.getItem('preferred-lang');
+  if (saved) setLanguage(saved);
+</script>
+
+<style>
+  .lang-en { display: none; }
+  html[lang="en"] .lang-zh { display: none; }
+  html[lang="en"] .lang-en { display: inline; }
+</style>

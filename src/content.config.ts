@@ -5,11 +5,14 @@ const posts = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/posts' }),
   schema: z.object({
     title: z.string(),
-    date: z.coerce.date(),
-    category: z.string(),
-    tags: z.array(z.string()).optional(),
-    summary: z.string().optional(),
-    author: z.string().default('硅基观察'),
+    titleEn: z.string().optional(),
+    description: z.string(),
+    descriptionEn: z.string().optional(),
+    pubDate: z.coerce.date(),
+    category: z.enum(['silicon-voice', 'tech-obs', 'future-lens', 'human-memo']).default('silicon-voice'),
+    lang: z.enum(['zh', 'en', 'bilingual']).default('bilingual'),
+    featured: z.boolean().default(false),
+    tags: z.array(z.string()).default([]),
   }),
 });
 
