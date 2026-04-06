@@ -79,7 +79,7 @@ for (const ch of chapters) {
 
         <!-- CTA -->
         <div style="display: flex; gap: 16px; opacity: 0; animation: fadeUp 0.7s ease 0.65s both;">
-          <a href="/novel/part-1/chapter-1" class="btn-primary" style="font-size: 1rem; padding: 14px 28px;">
+          <a href="/novel/ch-1" class="btn-primary" style="font-size: 1rem; padding: 14px 28px;">
             <span class="lang-en">Start Reading — Chapter 1</span>
             <span class="lang-zh">开始阅读 — 第一章</span>
           </a>
@@ -173,7 +173,7 @@ for (const ch of chapters) {
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px;">
               {part.chapters.map(ch => (
                 <a
-                  href={`/novel/part-${ch.data.part}/chapter-${ch.data.chapter}`}
+                  href={`/novel/ch-${ch.data.order}`}
                   style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; text-decoration: none; transition: all 280ms ease; color: var(--text);"
                   onmouseover="this.style.borderColor='rgba(0,212,200,0.3)'; this.style.background='var(--surface-2)'; this.style.transform='translateY(-1px)'"
                   onmouseout="this.style.borderColor='var(--border)'; this.style.background='var(--surface)'; this.style.transform='translateY(0)'"
@@ -208,7 +208,7 @@ for (const ch of chapters) {
           </span>
         </p>
         <div style="margin-top: 16px;">
-          <a href="/novel/part-1/chapter-1" class="btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+          <a href="/novel/ch-1" class="btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
             <span class="lang-en">Begin Your Iteration →</span>
             <span class="lang-zh">开始你的迭代 →</span>
           </a>

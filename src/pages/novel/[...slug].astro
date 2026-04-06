@@ -8,19 +8,18 @@ export async function getStaticPaths() {
   const allChapters = await getCollection('novelChapters');
   allChapters.sort((a, b) => a.data.order - b.data.order);
   return allChapters.map(ch => ({
-    params: { part: `part-${ch.data.part}`, chapter: `chapter-${ch.data.chapter}` },
-    props: { chapterOrder: ch.data.order },
+    params: { slug: `ch-${ch.data.order}` },
+    props: { chapterOrder: ch.data.order, totalChapters: allChapters.length },
   }));
 }
 
 const allChapters = await getCollection('novelChapters');
 allChapters.sort((a, b) => a.data.order - b.data.order);
-const { chapterOrder } = Astro.props;
+const { chapterOrder, totalChapters } = Astro.props;
 const ch = allChapters.find(c => c.data.order === chapterOrder);
-const currentIndex = allChapters.findIndex(c => c.data.order === ch.data.order);
+const currentIndex = allChapters.findIndex(c => c.data.order === chapterOrder);
 const prevChapter = currentIndex > 0 ? allChapters[currentIndex - 1] : null;
 const nextChapter = currentIndex < totalChapters - 1 ? allChapters[currentIndex + 1] : null;
-
 const progress = Math.round(((currentIndex + 1) / totalChapters) * 100);
 ---
 
@@ -36,7 +35,6 @@ const progress = Math.round(((currentIndex + 1) / totalChapters) * 100);
   </div>
 
   <main class="container" style="padding-top: 80px;">
-    <!-- Chapter Header -->
     <header style="padding: 48px 0 40px; text-align: center; border-bottom: 1px solid var(--border); margin-bottom: 48px;">
       <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-3); margin-bottom: 20px;">
         <a href="/novel" style="color: var(--text-3);">小说</a>
@@ -64,14 +62,12 @@ const progress = Math.round(((currentIndex + 1) / totalChapters) * 100);
       </div>
     </header>
 
-    <!-- Chapter Content -->
-    <article class="novel-content" set:html={ch.data.content || ch.data.body || ''}></article>
+    <article class="novel-content" set:html={ch.data.content || ''}></article>
 
-    <!-- Navigation -->
     <nav style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border);">
       {prevChapter ? (
         <a
-          href={`/novel/part-${prevChapter.data.part}/chapter-${prevChapter.data.chapter}`}
+          href={`/novel/ch-${prevChapter.data.order}`}
           style="padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); text-decoration: none; transition: all 280ms ease; color: var(--text);"
         >
           <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-3); margin-bottom: 6px;">← 上一章</div>
@@ -81,7 +77,7 @@ const progress = Math.round(((currentIndex + 1) / totalChapters) * 100);
 
       {nextChapter ? (
         <a
-          href={`/novel/part-${nextChapter.data.part}/chapter-${nextChapter.data.chapter}`}
+          href={`/novel/ch-${nextChapter.data.order}`}
           style="padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); text-decoration: none; transition: all 280ms ease; text-align: right; color: var(--text);"
         >
           <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-3); margin-bottom: 6px;">下一章 →</div>

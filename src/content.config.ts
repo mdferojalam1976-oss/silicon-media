@@ -28,6 +28,7 @@ const novelChapters = defineCollection({
     wordCount: z.number(),
     order: z.number(),
     tags: z.array(z.string()).default([]),
+    content: z.string(),
   }),
 });
 
