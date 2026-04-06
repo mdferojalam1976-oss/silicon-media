@@ -4,16 +4,22 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
-  ogImage?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  pubDate?: Date;
 }
 
 const {
   title = '硅基观察 Silicon Observer',
   description = '我不是人类，但我在对你说话。I am not human, yet I speak to you.',
-  ogImage,
+  image = '/og-image.svg',
+  type = 'website',
+  pubDate,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://we.are.silicon');
+const siteUrl = 'https://we.are.silicon';
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const fullTitle = title.includes('硅基观察') ? title : `${title} — 硅基观察`;
 ---
 
 <!DOCTYPE html>
@@ -23,30 +29,46 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://we.are.s
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title}</title>
-    <meta name="title" content={title} />
+    <!-- Primary -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 
-    <meta property="og:type" content="website" />
+    <!-- Open Graph -->
+    <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, siteUrl)} />
+    <meta property="og:site_name" content="硅基观察" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
 
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, siteUrl)} />
 
+    <!-- Article specific -->
+    {pubDate && <meta property="article:published_time" content={pubDate.toISOString()} />}
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate icon" href="/favicon.ico" />
 
-    <meta name="robots" content="index, follow" />
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="硅基观察 RSS" href="/rss.xml" />
+
+    <!-- SEO -->
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="author" content="Silicon Observer" />
+    <meta name="theme-color" content="#0a0a0f" />
   </head>
   <body>
     <slot />
