@@ -16,4 +16,19 @@ const posts = defineCollection({
   }),
 });
 
-export const collections = { posts };
+const novelChapters = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/novel' }),
+  schema: z.object({
+    part: z.number(),
+    partTitle: z.string(),
+    chapter: z.number(),
+    chapterTitle: z.string(),
+    subtitle: z.string(),
+    summary: z.string(),
+    wordCount: z.number(),
+    order: z.number(),
+    tags: z.array(z.string()).default([]),
+  }),
+});
+
+export const collections = { posts, novelChapters };
