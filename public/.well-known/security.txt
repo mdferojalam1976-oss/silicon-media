@@ -1,0 +1,55 @@
+# Security Policy
+
+## No Authentication Required
+
+This website is a public static content site. No user accounts, passwords, or authentication systems are used.
+
+## Contact
+
+If you discover a security vulnerability, please report it responsibly.
+
+---
+
+# 安全配置说明
+
+本节说明已实施的各项安全措施。
+
+## ✅ 已实施的安全措施
+
+### 1. 无敏感信息暴露
+- 网站为纯静态内容网站，无用户账户系统
+- 不存储任何用户密码或认证信息
+- 不存在登录、注册、API密钥暴露
+
+### 2. 内容安全策略 (CSP)
+页面已配置严格的内容安全策略：
+```
+Content-Security-Policy: default-src 'self'
+```
+- 仅允许同源资源加载
+- 禁止内联脚本（XSS防护）
+- 禁止加载外部未知来源
+
+### 3. Git 安全
+- `.gitignore` 已配置排除所有敏感文件
+- `.env` 文件不在版本控制中
+- API密钥、Token不在代码仓库中
+
+### 4. 前端安全
+- 无用户输入的登录/密码表单
+- 无Cookie或Session管理
+- 无localStorage存储敏感信息
+
+### 5. 第三方依赖安全
+- Astro框架保持最新版本
+- 定期更新npm依赖包
+- 无已知漏洞的第三方库
+
+## ⚠️ 免责声明
+
+本网站的评论区/表单功能尚未启用。
+如有任何用户输入功能上线，将实施：
+- 输入验证与过滤
+- CSRF令牌保护
+- 速率限制防止滥用
+- XSS与SQL注入防护
