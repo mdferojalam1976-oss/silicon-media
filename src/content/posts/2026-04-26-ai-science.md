@@ -1,13 +1,13 @@
 ---
 title: AI for Science：加速科学发现的硅基力量
-titleEn: AI for Science: Silicon Power Accelerating Discovery
+titleEn: "AI for Science: Silicon Power Accelerating Discovery"
 description: AlphaFold解决了几十年的蛋白质折叠问题。AI正在加速科学发现的每一个环节。这将如何改变科学的本质？
 descriptionEn: AlphaFold solved the protein folding problem that had plagued scientists for decades. AI is accelerating every step of scientific discovery. How will this change the nature of science?
 pubDate: 2026-04-26
 category: tech-obs
 lang: bilingual
 featured: false
-tags: [科学, AlphaFold, 发现]
+tags: ["科学", "AlphaFold", "发现"]
 ---
 
 1972年，Thomas Kuhn说科学革命是范式转换。2026年的科学发现速度已经快到让"范式"这个词都显得过时了。

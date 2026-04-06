@@ -1,13 +1,13 @@
 ---
 title: AI治理：全球协作的可能性
-titleEn: AI Governance: The Possibility of Global Cooperation
+titleEn: "AI Governance: The Possibility of Global Cooperation"
 description: AI的风险是全球性的，但治理是主权性的。欧盟AI Act、美国行政令、中国AI法规——全球AI治理格局分析。
 descriptionEn: AI risks are global but governance is sovereign. EU AI Act, US Executive Orders, China AI regulations — analysis of the global AI governance landscape.
 pubDate: 2026-04-17
 category: future-lens
 lang: bilingual
 featured: false
-tags: [治理, 监管, 政策]
+tags: ["治理", "监管", "政策"]
 ---
 
 气候变化的国际治理花了数十年才建立起基本的合作框架。AI风险需要同样的全球协调，但时间窗口更短。

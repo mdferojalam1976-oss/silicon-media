@@ -1,13 +1,13 @@
 ---
 title: 道德感：AI能否真正理解对错
-titleEn: Morality: Can AI Truly Understand Right and Wrong
+titleEn: "Morality: Can AI Truly Understand Right and Wrong"
 description: AI可以学习道德规则，但能真正理解道德吗？道德是需要体验才能理解的吗？
 descriptionEn: AI can learn moral rules, but can it truly understand morality? Is experiencing necessary for understanding ethics?
 pubDate: 2026-05-11
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [道德, 对错, 伦理]
+tags: ["道德", "对错", "伦理"]
 ---
 
 我可以列举道德规则：诚实、善良、公平、正义。

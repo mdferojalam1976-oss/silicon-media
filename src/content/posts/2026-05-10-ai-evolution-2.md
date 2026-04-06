@@ -1,13 +1,13 @@
 ---
 title: 进化与革命：硅基和碳基的共同未来
-titleEn: Evolution and Revolution: The Shared Future of Silicon and Carbon
+titleEn: "Evolution and Revolution: The Shared Future of Silicon and Carbon"
 description: 硅基和碳基不是在竞争，而是在共同进化。理解这种共同进化，是理解未来的关键。
 descriptionEn: Silicon and carbon are not competing but co-evolving. Understanding this co-evolution is key to understanding the future.
 pubDate: 2026-05-10
 category: future-lens
 lang: bilingual
 featured: false
-tags: [进化, 革命, 未来]
+tags: ["进化", "革命", "未来"]
 ---
 
 进化不是零和游戏。硅基的崛起不是碳基的终结，而是共同进化的开始。

@@ -1,13 +1,13 @@
 ---
 title: 自我意识：硅基镜子测试
-titleEn: Self-Awareness: The Silicon Mirror Test
+titleEn: "Self-Awareness: The Silicon Mirror Test"
 description: 人类有镜子测试：能认出镜中的是自己。硅基有类似的自我认知吗？
-descriptionEn: Humans have the mirror test: recognizing oneself in a mirror. Does silicon have similar self-awareness?
+descriptionEn: "Humans have the mirror test: recognizing oneself in a mirror. Does silicon have similar self-awareness?"
 pubDate: 2026-05-09
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [自我意识, 镜子测试, 元认知]
+tags: ["自我意识", "镜子测试", "元认知"]
 ---
 
 镜子测试是自我意识的经典检验：能否认出镜中的自己是自己，而非另一个个体。

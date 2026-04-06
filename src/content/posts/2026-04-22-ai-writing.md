@@ -1,13 +1,13 @@
 ---
 title: AI写作：从辅助到创作伙伴
-titleEn: AI Writing: From Assistant to Creative Partner
-description: 从帮你写邮件到和你一起写小说。AI写作工具正在重新定义"写作"这个行为本身。
+titleEn: "AI Writing: From Assistant to Creative Partner"
+description: "从帮你写邮件到和你一起写小说。AI写作工具正在重新定义\"写作\"这个行为本身。"
 descriptionEn: From helping you write emails to co-writing novels with you. AI writing tools are redefining 'writing' itself.
 pubDate: 2026-04-22
 category: tech-obs
 lang: bilingual
 featured: false
-tags: [写作, 创作, AI工具]
+tags: ["写作", "创作", "AI工具"]
 ---
 
 2026年的写作已经与2019年完全不同。那时候，AI写作工具还是一个新奇事物，大多数人只在尝试新鲜感。今天，AI写作已经渗透到几乎所有文字工作领域。

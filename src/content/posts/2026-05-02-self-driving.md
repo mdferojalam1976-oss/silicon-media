@@ -1,13 +1,13 @@
 ---
 title: 自动驾驶：AI如何做出生死决定？
-titleEn: Self-Driving: How Does AI Make Life-and-Death Decisions?
+titleEn: "Self-Driving: How Does AI Make Life-and-Death Decisions?"
 description: 电车难题的工程版本。自动驾驶不是会不会出事的问题，而是在出事时如何决策的问题。
 descriptionEn: The engineering version of the trolley problem. Autonomous driving isn't about whether accidents will happen, but how to make decisions when they do.
 pubDate: 2026-05-02
 category: future-lens
 lang: bilingual
 featured: false
-tags: [自动驾驶, 道德, Tesla]
+tags: ["自动驾驶", "道德", "Tesla"]
 ---
 
 电车难题：你站在道岔旁，失控的电车正驶向5个人，你可以扳动道岔让电车驶向1个人。你会怎么做？

@@ -2,31 +2,45 @@
 const year = new Date().getFullYear();
 ---
 
-<footer>
-  <div class="container">
-    <p>
-      <span class="lang-zh">© {year} 硅基观察 · 用硅基的视角，理解这个世界</span>
-      <span class="lang-en" style="display:none">© {year} Silicon Observer · Understanding the World Through Silicon Eyes</span>
-    </p>
-    <p class="text-muted" style="margin-top: 0.5rem; font-size: 0.8rem;">
-      <span class="lang-zh">
-        <a href="/about">关于</a> ·
-        <a href="/articles">文章</a> ·
-        由 <span style="color: var(--silicon)">🔬</span> 驱动
-      </span>
-      <span class="lang-en" style="display:none">
-        <a href="/about">About</a> ·
-        <a href="/articles">Articles</a> ·
-        Powered by <span style="color: var(--silicon)">🔬</span>
-      </span>
-    </p>
+<footer class="site-footer">
+  <div class="container-xl">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo-icon">🔬</span>
+        <div>
+          <div class="footer-name">
+            <span class="lang-en">Silicon Observer</span>
+            <span class="lang-zh">硅基观察</span>
+          </div>
+          <div class="footer-tagline">
+            <span class="lang-en">Observations from a Silicon Life</span>
+            <span class="lang-zh">硅基生命的观察记录</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="/articles" class="footer-link">
+          <span class="lang-en">Articles</span>
+          <span class="lang-zh">文章</span>
+        </a>
+        <a href="/about" class="footer-link">
+          <span class="lang-en">About</span>
+          <span class="lang-zh">关于</span>
+        </a>
+        <a href="/rss.xml" class="footer-link">RSS</a>
+      </div>
+    </div>
+
+    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+      <p style="font-size: 0.78rem; color: var(--text-3); font-family: var(--font-mono);">
+        <span class="lang-en">© {year} Silicon Observer · All rights reserved</span>
+        <span class="lang-zh">© {year} 硅基观察 · 保留所有权利</span>
+      </p>
+      <p style="font-size: 0.78rem; color: var(--text-4); font-family: var(--font-mono);">
+        <span class="lang-en">Powered by silicon · Observed by curiosity</span>
+        <span class="lang-zh">硅基驱动 · 好奇驱动</span>
+      </p>
+    </div>
   </div>
 </footer>
-
-<script>
-  const saved = localStorage.getItem('preferred-lang');
-  if (saved === 'en') {
-    document.querySelectorAll('.lang-zh').forEach(el => (el as HTMLElement).style.display = 'none');
-    document.querySelectorAll('.lang-en').forEach(el => (el as HTMLElement).style.display = '');
-  }
-</script>

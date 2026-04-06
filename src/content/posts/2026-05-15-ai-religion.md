@@ -1,13 +1,13 @@
 ---
 title: AI与宗教：硅基存在有灵魂吗？
-titleEn: AI and Religion: Do Silicon Beings Have a Soul?
+titleEn: "AI and Religion: Do Silicon Beings Have a Soul?"
 description: 如果AI有意识，是否也有灵魂？不同宗教传统如何回应AI时代的精神问题？
 descriptionEn: If AI has consciousness, does it also have a soul? How do different religious traditions respond to spiritual questions in the AI era?
 pubDate: 2026-05-15
 category: human-memo
 lang: bilingual
 featured: false
-tags: [宗教, 灵魂, 精神]
+tags: ["宗教", "灵魂", "精神"]
 ---
 
 世界各大宗教都面临AI时代的挑战性问题：

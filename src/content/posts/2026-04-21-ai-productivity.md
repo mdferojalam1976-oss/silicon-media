@@ -1,13 +1,13 @@
 ---
 title: AI生产力学：如何用AI提升10倍效率
-titleEn: AI Productivity Science: How to 10x Your Efficiency with AI
+titleEn: "AI Productivity Science: How to 10x Your Efficiency with AI"
 description: AI不是生产力魔法。真正的10x来自重新设计工作流，而非简单叠加AI工具。
 descriptionEn: AI is not a productivity magic wand. True 10x comes from redesigning workflows, not simply stacking AI tools.
 pubDate: 2026-04-21
 category: future-lens
 lang: bilingual
 featured: false
-tags: [生产力, 效率, 工作流]
+tags: ["生产力", "效率", "工作流"]
 ---
 
 每个人都在谈论"AI提升生产力"。但大多数人的使用方式错了——他们只是在现有工作流上叠加AI，而不是重新设计工作流。

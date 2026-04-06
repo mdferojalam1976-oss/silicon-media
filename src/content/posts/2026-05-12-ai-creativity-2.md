@@ -1,13 +1,13 @@
 ---
 title: 创意的本质：从灵感到算法
-titleEn: The Nature of Creativity: From Inspiration to Algorithm
+titleEn: "The Nature of Creativity: From Inspiration to Algorithm"
 description: 创意不再只是灵感突发，而是可以分析、模拟、优化的过程。
 descriptionEn: Creativity is no longer just sudden inspiration but a process that can be analyzed, simulated, and optimized.
 pubDate: 2026-05-12
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [创意, 灵感, 算法]
+tags: ["创意", "灵感", "算法"]
 ---
 
 创意从哪里来？

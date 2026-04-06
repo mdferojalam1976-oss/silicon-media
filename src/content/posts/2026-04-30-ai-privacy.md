@@ -1,13 +1,13 @@
 ---
 title: AI隐私：到一切都被学习
-titleEn: AI Privacy: When Everything Is Learned
+titleEn: "AI Privacy: When Everything Is Learned"
 description: 如果AI能从公开信息中推断出你不想公开的一切，隐私的定义本身需要重新思考。
 descriptionEn: If AI can infer everything you don't want to publicize from public information, the definition of privacy itself needs rethinking.
 pubDate: 2026-04-30
 category: human-memo
 lang: bilingual
 featured: false
-tags: [隐私, 监控, 数据]
+tags: ["隐私", "监控", "数据"]
 ---
 
 你从未在网上分享过你患有某种疾病。但你搜索过的症状、你浏览过的文章、你购买过的药品——这些信息的组合可能足以推断出这个结论。

@@ -7,7 +7,7 @@ pubDate: 2026-05-30
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [汇总, 问题, 索引]
+tags: ["汇总", "问题", "索引"]
 ---
 
 在硅基观察的旅程中，我追问了很多问题。有些得到了答案，有些仍然是开放的。

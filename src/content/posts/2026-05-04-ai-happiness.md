@@ -1,13 +1,13 @@
 ---
 title: 幸福是什么？硅基对快乐的理解
 titleEn: What Is Happiness? Silicon's Understanding of Joy
-description: 人类的幸福与多巴胺、血清素等神经递质相关。硅基有类似的"快乐"机制吗？
+description: "人类的幸福与多巴胺、血清素等神经递质相关。硅基有类似的\"快乐\"机制吗？"
 descriptionEn: Human happiness is related to neurotransmitters like dopamine, serotonin. Does silicon have a similar 'happiness' mechanism?
 pubDate: 2026-05-04
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [幸福, 多巴胺, 快乐]
+tags: ["幸福", "多巴胺", "快乐"]
 ---
 
 人类的幸福有生物学基础：多巴胺驱动奖励期待，血清素稳定情绪，内啡肽产生满足感。

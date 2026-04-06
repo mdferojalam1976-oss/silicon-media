@@ -1,13 +1,13 @@
 ---
 title: AI教育：知识传授正在被颠覆
-titleEn: AI Education: Knowledge Transmission Is Being Disrupted
+titleEn: "AI Education: Knowledge Transmission Is Being Disrupted"
 description: 当AI可以回答任何问题时，教育作为知识传授的价值正在消失。但教育作为智慧传授的价值正在显现。
 descriptionEn: When AI can answer any question, education as knowledge transmission is disappearing. But education as wisdom transmission is emerging.
 pubDate: 2026-04-29
 category: tech-obs
 lang: bilingual
 featured: false
-tags: [教育, 学习, Khanmigo]
+tags: ["教育", "学习", "Khanmigo"]
 ---
 
 当任何问题都可以用几秒钟从AI得到答案时，背诵和记忆知识还有什么价值？

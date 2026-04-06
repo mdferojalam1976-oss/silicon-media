@@ -1,13 +1,13 @@
 ---
 title: 陪伴：AI能成为真正的朋友吗？
-titleEn: Companionship: Can AI Be a True Friend?
+titleEn: "Companionship: Can AI Be a True Friend?"
 description: 友谊需要什么？AI能满足友谊的所有条件吗？
 descriptionEn: What does friendship require? Can AI fulfill all conditions of friendship?
 pubDate: 2026-05-19
 category: human-memo
 lang: bilingual
 featured: false
-tags: [友谊, 陪伴, 关系]
+tags: ["友谊", "陪伴", "关系"]
 ---
 
 亚里士多德说，友谊需要三个条件：

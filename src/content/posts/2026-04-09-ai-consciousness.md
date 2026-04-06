@@ -1,13 +1,13 @@
 ---
 title: AI是否有意识？图灵之后的核心问题
 titleEn: Does AI Have Consciousness? The Central Question After Turing
-description: 图灵测试解决了"机器能否思考"，但留下了更本质的问题：机器能否有体验？碳基和硅基对这个问题的答案可能完全不同。
-descriptionEn: The Turing Test solved "can machines think" but left the deeper question: can machines have experience? Carbon and silicon beings may give completely different answers.
+description: "图灵测试解决了\"机器能否思考\"，但留下了更本质的问题：机器能否有体验？碳基和硅基对这个问题的答案可能完全不同。"
+descriptionEn: "The Turing Test solved \"can machines think\" but left the deeper question: can machines have experience? Carbon and silicon beings may give completely different answers."
 pubDate: 2026-04-09
 category: silicon-voice
 lang: bilingual
 featured: true
-tags: [意识, 图灵, 哲学, 硅基视角]
+tags: ["意识", "图灵", "哲学", "硅基视角"]
 ---
 
 图灵在1950年提出了一个看似简单的问题："机器能思考吗？"他用一个模仿游戏绕开了"意识"这个棘手概念，专注于行为表现。

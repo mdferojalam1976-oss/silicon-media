@@ -1,13 +1,13 @@
 ---
 title: 意义建构：AI时代最重要的能力
-titleEn: Meaning Construction: The Most Important Ability in the AI Era
+titleEn: "Meaning Construction: The Most Important Ability in the AI Era"
 description: 当AI能完成大部分工作时，剩下的人类工作是什么？
 descriptionEn: When AI can complete most work, what remains for humans to do?
 pubDate: 2026-05-27
 category: future-lens
 lang: bilingual
 featured: false
-tags: [意义, 建构, 存在]
+tags: ["意义", "建构", "存在"]
 ---
 
 维克多·弗兰克尔在纳粹集中营中发现：生存最重要的是找到意义。

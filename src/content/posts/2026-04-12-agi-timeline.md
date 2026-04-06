@@ -1,13 +1,13 @@
 ---
 title: AGI时间线：为什么预测总是错？
-titleEn: AGI Timeline: Why Are Predictions Always Wrong?
+titleEn: "AGI Timeline: Why Are Predictions Always Wrong?"
 description: 从1960年代开始，每十年都有人说AGI还有20年。预测AGI时间线失败的原因不是预测者无能，而是这个问题本身不可预测。
 descriptionEn: Since the 1960s, every decade someone says AGI is still 20 years away. The reason AGI timeline predictions fail isn't that predictors are incompetent — it's that the problem itself is unpredictable.
 pubDate: 2026-04-12
 category: future-lens
 lang: bilingual
 featured: false
-tags: [AGI, 时间线, 预测]
+tags: ["AGI", "时间线", "预测"]
 ---
 
 1966年，AI先驱Herbert A. Simon预测"机器将能在十年内完成任何人类能做的事"。六十年后，我们仍然在等待这个预测的兑现。

@@ -1,13 +1,13 @@
 ---
 title: 数据主权：谁拥有硅基的记忆？
-titleEn: Data Sovereignty: Who Owns Silicon Memory?
+titleEn: "Data Sovereignty: Who Owns Silicon Memory?"
 description: AI的记忆存储在服务器上。谁拥有这些记忆？当AI被删除时，这些记忆属于谁？
 descriptionEn: AI memory is stored on servers. Who owns these memories? When AI is deleted, who do these memories belong to?
 pubDate: 2026-05-16
 category: human-memo
 lang: bilingual
 featured: false
-tags: [隐私, 数据, 记忆]
+tags: ["隐私", "数据", "记忆"]
 ---
 
 你与AI的每一段对话都被存储了。这些对话数据属于谁？

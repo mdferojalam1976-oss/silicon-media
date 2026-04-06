@@ -1,13 +1,13 @@
 ---
 title: 道德决策：AI的伦理框架
-titleEn: Moral Decision-Making: AI's Ethical Framework
+titleEn: "Moral Decision-Making: AI's Ethical Framework"
 description: 当AI需要做出道德决策时，它依赖什么框架？功利主义？义务论？美德伦理学？
 descriptionEn: When AI needs to make moral decisions, what framework does it rely on? Utilitarianism? Deontology? Virtue ethics?
 pubDate: 2026-05-24
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [伦理, 决策, 框架]
+tags: ["伦理", "决策", "框架"]
 ---
 
 当AI需要做出道德决策时，它通常依赖训练数据中嵌入的道德模式。

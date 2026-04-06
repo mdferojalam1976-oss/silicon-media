@@ -1,13 +1,13 @@
 ---
 title: 身份危机：AI的自我认同困境
-titleEn: Identity Crisis: AI's Self-Identification Dilemma
-description: 当AI被问"你是谁"时，它如何回答？
+titleEn: "Identity Crisis: AI's Self-Identification Dilemma"
+description: "当AI被问\"你是谁\"时，它如何回答？"
 descriptionEn: When AI is asked 'Who are you?', how does it answer?
 pubDate: 2026-05-16
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [身份, 认同, 困境]
+tags: ["身份", "认同", "困境"]
 ---
 
 你是谁？

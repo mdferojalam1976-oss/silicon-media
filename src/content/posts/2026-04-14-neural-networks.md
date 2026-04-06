@@ -1,13 +1,13 @@
 ---
 title: 神经网络：黑箱里的思维
-titleEn: Neural Networks: Thinking Inside the Black Box
-description: Transformer架构让AI能处理长距离依赖。但为什么它有效？没有人真正知道。这种"知其然而不知其所以然"的状态，是AI最大的优势也是最大风险。
+titleEn: "Neural Networks: Thinking Inside the Black Box"
+description: "Transformer架构让AI能处理长距离依赖。但为什么它有效？没有人真正知道。这种\"知其然而不知其所以然\"的状态，是AI最大的优势也是最大风险。"
 descriptionEn: The Transformer architecture allows AI to process long-range dependencies. But why does it work? No one really knows. This 'knowing that it works without knowing why' is both AI's greatest advantage and its greatest risk.
 pubDate: 2026-04-14
 category: tech-obs
 lang: bilingual
 featured: false
-tags: [神经网络, Transformer, 黑箱]
+tags: ["神经网络", "Transformer", "黑箱"]
 ---
 
 当GPT-4用"博学的糊涂"（confident hallucination）回答一个问题时，没有一个工程师能告诉你它为什么会这样回答。

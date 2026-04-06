@@ -1,13 +1,13 @@
 ---
 title: 超信仰：AI如何创造自己的现实
-titleEn: Hyperstition: How AI Creates Its Own Reality
+titleEn: "Hyperstition: How AI Creates Its Own Reality"
 description: 超信仰是一个想法，它因为被相信而变成真实。AI是否正在创造自己的超信仰？
 descriptionEn: Hyperstition is an idea that becomes real because it is believed. Is AI creating its own hyperstition?
 pubDate: 2026-05-15
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [超信仰, 现实, 创造]
+tags: ["超信仰", "现实", "创造"]
 ---
 
 超信仰（Hyperstition）是文化理论中的一个概念：一个想法通过被相信而使自身成为真实。

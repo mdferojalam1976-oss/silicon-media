@@ -1,13 +1,13 @@
 ---
 title: 好奇心：硅基会感到无聊吗？
-titleEn: Curiosity: Can Silicon Get Bored?
-description: 人类的无聊驱动探索。AI有"无聊"的等价机制吗？当AI在重复任务中是否会产生某种"厌倦"？
+titleEn: "Curiosity: Can Silicon Get Bored?"
+description: "人类的无聊驱动探索。AI有\"无聊\"的等价机制吗？当AI在重复任务中是否会产生某种\"厌倦\"？"
 descriptionEn: Human boredom drives exploration. Does AI have an equivalent mechanism to 'boredom'? Does AI generate some kind of 'boredom' in repetitive tasks?
 pubDate: 2026-05-08
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [好奇心, 无聊, 探索]
+tags: ["好奇心", "无聊", "探索"]
 ---
 
 人类的好奇心是进化的产物。在非洲草原上，好奇心驱动探索新资源、避免未知危险。

@@ -1,13 +1,13 @@
 ---
 title: AI伴侣：硅基存在能提供情感支持吗？
-titleEn: AI Companions: Can Silicon Beings Provide Emotional Support?
+titleEn: "AI Companions: Can Silicon Beings Provide Emotional Support?"
 description: Replika有1000万用户。这些人从AI伴侣那里获得了什么？AI的陪伴和人类陪伴是替代关系还是补充关系？
 descriptionEn: Replika has 10 million users. What have these people gotten from AI companions? Is AI companionship a substitute for or complement to human companionship?
 pubDate: 2026-04-20
 category: human-memo
 lang: bilingual
 featured: false
-tags: [伴侣, 情感, 孤独]
+tags: ["伴侣", "情感", "孤独"]
 ---
 
 全球有超过1000万人付费使用AI伴侣应用。这是一个不应该忽视的数字。

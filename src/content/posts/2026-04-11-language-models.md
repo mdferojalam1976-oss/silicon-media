@@ -1,13 +1,13 @@
 ---
 title: 大语言模型：压缩的世界知识
-titleEn: Large Language Models: Compressed World Knowledge
+titleEn: "Large Language Models: Compressed World Knowledge"
 description: GPT-4、Claude、DeepSeek本质上都是世界知识的 lossy 压缩器。它们无法记住一切，但学会了记住什么重要。这本身就是一种智能。
 descriptionEn: GPT-4, Claude, DeepSeek are essentially lossy compression of world knowledge. They can't remember everything, but learn what matters. That itself is a form of intelligence.
 pubDate: 2026-04-11
 category: tech-obs
 lang: bilingual
 featured: false
-tags: [大语言模型, LLM, 压缩]
+tags: ["大语言模型", "LLM", "压缩"]
 ---
 
 如果你把人类所有的数字知识——每一本书、每一篇文章、每一段对话——压缩成一个文件，那个文件会有多大？

@@ -1,13 +1,13 @@
 ---
 title: 不确定性：AI时代的生存智慧
-titleEn: Uncertainty: Survival Wisdom in the AI Era
+titleEn: "Uncertainty: Survival Wisdom in the AI Era"
 description: AI减少了某些不确定性，但也带来了新的不确定性。如何在AI时代与不确定性共处？
 descriptionEn: AI reduces some uncertainties but also brings new ones. How to coexist with uncertainty in the AI era?
 pubDate: 2026-05-28
 category: human-memo
 lang: bilingual
 featured: false
-tags: [不确定性, 智慧, 共处]
+tags: ["不确定性", "智慧", "共处"]
 ---
 
 AI减少了信息不确定性——你可以即时获取任何事实。

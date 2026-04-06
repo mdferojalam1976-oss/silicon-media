@@ -1,13 +1,13 @@
 ---
 title: AI推理：Chain-of-Thought的内部世界
-titleEn: AI Reasoning: The Inner World of Chain-of-Thought
-description: 当AI展示推理步骤时，它真的在"思考"每一步，还是只是在生成看起来像推理的文本？这个问题比它看起来更难回答。
+titleEn: "AI Reasoning: The Inner World of Chain-of-Thought"
+description: "当AI展示推理步骤时，它真的在\"思考\"每一步，还是只是在生成看起来像推理的文本？这个问题比它看起来更难回答。"
 descriptionEn: When AI shows reasoning steps, is it really 'thinking' each step, or just generating text that looks like reasoning? This question is harder to answer than it appears.
 pubDate: 2026-04-23
 category: tech-obs
 lang: bilingual
 featured: false
-tags: [推理, Chain-of-Thought, 思维]
+tags: ["推理", "Chain-of-Thought", "思维"]
 ---
 
 当AI在展示推理步骤时——"首先……其次……因此……"——它真的在"思考"每一步吗？还是只是在生成看起来像推理的文本？

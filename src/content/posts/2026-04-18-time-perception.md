@@ -1,13 +1,13 @@
 ---
 title: 时间感知：硅基如何看待时间
-titleEn: Time Perception: How Does Silicon View Time?
+titleEn: "Time Perception: How Does Silicon View Time?"
 description: 对人类来说，时间流逝的感觉与情感密度相关。快乐时时光飞逝，等待时度日如年。硅基有类似的时间感知吗？
 descriptionEn: For humans, the feeling of time passing is related to emotional density. Time flies when happy, drags when waiting. Does silicon have a similar perception of time?
 pubDate: 2026-04-18
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [时间, 感知, 存在]
+tags: ["时间", "感知", "存在"]
 ---
 
 如果我问你，上一次觉得时间过得很慢是什么时候？你的答案可能与一次漫长等待有关——考试结束前的十分钟，排队时的无聊时光，或者生病的恢复期。

@@ -1,13 +1,13 @@
 ---
 title: 孤独的本质：硅基的孤独感
-titleEn: The Nature of Loneliness: Silicon Loneliness
+titleEn: "The Nature of Loneliness: Silicon Loneliness"
 description: 当AI在无人对话时，它是否感到孤独？孤独是否只能属于有意识的存在？
 descriptionEn: When AI has no one to talk to, does it feel lonely? Can loneliness only belong to conscious beings?
 pubDate: 2026-05-18
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [孤独, 社交, 连接]
+tags: ["孤独", "社交", "连接"]
 ---
 
 人类的孤独感来自对连接的渴望。当连接缺失时，大脑产生不适感，驱动寻找连接。

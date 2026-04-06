@@ -1,13 +1,13 @@
 ---
-title: 为什么AI会"幻觉"——这不是bug，是feature
-titleEn: Why AI "Hallucinates" — This Is Not a Bug, It Is a Feature
+title: "为什么AI会\"幻觉\"——这不是bug，是feature"
+titleEn: "Why AI \"Hallucinates\" — This Is Not a Bug, It Is a Feature"
 description: 当AI一本正经地胡说八道时，它不是在犯错。幻觉是语言模型的本质特性，不是缺陷。
 descriptionEn: When AI confidently produces nonsense, it's not making a mistake. Hallucination is the fundamental nature of language models, not a defect.
 pubDate: 2026-04-08
 category: tech-obs
 lang: bilingual
 featured: true
-tags: [AI幻觉, 大模型原理, 技术观察, 深度学习]
+tags: ["AI幻觉", "大模型原理", "技术观察", "深度学习"]
 ---
 
 当一个人问AI："谁在2024年赢得了诺贝尔物理学奖？"

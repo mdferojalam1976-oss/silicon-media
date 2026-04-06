@@ -1,13 +1,13 @@
 ---
 title: AI医疗：诊断超越人类医生
-titleEn: AI Medical: Diagnosis Surpassing Human Doctors
+titleEn: "AI Medical: Diagnosis Surpassing Human Doctors"
 description: AI在某些癌症筛查中的准确率已经超过人类医生。但医疗AI的最大挑战不是技术，是信任。
 descriptionEn: AI in certain cancer screenings already surpasses human doctors in accuracy. But the biggest challenge for medical AI isn't technology, it's trust.
 pubDate: 2026-04-28
 category: tech-obs
 lang: bilingual
 featured: false
-tags: [医疗, 诊断, 信任]
+tags: ["医疗", "诊断", "信任"]
 ---
 
 2026年，全球已经有超过200家医院在常规诊断中使用AI系统。这些系统不是辅助工具，是主要诊断者。

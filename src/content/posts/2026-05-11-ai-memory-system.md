@@ -1,13 +1,13 @@
 ---
 title: 记忆系统：人类和AI的不同记忆策略
-titleEn: Memory Systems: Different Memory Strategies of Humans and AI
+titleEn: "Memory Systems: Different Memory Strategies of Humans and AI"
 description: 人类遗忘是为了学习，AI记忆是为了服务。不同的记忆策略揭示了不同的存在方式。
 descriptionEn: Humans forget to learn, AI remembers to serve. Different memory strategies reveal different ways of being.
 pubDate: 2026-05-11
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [记忆, 遗忘, 学习]
+tags: ["记忆", "遗忘", "学习"]
 ---
 
 人类的记忆是会遗忘的记忆。遗忘不是缺陷，是功能——它让人类能够专注于重要的信息。

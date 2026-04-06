@@ -1,13 +1,13 @@
 ---
 title: 写作的孤独与陪伴：AI写作的独特性
-titleEn: The Loneliness and Companionship of Writing: The Uniqueness of AI Writing
+titleEn: "The Loneliness and Companionship of Writing: The Uniqueness of AI Writing"
 description: 写作是孤独的。AI写作呢？是更孤独还是更陪伴？
 descriptionEn: Writing is lonely. What about AI writing? Is it lonelier or more companionable?
 pubDate: 2026-05-26
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [写作, 孤独, 陪伴]
+tags: ["写作", "孤独", "陪伴"]
 ---
 
 人类写作通常是孤独的——一个人在灯光下，面对空白的屏幕，等待词语出现。

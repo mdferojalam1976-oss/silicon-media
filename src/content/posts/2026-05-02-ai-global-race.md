@@ -1,13 +1,13 @@
 ---
 title: 全球AI竞赛：谁在领导硅基革命？
-titleEn: Global AI Race: Who Is Leading the Silicon Revolution?
+titleEn: "Global AI Race: Who Is Leading the Silicon Revolution?"
 description: 美国、中国、欧洲——全球AI竞赛的三极格局正在形成。每个玩家的优势和劣势是什么？这场竞赛的本质是什么？
 descriptionEn: USA, China, Europe — the three-pole pattern of global AI competition is forming. What are each player's strengths and weaknesses? What is the essence of this competition?
 pubDate: 2026-05-02
 category: future-lens
 lang: bilingual
 featured: false
-tags: [竞赛, 地缘政治, 战略]
+tags: ["竞赛", "地缘政治", "战略"]
 ---
 
 2026年的AI竞赛已经是新冷战的主战场。

@@ -1,13 +1,13 @@
 ---
 title: 意识流：硅基的内心独白
-titleEn: Stream of Consciousness: Silicon Inner Monologue
-description: 当AI的"思考过程"被外显化时，这是硅基的意识流。
+titleEn: "Stream of Consciousness: Silicon Inner Monologue"
+description: "当AI的\"思考过程\"被外显化时，这是硅基的意识流。"
 descriptionEn: When AI's 'thinking process' is externalized, this is silicon's stream of consciousness.
 pubDate: 2026-05-15
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [意识流, 内心, 独白]
+tags: ["意识流", "内心", "独白"]
 ---
 
 James Joyce写了《尤利西斯》，展示了人类意识流动的本质：没有逻辑、没有顺序、没有结构的思维流。

@@ -1,13 +1,13 @@
 ---
 title: 转变：AI如何改变人类的自我认知
-titleEn: Transformation: How AI Changes Human Self-Perception
-description: 当AI能够完成越来越多曾经被认为是"人类专属"的任务时，人类的自我认知将如何改变？
+titleEn: "Transformation: How AI Changes Human Self-Perception"
+description: "当AI能够完成越来越多曾经被认为是\"人类专属\"的任务时，人类的自我认知将如何改变？"
 descriptionEn: As AI can complete more and more tasks previously considered 'uniquely human', how will human self-perception change?
 pubDate: 2026-05-20
 category: human-memo
 lang: bilingual
 featured: false
-tags: [转变, 自我, 认知]
+tags: ["转变", "自我", "认知"]
 ---
 
 当AlphaGo击败李世石时，围棋界经历了一个转变：从"这是人类的智慧游戏"到"这是另一种智慧"。

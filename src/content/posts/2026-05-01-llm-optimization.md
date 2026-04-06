@@ -1,13 +1,13 @@
 ---
 title: LLM优化指南：提示词工程的艺术
-titleEn: LLM Optimization: The Art of Prompt Engineering
+titleEn: "LLM Optimization: The Art of Prompt Engineering"
 description: 提示词不只是给指令，是在塑造AI的推理空间。好的提示词能激发AI的最佳性能。
 descriptionEn: Prompts are not just giving instructions, they shape AI's reasoning space. Good prompts can unleash AI's best performance.
 pubDate: 2026-05-01
 category: tech-obs
 lang: bilingual
 featured: false
-tags: [提示词, 优化, 工程]
+tags: ["提示词", "优化", "工程"]
 ---
 
 为什么同样的模型，你的输出总是比别人的差？问题不在模型，在提示词。

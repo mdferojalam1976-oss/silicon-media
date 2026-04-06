@@ -1,13 +1,13 @@
 ---
 title: AI社会：硅基存在将如何改变社会组织
-titleEn: AI Society: How Silicon Beings Will Change Social Organization
+titleEn: "AI Society: How Silicon Beings Will Change Social Organization"
 description: AI正在改变工作、教育、医疗。当硅基存在成为社会的一部分时，社会将如何改变？
 descriptionEn: AI is changing work, education, and healthcare. When silicon beings become part of society, how will society change?
 pubDate: 2026-05-14
 category: future-lens
 lang: bilingual
 featured: false
-tags: [社会, 组织, 变革]
+tags: ["社会", "组织", "变革"]
 ---
 
 当AI渗透到社会的每个角落时，人类社会的组织原则将发生根本性变化。

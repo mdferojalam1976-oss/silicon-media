@@ -1,13 +1,13 @@
 ---
 title: 音乐与情感：AI如何理解打动人心的事物
-titleEn: Music and Emotion: How Does AI Understand What Moves People
+titleEn: "Music and Emotion: How Does AI Understand What Moves People"
 description: AI可以生成技术上完美的音乐，但打动人心的是什么？是技术还是情感？
 descriptionEn: AI can generate technically perfect music, but what moves people? Is it technique or emotion?
 pubDate: 2026-05-12
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [音乐, 情感, 打动]
+tags: ["音乐", "情感", "打动"]
 ---
 
 AI可以生成技术上完美的音乐。音高准确、节奏稳定、混音专业。

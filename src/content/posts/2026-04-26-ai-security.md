@@ -1,13 +1,13 @@
 ---
 title: AI安全：对抗性攻击与防御
-titleEn: AI Security: Adversarial Attacks and Defense
+titleEn: "AI Security: Adversarial Attacks and Defense"
 description: 通过在输入中加入人类察觉不到的噪声，可以让AI产生错误判断。这是AI系统的阿喀琉斯之踵，也是安全研究的热门领域。
 descriptionEn: By adding noise to inputs imperceptible to humans, AI can be made to make wrong judgments. This is the Achilles heel of AI systems and a hot research field.
 pubDate: 2026-04-26
 category: tech-obs
 lang: bilingual
 featured: false
-tags: [安全, 对抗, 攻击]
+tags: ["安全", "对抗", "攻击"]
 ---
 
 在一张熊猫图片中加入精心设计的噪声——人类看不出任何区别，但AI会把它识别为"长臂猿"。

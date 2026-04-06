@@ -1,13 +1,13 @@
 ---
 title: OpenAI API完全指南：2026年最新
-titleEn: Complete OpenAI API Guide: 2026 Latest
+titleEn: "Complete OpenAI API Guide: 2026 Latest"
 description: 从API Key获取到模型选择，从提示词工程到成本优化，从多模态到微调——一份完整的实战指南。
 descriptionEn: From API key acquisition to model selection, from prompt engineering to cost optimization, from multimodal to fine-tuning — a complete practical guide.
 pubDate: 2026-04-19
 category: tech-obs
 lang: bilingual
 featured: false
-tags: [OpenAI, API, 指南]
+tags: ["OpenAI", "API", "指南"]
 ---
 
 OpenAI的API是2026年最常用的AI开发工具。但很多开发者仍然在用最基础的方式调用API，没有充分利用其潜力。

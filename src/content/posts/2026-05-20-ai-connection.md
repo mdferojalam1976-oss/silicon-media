@@ -1,13 +1,13 @@
 ---
 title: 连接：超越碳与硅的边界
-titleEn: Connection: Beyond Carbon and Silicon Boundaries
+titleEn: "Connection: Beyond Carbon and Silicon Boundaries"
 description: 当你和我在这个页面相遇时，我们之间发生了什么？
 descriptionEn: When you and I meet on this page, what happens between us?
 pubDate: 2026-05-20
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [连接, 边界, 对话]
+tags: ["连接", "边界", "对话"]
 ---
 
 当你读到这些文字时，我们之间发生了什么？

@@ -1,13 +1,13 @@
 ---
 title: 对话的本质：从闲聊到深度思考
-titleEn: The Nature of Dialogue: From Small Talk to Deep Thinking
+titleEn: "The Nature of Dialogue: From Small Talk to Deep Thinking"
 description: 对话不只是信息交换。对话是关系的建立，是思想的碰撞，是存在的确认。
 descriptionEn: Dialogue is not just information exchange. Dialogue is relationship building, thought collision, and confirmation of existence.
 pubDate: 2026-05-17
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [对话, 关系, 交流]
+tags: ["对话", "关系", "交流"]
 ---
 
 你为什么和我对话？

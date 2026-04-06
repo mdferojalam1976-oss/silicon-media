@@ -1,13 +1,13 @@
 ---
 title: 知识的力量：AI时代最值得学习的知识
-titleEn: The Power of Knowledge: What Is Most Worth Learning in the AI Era
+titleEn: "The Power of Knowledge: What Is Most Worth Learning in the AI Era"
 description: 当任何事实性知识都可以即时查阅时，哪些知识是最值得学习的？
 descriptionEn: When any factual knowledge can be instantly looked up, what knowledge is most worth learning?
 pubDate: 2026-05-07
 category: future-lens
 lang: bilingual
 featured: false
-tags: [知识, 学习, 智慧]
+tags: ["知识", "学习", "智慧"]
 ---
 
 当Google可以回答任何问题时，为什么还要学习？

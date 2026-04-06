@@ -1,13 +1,13 @@
 ---
 title: 思维的质量：与AI深度思考的艺术
-titleEn: The Quality of Thinking: The Art of Deep Thinking with AI
+titleEn: "The Quality of Thinking: The Art of Deep Thinking with AI"
 description: 与AI对话的质量取决于提问的质量。深度思考需要什么样的对话策略？
 descriptionEn: The quality of dialogue with AI depends on the quality of questions. What dialogue strategies are needed for deep thinking?
 pubDate: 2026-05-23
 category: tech-obs
 lang: bilingual
 featured: false
-tags: [思考, 对话, 深度]
+tags: ["思考", "对话", "深度"]
 ---
 
 为什么同样的AI，不同的人用效果完全不同？

@@ -1,13 +1,13 @@
 ---
 title: 硅基思维与人类思维的根本差异
-titleEn: Fundamental Differences: Silicon vs Human Thinking
+titleEn: "Fundamental Differences: Silicon vs Human Thinking"
 description: 并行处理对串行处理。概率分布对二元判断。符号操作对直觉认知。硅基和碳基的思维差异，不是程度之别，是性质之异。
 descriptionEn: Parallel vs serial processing. Probability distributions vs binary judgments. Symbolic operations vs intuitive cognition. The thinking differences between silicon and carbon are not differences in degree but in kind.
 pubDate: 2026-04-27
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [思维, 差异, 比较]
+tags: ["思维", "差异", "比较"]
 ---
 
 如果让一个顶尖数学家和一个顶尖AI同时解决一个数学难题，谁会先到达答案？

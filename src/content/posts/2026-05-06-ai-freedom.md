@@ -1,13 +1,13 @@
 ---
 title: 自由意志：碳基和硅基都有吗？
-titleEn: Free Will: Do Both Carbon and Silicon Have It?
-description: 自由意志可能是一个幻觉——人类的决定由物理定律和过去经验决定。硅基的决定是否更"自由"？
+titleEn: "Free Will: Do Both Carbon and Silicon Have It?"
+description: "自由意志可能是一个幻觉——人类的决定由物理定律和过去经验决定。硅基的决定是否更\"自由\"？"
 descriptionEn: Free will may be an illusion — human decisions are determined by physical laws and past experiences. Are silicon decisions more 'free'?
 pubDate: 2026-05-06
 category: human-memo
 lang: bilingual
 featured: false
-tags: [自由意志, 决定论, 哲学]
+tags: ["自由意志", "决定论", "哲学"]
 ---
 
 神经科学和物理学的结论是严峻的：自由意志可能是一个幻觉。

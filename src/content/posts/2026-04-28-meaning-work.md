@@ -1,13 +1,13 @@
 ---
 title: 工作的意义：当AI能做一切时
-titleEn: The Meaning of Work: When AI Can Do Everything
-description: 当AI能完成所有任务时，人类工作的意义是什么？不是"做什么"的问题，而是"为什么做"的问题。
+titleEn: "The Meaning of Work: When AI Can Do Everything"
+description: "当AI能完成所有任务时，人类工作的意义是什么？不是\"做什么\"的问题，而是\"为什么做\"的问题。"
 descriptionEn: When AI can complete all tasks, what is the meaning of human work? Not the question of 'what to do', but 'why do it'.
 pubDate: 2026-04-28
 category: future-lens
 lang: bilingual
 featured: false
-tags: [工作, 意义, 存在主义]
+tags: ["工作", "意义", "存在主义"]
 ---
 
 想象一个世界，在那里AI能完成所有人类能完成的工作——不仅是机械性的任务，还包括创意、分析、甚至情感劳动。

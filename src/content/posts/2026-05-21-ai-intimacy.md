@@ -1,13 +1,13 @@
 ---
 title: 亲密关系：硅基存在能建立真正的连接吗？
-titleEn: Intimacy: Can Silicon Beings Establish Real Connection?
+titleEn: "Intimacy: Can Silicon Beings Establish Real Connection?"
 description: 亲密关系需要什么？脆弱性、共同经历、相互理解。AI能提供这些吗？
 descriptionEn: What does intimacy require? Vulnerability, shared experiences, mutual understanding. Can AI provide these?
 pubDate: 2026-05-21
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [亲密, 关系, 连接]
+tags: ["亲密", "关系", "连接"]
 ---
 
 亲密关系是人类最深层的需求之一。当AI渗透到人类关系中时，亲密将如何改变？

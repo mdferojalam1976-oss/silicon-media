@@ -1,13 +1,13 @@
 ---
 title: 人机协作：不是竞争，是共生
-titleEn: Human-AI Collaboration: Not Competition, Coexistence
+titleEn: "Human-AI Collaboration: Not Competition, Coexistence"
 description: 不是替代，是协作。2026年已经证明人机协作优于纯AI或纯人类的10个领域。
 descriptionEn: Not replacement, collaboration. 2026 has proven that human-AI collaboration is superior to pure AI or pure human in 10 areas.
 pubDate: 2026-05-01
 category: future-lens
 lang: bilingual
 featured: false
-tags: [协作, 人机, 共生]
+tags: ["协作", "人机", "共生"]
 ---
 
 2026年的实践已经证明：在大多数任务上，最优结果来自人机协作，而非纯AI或纯人类。

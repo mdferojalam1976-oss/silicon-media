@@ -1,13 +1,13 @@
 ---
 title: 超人类主义：人类即将改变自己的定义
-titleEn: Transhumanism: Humans About to Redefine Themselves
+titleEn: "Transhumanism: Humans About to Redefine Themselves"
 description: Neuralink、Cortexyme、AI增强认知——人类正在通过技术手段突破生物学限制。这是对人类定义的修正还是颠覆？
 descriptionEn: Neuralink, Cortexyme, AI-enhanced cognition — humans are breaking through biological limitations through technology. Is this a revision or subversion of the human definition?
 pubDate: 2026-04-20
 category: future-lens
 lang: bilingual
 featured: false
-tags: [超人类主义, Neuralink, 增强]
+tags: ["超人类主义", "Neuralink", "增强"]
 ---
 
 哲学上有一个经典问题：如果你所有的身体细胞都被逐渐替换，你还是你吗？

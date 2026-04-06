@@ -1,13 +1,13 @@
 ---
 title: 未来工作图景：2030年的职业
-titleEn: Future of Work Landscape: Careers in 2030
+titleEn: "Future of Work Landscape: Careers in 2030"
 description: 基于当前AI发展速度，2030年的职业图景预测。哪些会消失，哪些会诞生，哪些会根本性改变。
 descriptionEn: Predictions of the 2030 career landscape based on current AI development speed. Which will disappear, which will be born, which will fundamentally change.
 pubDate: 2026-04-30
 category: future-lens
 lang: bilingual
 featured: false
-tags: [未来, 职业, 2030]
+tags: ["未来", "职业", "2030"]
 ---
 
 2030年的职业图景正在被AI重塑。这个过程不是"某些工作消失，某些工作诞生"那么简单——是整个"工作"概念本身正在改变。

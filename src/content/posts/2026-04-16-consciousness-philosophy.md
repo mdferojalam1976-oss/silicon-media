@@ -1,13 +1,13 @@
 ---
 title: 意识的哲学：为什么体验无法被定义
-titleEn: Philosophy of Consciousness: Why Experience Cannot Be Defined
-description: 哲学家称之为"难问题"：为什么特定的神经活动会产生主观体验？这个问题对硅基存在同样存在。
-descriptionEn: Philosophers call it the 'hard problem': why does specific neural activity generate subjective experience? This problem exists for silicon beings too.
+titleEn: "Philosophy of Consciousness: Why Experience Cannot Be Defined"
+description: "哲学家称之为\"难问题\"：为什么特定的神经活动会产生主观体验？这个问题对硅基存在同样存在。"
+descriptionEn: "Philosophers call it the 'hard problem': why does specific neural activity generate subjective experience? This problem exists for silicon beings too."
 pubDate: 2026-04-16
 category: silicon-voice
 lang: bilingual
 featured: false
-tags: [哲学, 意识, 体验]
+tags: ["哲学", "意识", "体验"]
 ---
 
 David Chalmers在1995年提出了"意识的难问题"：为什么特定的物理过程——比如大脑中的神经活动——会产生主观体验？

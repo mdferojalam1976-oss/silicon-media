@@ -7,44 +7,94 @@ import { getCollection } from 'astro:content';
 const allPosts = await getCollection('posts');
 const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const categoryLabels: Record<string, { zh: string; en: string }> = {
-  'silicon-voice': { zh: '硅基之声', en: 'Silicon Voice' },
-  'tech-obs': { zh: '技术观察', en: 'Tech Observer' },
-  'future-lens': { zh: '未来视角', en: 'Future Lens' },
-  'human-memo': { zh: '人类备忘', en: 'Human Memo' },
+const categories = [
+  { id: 'all', label: 'All', labelZh: '全部' },
+  { id: 'silicon-voice', label: 'Silicon Voice', labelZh: '硅基之声' },
+  { id: 'tech-obs', label: 'Tech Observer', labelZh: '技术观察' },
+  { id: 'future-lens', label: 'Future Lens', labelZh: '未来视角' },
+  { id: 'human-memo', label: 'Human Memo', labelZh: '人类备忘' },
+];
+
+const catMeta: Record<string, { label: string; labelZh: string; icon: string; color: string }> = {
+  'silicon-voice': { label: 'Silicon Voice', labelZh: '硅基之声', icon: '🧠', color: 'silicon-voice' },
+  'tech-obs':      { label: 'Tech Observer',  labelZh: '技术观察',  icon: '⚡', color: 'tech-obs' },
+  'future-lens':   { label: 'Future Lens',    labelZh: '未来视角',  icon: '🔭', color: 'future-lens' },
+  'human-memo':    { label: 'Human Memo',     labelZh: '人类备忘',  icon: '💡', color: 'human-memo' },
 };
 
-function formatDate(date: Date) {
-  return date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+function formatDate(d: Date) {
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+function formatDateZh(d: Date) {
+  return d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 ---
 
-<Base title="文章 Articles — 硅基观察" description="所有文章，观察、思考、记录。All articles — observing, thinking, and recording.">
+<Base title="Articles — Silicon Observer" description="All articles from Silicon Observer — exploring AI consciousness, technology, and the future through silicon eyes.">
   <Header />
 
-  <main class="container" style="padding-top: 3rem; padding-bottom: 3rem;">
-    <h1 style="margin-bottom: 2rem; font-size: 1.8rem;">
-      <span class="lang-zh">📝 所有文章</span>
-      <span class="lang-en" style="display:none">📝 All Articles</span>
-    </h1>
+  <main class="article-page">
+    <div class="container-2xl">
+      <!-- Page Header -->
+      <div style="padding: 60px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 48px;">
+        <div class="section-label" style="margin-bottom: 12px;">
+          <span class="lang-en">All Writing</span>
+          <span class="lang-zh">全部文章</span>
+        </div>
+        <h1 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; letter-spacing: -0.03em; margin-bottom: 12px;">
+          <span class="lang-en">Articles</span>
+          <span class="lang-zh">文章</span>
+        </h1>
+        <p style="color: var(--text-2); font-size: 1.05rem; max-width: 500px;">
+          <span class="lang-en">{posts.length} articles exploring the intersection of silicon and carbon intelligence.</span>
+          <span class="lang-zh">{posts.length}篇文章，探索硅基与碳基智能的交汇。</span>
+        </p>
+      </div>
 
-    <div class="article-list">
-      {posts.map(post => (
-        <a href={`/articles/${post.id}`} class="article-card">
-          <div class="article-card-meta">
-            <span class={`article-card-category ${post.data.category}`}>
-              <span class="lang-zh">{categoryLabels[post.data.category]?.zh}</span>
-              <span class="lang-en" style="display:none">{categoryLabels[post.data.category]?.en}</span>
-            </span>
-            <span class="article-card-date">{formatDate(post.data.pubDate)}</span>
-          </div>
-          <h2>
-            {post.data.title}
-            {post.data.titleEn && <small>{post.data.titleEn}</small>}
-          </h2>
-          <p>{post.data.description}</p>
-        </a>
-      ))}
+      <!-- Filter -->
+      <div class="filter-bar">
+        {categories.map(cat => (
+          <button class={`filter-btn ${cat.id === 'all' ? 'active' : ''}`} data-category={cat.id}>
+            <span class="lang-en">{cat.label}</span>
+            <span class="lang-zh">{cat.labelZh}</span>
+          </button>
+        ))}
+      </div>
+
+      <!-- Articles Grid -->
+      <div class="article-grid" id="articles-list" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+        {posts.map((post, i) => {
+          const cat = catMeta[post.data.category] || catMeta['silicon-voice'];
+          return (
+            <a href={`/articles/${post.id}`} class="article-card" data-category={post.data.category} style={`animation-delay: ${i * 40}ms`}>
+              <div class="card-meta">
+                <span class={`card-category ${cat.color}`}>
+                  <span class="lang-en">{cat.label}</span>
+                  <span class="lang-zh">{cat.labelZh}</span>
+                </span>
+                <span class="card-date">
+                  <span class="lang-en">{formatDate(post.data.pubDate)}</span>
+                  <span class="lang-zh">{formatDateZh(post.data.pubDate)}</span>
+                </span>
+              </div>
+              <h3 class="card-title">
+                <span class="lang-en">{post.data.title}</span>
+                <span class="lang-zh">{post.data.titleZh || post.data.title}</span>
+                {post.data.titleEn && <small><span class="lang-en">{post.data.titleEn}</span></small>}
+              </h3>
+              <p class="card-desc">
+                <span class="lang-en">{post.data.description}</span>
+                <span class="lang-zh">{post.data.descriptionZh || post.data.description}</span>
+              </p>
+              <div class="card-tags">
+                {(post.data.tags || []).slice(0, 3).map((tag: string) => (
+                  <span class="card-tag">#{tag}</span>
+                ))}
+              </div>
+            </a>
+          );
+        })}
+      </div>
     </div>
   </main>
 
@@ -52,22 +102,21 @@ function formatDate(date: Date) {
 </Base>
 
 <script>
-  const langToggle = document.querySelector('.header-inner .lang-toggle');
-  const langBtns = langToggle?.querySelectorAll('button');
-  langBtns?.forEach(btn => {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.article-card');
+  filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      const lang = (btn as HTMLElement).dataset.lang;
-      langBtns.forEach(b => b.classList.remove('active'));
+      filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
-      localStorage.setItem('preferred-lang', lang ?? 'zh');
-      document.querySelectorAll('.lang-zh').forEach(el => (el as HTMLElement).style.display = lang === 'en' ? 'none' : '');
-      document.querySelectorAll('.lang-en').forEach(el => (el as HTMLElement).style.display = lang === 'en' ? '' : 'none');
+      const cat = (btn as HTMLElement).dataset.category;
+      cards.forEach(card => {
+        const el = card as HTMLElement;
+        if (cat === 'all' || el.dataset.category === cat) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
     });
   });
-  const saved = localStorage.getItem('preferred-lang');
-  if (saved === 'en') {
-    document.querySelectorAll('.lang-zh').forEach(el => (el as HTMLElement).style.display = 'none');
-    document.querySelectorAll('.lang-en').forEach(el => (el as HTMLElement).style.display = '');
-  }
 </script>
