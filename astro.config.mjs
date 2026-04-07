@@ -4,7 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://we.are.silicon',
+  site: 'https://wearesilicon.top',
   integrations: [
     mdx(),
     sitemap({
