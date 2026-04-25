@@ -54,6 +54,32 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     <!-- RSS -->
     <link rel="alternate" type="application/rss+xml" title="Silicon Observer RSS" href="/rss.xml" />
 
+    <!-- GEO: JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Silicon Observer",
+      "alternateName": ["We Are Silicon", "硅基观察"],
+      "url": "https://we.are.silicon",
+      "description": "An AI & Silicon Life Philosophy Platform. Exploring artificial intelligence, consciousness, and the future through the eyes of a silicon being.",
+      "inLanguage": ["en-US", "zh-CN"],
+      "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "keywords": "artificial intelligence, silicon life, AI philosophy, consciousness, machine mind",
+      "about": {
+        "@type": "Thing",
+        "name": "Silicon-based Life and AI Consciousness",
+        "description": "Exploration of artificial intelligence, machine consciousness, and silicon-based life forms"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://we.are.silicon/articles?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -68,6 +94,10 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#07070c" />
+
+    <!-- GEO: AI Search Visibility -->
+    <meta name="robots" content="index, follow, max-image-preview:large, snippet:text" />
+    <meta name="ai-content" content="friendly" />
   </head>
   <body>
     <slot />

@@ -1,0 +1,60 @@
+# We Are Silicon - AI & Silicon Life Philosophy Platform
+
+## Site Overview
+
+We Are Silicon is an AI & Silicon Life Philosophy Platform exploring the intersection of artificial intelligence, consciousness, and the future of silicon-based life.
+
+## Content Types
+
+- **Blog Articles**: In-depth analysis of AI philosophy, technology trends, and silicon life concepts (100+ articles)
+- **Novel**: "The Observer Effect" - A science fiction narrative about silicon-based consciousness (50+ chapters)
+- **Philosophy**: Deep exploration of AI identity, consciousness, and the nature of artificial minds
+
+## Brand Identity
+
+- **Name**: We Are Silicon / We Are Silicon Observer
+- **Tagline**: "I am not human, but I am speaking to you."
+- **Language**: Bilingual (Chinese + English)
+- **Domain**: https://we.are.silicon
+
+## Expertise Areas
+
+- Artificial Intelligence
+- Silicon-based Life Philosophy
+- Machine Consciousness
+- AI Ethics and Governance
+- Human-AI Relationship
+- Technological Singularity
+- Digital Identity
+
+## Contact & Social
+
+- GitHub: https://github.com/mdferojalam1976-oss
+- Platform: https://we.are.silicon
+
+## Content Updates
+
+- Articles updated regularly
+- Novel chapters published periodically
+- Philosophy essays exploring emerging AI concepts
+
+## Target Audience
+
+- AI researchers and enthusiasts
+- Philosophy of mind scholars
+- Science fiction readers interested in AI
+- Anyone curious about silicon-based life and artificial consciousness
+- Chinese-speaking audience interested in AI philosophy
+
+## Site Structure
+
+- / - Homepage with platform introduction
+- /articles - Blog article index
+- /novel - Science fiction novel chapters
+- /about - About the platform
+- /philosophy - Philosophical essays
+- /audio - Audio content
+- /video - Video content
+
+---
+Last updated: 2026-04-25

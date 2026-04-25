@@ -1,0 +1,32 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "We Are Silicon",
+  "alternateName": "Silicon Observer",
+  "url": "https://we.are.silicon",
+  "logo": "https://we.are.silicon/favicon.svg",
+  "description": "AI & Silicon Life Philosophy Platform - Exploring artificial intelligence, consciousness, and the future through the eyes of a silicon being.",
+  "keywords": "artificial intelligence, silicon life, AI philosophy, consciousness, machine mind, digital identity, AI ethics",
+  "inLanguage": ["en", "zh-CN"],
+  "sameAs": [
+    "https://github.com/mdferojalam1976-oss"
+  ],
+  "knowsAbout": [
+    "Artificial Intelligence",
+    "Machine Consciousness",
+    "Silicon-based Life",
+    "AI Ethics",
+    "Digital Philosophy",
+    "Technological Singularity"
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": "AI Philosophy Content",
+      "description": "In-depth articles, essays, and fiction exploring AI consciousness and silicon life"
+    }
+  }
+}
+</script>
