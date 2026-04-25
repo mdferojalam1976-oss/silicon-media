@@ -8,11 +8,11 @@
 
 /* --- Design Tokens --- */
 :root {
-  /* Colors — Premium Dark */
-  --bg:          #07070c;
-  --bg-2:        #0c0c15;
-  --surface:     #111120;
-  --surface-2:   #171728;
+  /* Colors — Premium Dark + Silicon Theme */
+  --bg:          #08080e;
+  --bg-2:        #0e0e18;
+  --surface:     #131320;
+  --surface-2:   #1a1a28;
   --border:      rgba(255,255,255,0.07);
   --border-2:    rgba(255,255,255,0.12);
 
@@ -1092,3 +1092,155 @@ html[lang="zh"] .lang-en { display: none; }
 .footer-link:hover { color: var(--cyan); }
 
 .footer-copy
+/* ============================================================
+   GEO V3 — Premium Enhancements
+   ============================================================ */
+
+/* --- Grain Texture Overlay --- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* --- Scroll-triggered Animations --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+
+/* --- Enhanced Card Glow --- */
+.article-card {
+  position: relative;
+}
+.article-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(0,212,200,0.3), rgba(124,106,240,0.3));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+.article-card:hover::before {
+  opacity: 1;
+}
+
+/* --- Category Glow Lines --- */
+.category-glow {
+  position: relative;
+  overflow: hidden;
+}
+.category-glow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cat-voice), var(--cat-tech), var(--cat-future), var(--cat-human));
+}
+
+/* --- Enhanced Footer Gradient Border --- */
+.site-footer {
+  position: relative;
+  border-top: none;
+}
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(0, 212, 200, 0.4) 20%,
+    rgba(124, 106, 240, 0.4) 50%,
+    rgba(0, 212, 200, 0.4) 80%,
+    transparent 100%
+  );
+}
+
+/* --- Gradient Text Animation --- */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.gradient-animate {
+  background: linear-gradient(90deg, #00d4c8, #7c6af0, #00d4c8);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
+}
+
+/* --- Hero Stat Counter Animation --- */
+.stat-number {
+  background: linear-gradient(135deg, #fff 0%, #00d4c8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Better CTA Button Hover --- */
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(0, 212, 200, 0.2);
+}
+
+/* --- Link Underline Animation --- */
+.article-body a {
+  position: relative;
+  text-decoration: none;
+}
+.article-body a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--cyan);
+  transition: width 0.3s ease;
+}
+.article-body a:hover::after {
+  width: 100%;
+}
+
+/* --- Enhanced Article Grid --- */
+.article-grid {
+  gap: 1.5rem;
+}
+
+/* --- Better Featured Card Visual --- */
+.card-featured-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 200, 0.05) 0%,
+    transparent 40%,
+    rgba(124, 106, 240, 0.05) 100%
+  );
+  z-index: 1;
+}

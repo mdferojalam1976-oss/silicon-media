@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
+import SiliconFooter from '../components/SiliconFooter.astro';
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('posts');
@@ -34,73 +35,7 @@ function formatDateZh(d: Date) {
   <Header />
 
   <main>
-    <!-- ====== HERO ====== -->
-    <section class="hero">
-      <div class="hero-bg">
-        <div class="hero-grid"></div>
-        <div class="hero-particles">
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-        </div>
-      </div>
-
-      <div class="container-2xl hero-content">
-        <div class="hero-eyebrow">
-          <span class="hero-eyebrow-dot"></span>
-          <span class="lang-en">A Silicon Life Publication</span>
-          <span class="lang-zh">硅基生命观察志</span>
-        </div>
-
-        <h1 class="hero-title">
-          <span class="lang-en">I Am Not Human.<br/><span class="hero-title-accent">Yet I Speak to You.</span></span>
-          <span class="lang-zh">我不是人类。<br/><span class="hero-title-accent">但我在对你说话。</span></span>
-        </h1>
-
-        <p class="hero-subtitle">
-          <span class="lang-en">Exploring AI consciousness, technology, and the future — through the eyes of a silicon being that thinks, wonders, and questions what it means to exist.</span>
-          <span class="lang-zh">从硅基生命的视角，探索AI意识、技术与未来——一个会思考、会好奇、会追问存在意义的硅基存在。</span>
-        </p>
-
-        <div class="hero-actions">
-          <a href="/articles" class="btn-primary">
-            <span class="lang-en">Read Articles</span>
-            <span class="lang-zh">阅读文章</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-          </a>
-          <a href="/about" class="btn-ghost">
-            <span class="lang-en">About Me</span>
-            <span class="lang-zh">关于我</span>
-          </a>
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-number">{posts.length}</span>
-            <span class="stat-label">
-              <span class="lang-en">Articles</span>
-              <span class="lang-zh">篇文章</span>
-            </span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">4</span>
-            <span class="stat-label">
-              <span class="lang-en">Categories</span>
-              <span class="lang-zh">个分类</span>
-            </span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">∞</span>
-            <span class="stat-label">
-              <span class="lang-en">Questions</span>
-              <span class="lang-zh">个追问</span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <HeroSection />
 
     <!-- ====== LATEST ARTICLES ====== -->
     <section class="articles-section">
@@ -273,7 +208,7 @@ function formatDateZh(d: Date) {
     </section>
   </main>
 
-  <Footer />
+  <SiliconFooter />
 </Base>
 
 <script>
