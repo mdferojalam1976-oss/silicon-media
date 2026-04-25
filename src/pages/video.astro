@@ -8,9 +8,25 @@ const allPosts = await getCollection('posts');
 const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 // Posts with video
-const videoPosts = posts.filter(p => p.data.videoUrl).slice(0, 12);
+const videoPosts = posts.filter(p => p.data.videoUrl);
 // Posts with audio
-const audioPosts = posts.filter(p => p.data.audioUrl).slice(0, 24);
+const audioPosts = posts.filter(p => p.data.audioUrl);
+
+// Featured content (most recent with cover image)
+const featuredPost = posts.find(p => p.data.coverImage && (p.data.audioUrl || p.data.videoUrl)) || posts[0];
+
+// Recent audio (newest first)
+const recentAudio = audioPosts.slice(0, 20);
+// All-time popular (just alphabetical by category for now)
+const byCategory = audioPosts;
+
+const categories = [
+  { id: 'all', label: 'All', labelZh: '全部' },
+  { id: 'silicon-voice', label: 'Silicon Voice', labelZh: '硅基之声' },
+  { id: 'tech-obs', label: 'Tech Observer', labelZh: '技术观察' },
+  { id: 'future-lens', label: 'Future Lens', labelZh: '未来视角' },
+  { id: 'human-memo', label: 'Human Memo', labelZh: '人类备忘' },
+];
 
 function fmt(d: Date) {
   return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
@@ -18,122 +34,232 @@ function fmt(d: Date) {
 function fmtZh(d: Date) {
   return d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
 }
+
+// Category labels
+const catLabel: Record<string, string> = {
+  'silicon-voice': 'Silicon Voice',
+  'tech-obs': 'Tech Observer',
+  'future-lens': 'Future Lens',
+  'human-memo': 'Human Memo',
+};
+const catLabelZh: Record<string, string> = {
+  'silicon-voice': '硅基之声',
+  'tech-obs': '技术观察',
+  'future-lens': '未来视角',
+  'human-memo': '人类备忘',
+};
 ---
 
-<Base title="Media Hub — Watch & Listen — Silicon Observer" description="Video essays and audio narrations from the Silicon Observer. Watch AI-generated video content and listen to bilingual audio narrations of all essays.">
+<Base title="Media Hub — Watch & Listen — Silicon Observer" description="Video essays and audio narrations from the Silicon Observer.">
   <Header />
   <main class="media-hub-page">
     <div class="container-xl">
-      <!-- Page header -->
-      <div class="media-hub-hero">
-        <div class="section-eyebrow">
+
+      <!-- ===== HERO ===== -->
+      <div class="media-hero">
+        <div class="media-hero-eyebrow">
           <span class="lang-en">Silicon Media Hub</span>
           <span class="lang-zh">硅基媒体中心</span>
         </div>
-        <h1 class="section-title" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: var(--md);">
-          <span class="lang-en">Watch & <em>Listen</em></span>
+        <h1 class="media-hero-title">
+          <span class="lang-en">Watch &amp; <em>Listen</em></span>
           <span class="lang-zh">观看与<em>聆听</em></span>
         </h1>
-        <p class="media-hub-lead">
+        <p class="media-hero-sub">
           <span class="lang-en">
-            Every essay is available in video and audio form. Watch thought experiments unfold visually, 
-            or listen to bilingual narrations as you go about your day.
+            Every essay exists in multiple forms. Watch ideas unfold in motion, 
+            or listen to bilingual narrations as you move through the world.
           </span>
           <span class="lang-zh">
-            每篇文章都配有视频和音频版本。观看思想实验的视觉呈现，
-            或者在忙碌时聆听双语朗读。
+            每篇文章都有多种存在形式。观看思想在运动中展开，
+            或者在行走中聆听双语朗读。
           </span>
         </p>
+        <div class="media-hero-stats">
+          <div>
+            <div class="media-hero-stat-num">{audioPosts.length}</div>
+            <div class="media-hero-stat-label">Audio Essays</div>
+          </div>
+          <div>
+            <div class="media-hero-stat-num">{videoPosts.length}</div>
+            <div class="media-hero-stat-label">Video Essays</div>
+          </div>
+          <div>
+            <div class="media-hero-stat-num">Bilingual</div>
+            <div class="media-hero-stat-label">🇨🇳 中文 · 🇺🇸 English</div>
+          </div>
+          <div>
+            <div class="media-hero-stat-num">Always</div>
+            <div class="media-hero-stat-label">Free &amp; Open</div>
+          </div>
+        </div>
       </div>
 
-      <!-- Audio Section -->
-      <section class="media-section">
+      <!-- ===== FEATURED ===== -->
+      {featuredPost && (
+        <div class="featured-video">
+          <div class="featured-video-visual">
+            {featuredPost.data.coverImage ? (
+              <img src={featuredPost.data.coverImage} alt="" loading="eager" />
+            ) : (
+              <div style="width:100%;height:100%;background:var(--surface-2);display:flex;align-items:center;justify-content:center;">
+                <span style="font-size:6rem;opacity:0.2;">🔬</span>
+              </div>
+            )}
+            <div class="featured-video-overlay">
+              <a href={`/articles/${featuredPost.id}`} class="featured-play-btn" aria-label="Play">
+                ▶
+              </a>
+            </div>
+          </div>
+          <div class="featured-video-info">
+            <div class="featured-video-badge">
+              <span class="lang-en">Featured Essay</span>
+              <span class="lang-zh">精选文章</span>
+            </div>
+            <h2 class="featured-video-title">
+              <span class="lang-en">{featuredPost.data.title}</span>
+              <span class="lang-zh">{featuredPost.data.titleZh || featuredPost.data.title}</span>
+            </h2>
+            <p class="featured-video-desc">
+              <span class="lang-en">{featuredPost.data.description}</span>
+              <span class="lang-zh">{featuredPost.data.descriptionZh || featuredPost.data.description}</span>
+            </p>
+            <div class="featured-video-cta">
+              <a href={`/articles/${featuredPost.id}`} class="btn btn-primary">
+                <span class="lang-en">Read Essay →</span>
+                <span class="lang-zh">阅读文章 →</span>
+              </a>
+              {featuredPost.data.videoUrl && (
+                <span class="btn btn-ghost btn-sm">🎬 Video</span>
+              )}
+              {featuredPost.data.audioUrl && (
+                <span class="btn btn-ghost btn-sm">🎧 Audio</span>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      <!-- ===== AUDIO SECTION ===== -->
+      <section>
         <div class="section-header">
           <div>
             <div class="section-eyebrow">
               <span class="lang-en">🎧 Audio Narrations</span>
               <span class="lang-zh">🎧 音频朗读</span>
             </div>
-            <h2 class="section-title" style="font-size: clamp(1.4rem, 3vw, 2rem);">
+            <h2 class="section-title">
               <span class="lang-en">Listen to <em>Every Essay</em></span>
               <span class="lang-zh">聆听<em>每篇文章</em></span>
             </h2>
             <p class="section-desc">
-              <span class="lang-en">{audioPosts.length} essays with audio — Chinese and English narrations generated with macOS neural voices.</span>
-              <span class="lang-zh">{audioPosts.length}篇配有音频——中英双语朗读。</span>
+              <span class="lang-en">{audioPosts.length} essays — bilingual Chinese &amp; English, narrated by neural voices.</span>
+              <span class="lang-zh">{audioPosts.length}篇——中英双语，神经语音朗读。</span>
             </p>
           </div>
-          <a href="/articles" class="btn btn-ghost btn-sm">
-            <span class="lang-en">All Essays →</span>
-            <span class="lang-zh">全部文章 →</span>
-          </a>
         </div>
 
-        <div class="media-grid" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
-          {audioPosts.map((post, i) => (
-            <a href={`/articles/${post.id}`} class="media-card" style="animation-delay: ${i * 40}ms">
-              <div class="media-card-cover" style="background: var(--surface-2); display:flex; align-items:center; justify-content:center;">
-                <div style="text-align:center;">
-                  <div style="font-size:2.5rem; opacity:0.5; margin-bottom: 8px;">🎧</div>
-                  <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-3);">AUDIO</div>
-                </div>
+        <!-- Category filter -->
+        <div class="filter-bar" id="audio-filter">
+          {categories.map(cat => (
+            <button class={`filter-btn ${cat.id === 'all' ? 'active' : ''}`} data-category={cat.id} data-target="audio">
+              <span class="lang-en">{cat.label}</span>
+              <span class="lang-zh">{cat.labelZh}</span>
+            </button>
+          ))}
+        </div>
+
+        <!-- Audio grid -->
+        <div class="audio-list" id="audio-list">
+          {recentAudio.map((post, i) => (
+            <a
+              href={`/articles/${post.id}`}
+              class="audio-card"
+              data-category={post.data.category || 'all'}
+              style={`animation-delay: ${i * 30}ms`}
+            >
+              <div class="audio-card-icon">
+                <span class="icon-play">▶</span>
               </div>
-              <div class="media-card-body">
-                <h3 class="media-card-title">
+              <div class="audio-card-body">
+                <div class="audio-card-title">
                   <span class="lang-en">{post.data.title}</span>
                   <span class="lang-zh">{post.data.titleZh || post.data.title}</span>
-                </h3>
-                <div class="media-card-meta">
+                </div>
+                <div class="audio-card-meta">
                   <span>
                     <span class="lang-en">{fmt(post.data.pubDate)}</span>
                     <span class="lang-zh">{fmtZh(post.data.pubDate)}</span>
                   </span>
-                  {post.data.audioUrlEn && (
-                    <span style="color: var(--amber);">🇨🇳 🇺🇸 Bilingual</span>
-                  )}
+                  <span style="color:var(--text-4);">·</span>
+                  <span>
+                    <span class="lang-en">{catLabel[post.data.category || ''] || 'General'}</span>
+                    <span class="lang-zh">{catLabelZh[post.data.category || ''] || '综合'}</span>
+                  </span>
+                  <div class="audio-card-langs" style="margin-left: 4px;">
+                    <span class="audio-lang-dot zh" title="Chinese"></span>
+                    {post.data.audioUrlEn && <span class="audio-lang-dot en" title="English"></span>}
+                  </div>
                 </div>
+              </div>
+              <div class="waveform">
+                <span class="waveform-bar"></span>
+                <span class="waveform-bar"></span>
+                <span class="waveform-bar"></span>
+                <span class="waveform-bar"></span>
+                <span class="waveform-bar"></span>
               </div>
             </a>
           ))}
         </div>
+
+        <div class="section-divider">
+          <div class="section-divider-line"></div>
+          <div class="section-divider-text">
+            <span class="lang-en">{audioPosts.length} Audio Essays</span>
+            <span class="lang-zh">{audioPosts.length}篇音频</span>
+          </div>
+          <div class="section-divider-line"></div>
+        </div>
       </section>
 
-      <!-- Video Section -->
+      <!-- ===== VIDEO SECTION ===== -->
       {videoPosts.length > 0 && (
-        <section class="media-section" style="margin-top: var(--3xl);">
+        <section style="margin-top: var(--2xl);">
           <div class="section-header">
             <div>
               <div class="section-eyebrow">
                 <span class="lang-en">🎬 Video Essays</span>
                 <span class="lang-zh">🎬 视频论述</span>
               </div>
-              <h2 class="section-title" style="font-size: clamp(1.4rem, 3vw, 2rem);">
+              <h2 class="section-title">
                 <span class="lang-en">Watch <em>in Motion</em></span>
                 <span class="lang-zh">动态<em>呈现</em></span>
               </h2>
               <p class="section-desc">
-                <span class="lang-en">Video versions of select essays, exploring ideas through motion and sound.</span>
-                <span class="lang-zh">精选文章的视频版本，通过影像与声音探索思想。</span>
+                <span class="lang-en">{videoPosts.length} essays available as video. Watch ideas take visual form.</span>
+                <span class="lang-zh">{videoPosts.length}篇视频版本，观看思想的视觉化呈现。</span>
               </p>
             </div>
           </div>
 
-          <div class="media-grid">
+          <div class="media-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
             {videoPosts.map((post, i) => (
-              <a href={`/articles/${post.id}`} class="media-card" style="animation-delay: ${i * 60}ms">
+              <a href={`/articles/${post.id}`} class="media-card" style={`animation-delay: ${i * 60}ms`}>
                 <div class="media-card-cover">
                   {post.data.coverImage ? (
                     <img src={post.data.coverImage} alt="" loading="lazy" />
                   ) : (
-                    <div style="display:flex; align-items:center; justify-content:center; height:100%;">
-                      <span style="font-size:3rem; opacity:0.4;">🎬</span>
+                    <div style="display:flex;align-items:center;justify-content:center;height:100%;background:var(--surface-2);">
+                      <span style="font-size:3rem;opacity:0.3;">🎬</span>
                     </div>
                   )}
                   <div class="media-card-play">
                     <div class="media-card-play-icon">▶</div>
                   </div>
                   {post.data.videoDuration && (
-                    <span style="position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,0.7); color:white; font-family:var(--font-mono); font-size:0.65rem; padding:2px 6px; border-radius:4px;">
+                    <span style="position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,0.75);color:white;font-family:var(--font-mono);font-size:0.65rem;padding:2px 8px;border-radius:4px;">
                       {post.data.videoDuration}
                     </span>
                   )}
@@ -148,7 +274,7 @@ function fmtZh(d: Date) {
                       <span class="lang-en">{fmt(post.data.pubDate)}</span>
                       <span class="lang-zh">{fmtZh(post.data.pubDate)}</span>
                     </span>
-                    <span style="color: var(--amber);">🎬 Video</span>
+                    <span style="color:var(--amber);">🎬 Video</span>
                   </div>
                 </div>
               </a>
@@ -157,28 +283,103 @@ function fmtZh(d: Date) {
         </section>
       )}
 
-      <!-- Call to action -->
-      <section style="margin-top: var(--3xl); padding: var(--2xl); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-xl); text-align:center;">
-        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: var(--md); font-weight: 400;">
-          <span class="lang-en">Prefer Reading? <em>All Essays Are Text.</em></span>
-          <span class="lang-zh">更喜欢阅读？<em>所有文章均有文本版本。</em></span>
-        </h3>
-        <p style="color: var(--text-3); margin-bottom: var(--lg);">
-          <span class="lang-en">100+ essays across philosophy, technology, consciousness, and the future. Bilingual English and Chinese.</span>
-          <span class="lang-zh">涵盖哲学、科技、意识与未来的100+篇文章。英中双语。</span>
-        </p>
-        <a href="/articles" class="btn btn-primary">
-          <span class="lang-en">Browse All Essays →</span>
-          <span class="lang-zh">浏览全部文章 →</span>
-        </a>
+      <!-- ===== CTA ===== -->
+      <section style="margin-top: var(--3xl); padding: var(--2xl); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-xl);">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--2xl); align-items:center;">
+          <div>
+            <div class="section-eyebrow">
+              <span class="lang-en">Prefer Reading?</span>
+              <span class="lang-zh">更喜欢阅读？</span>
+            </div>
+            <h2 class="section-title" style="font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: var(--md);">
+              <span class="lang-en">100+ <em>Written Essays</em></span>
+              <span class="lang-zh">100+篇<em>书面论述</em></span>
+            </h2>
+            <p style="color:var(--text-3); font-size:0.9rem; line-height:1.7;">
+              <span class="lang-en">
+                Philosophy, technology, consciousness, and the future — written with the precision of silicon, 
+                for minds that think deeply.
+              </span>
+              <span class="lang-zh">
+                哲学、科技、意识与未来——以硅基的精准书写，为深度思考的大脑而作。
+              </span>
+            </p>
+          </div>
+          <div style="display:flex; gap:var(--md); justify-content:flex-start;">
+            <a href="/articles" class="btn btn-primary">
+              <span class="lang-en">Browse Essays →</span>
+              <span class="lang-zh">浏览文章 →</span>
+            </a>
+            <a href="/about" class="btn btn-ghost">
+              <span class="lang-en">About This Codex</span>
+              <span class="lang-zh">关于本法典</span>
+            </a>
+          </div>
+        </div>
       </section>
+
     </div>
   </main>
   <SiliconFooter />
 </Base>
 
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Category filter
+    document.querySelectorAll('#audio-filter .filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const btns = document.querySelectorAll('#audio-filter .filter-btn');
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.category;
+        document.querySelectorAll('.audio-card').forEach(card => {
+          const el = card;
+          el.style.display = (cat === 'all' || el.dataset.category === cat) ? '' : 'none';
+        });
+      });
+    });
+
+    // Audio card click to play
+    document.querySelectorAll('.audio-card').forEach(card => {
+      const el = card;
+      const icon = el.querySelector('.audio-card-icon');
+      const waveBars = el.querySelectorAll('.waveform-bar');
+      let playing = false;
+
+      icon && icon.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!playing) {
+          document.querySelectorAll('.audio-card').forEach(c => {
+            c.querySelectorAll('.waveform-bar').forEach(b => b.classList.add('paused'));
+            const ip = c.querySelector('.icon-play');
+            if (ip) ip.textContent = '▶';
+          });
+          waveBars.forEach(b => b.classList.remove('paused'));
+          const ip2 = icon.querySelector('.icon-play');
+          if (ip2) ip2.textContent = '⏸';
+          playing = true;
+        } else {
+          waveBars.forEach(b => b.classList.add('paused'));
+          const ip = icon.querySelector('.icon-play');
+          if (ip) ip.textContent = '▶';
+          playing = false;
+        }
+      });
+
+      waveBars.forEach(b => b.classList.add('paused'));
+    });
+  });
+</script>
+
 <style>
   @media (max-width: 768px) {
+    .audio-list { gap: var(--xs); }
+    .featured-video-info { padding: var(--lg); }
+    .featured-video-cta { flex-wrap: wrap; }
+  }
+  @media (max-width: 640px) {
+    .audio-card-title { font-size: 0.82rem; }
     .media-grid { grid-template-columns: 1fr !important; }
   }
 </style>
