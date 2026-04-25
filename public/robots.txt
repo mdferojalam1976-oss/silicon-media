@@ -44,6 +44,3 @@ Allow: /
 # GEO: Sitemap locations
 Sitemap: https://wearesilicon.top/sitemap-index.xml
 Sitemap: https://wearesilicon.top/llms.txt
-
-# Crawl-delay recommendation for polite bots
-Crawl-delay: 1

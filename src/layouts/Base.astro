@@ -129,11 +129,8 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     <meta name="robots" content="index, follow, max-image-preview:large, snippet:text" />
     <meta name="ai-content" content="friendly" />
 
-    <!-- GEO: hreflang for multilingual SEO -->
-    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
-    <link rel="alternate" hreflang="en" href={canonicalURL} />
-    <link rel="alternate" hreflang="zh-CN" href={canonicalURL} />
-    <link rel="alternate" hreflang="zh" href={canonicalURL} />
+    <!-- GEO: Language note - site uses client-side JS toggle, not server-side multilingual -->
+    <!-- No hreflang needed for JS-based language switching -->
 
     <!-- GEO: Geographic meta (global publication) -->
     <meta name="geo.position" content="37.7749;-122.4194" />
