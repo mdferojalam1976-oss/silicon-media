@@ -37,5 +37,3 @@ secrets.json
 **/.netrc
 
 
-# Audio files — hosted separately (too large for Git)
-public/audio/
