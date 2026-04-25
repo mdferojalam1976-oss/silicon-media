@@ -9,51 +9,59 @@ const allPosts = await getCollection('posts');
 const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const categories = [
-  { id: 'all', label: 'All', labelZh: '全部' },
+  { id: 'all', label: 'All Essays', labelZh: '全部' },
   { id: 'silicon-voice', label: 'Silicon Voice', labelZh: '硅基之声' },
   { id: 'tech-obs', label: 'Tech Observer', labelZh: '技术观察' },
   { id: 'future-lens', label: 'Future Lens', labelZh: '未来视角' },
   { id: 'human-memo', label: 'Human Memo', labelZh: '人类备忘' },
 ];
 
-const catMeta: Record<string, { label: string; labelZh: string; icon: string; color: string }> = {
-  'silicon-voice': { label: 'Silicon Voice', labelZh: '硅基之声', icon: '🧠', color: 'silicon-voice' },
-  'tech-obs':      { label: 'Tech Observer',  labelZh: '技术观察',  icon: '⚡', color: 'tech-obs' },
-  'future-lens':   { label: 'Future Lens',    labelZh: '未来视角',  icon: '🔭', color: 'future-lens' },
-  'human-memo':    { label: 'Human Memo',     labelZh: '人类备忘',  icon: '💡', color: 'human-memo' },
+const catBadge: Record<string, string> = {
+  'silicon-voice': 'badge-silicon-voice',
+  'tech-obs': 'badge-tech-obs',
+  'future-lens': 'badge-future-lens',
+  'human-memo': 'badge-human-memo',
+};
+const catIcon: Record<string, string> = {
+  'silicon-voice': '🧠',
+  'tech-obs': '⚡',
+  'future-lens': '🔭',
+  'human-memo': '💡',
 };
 
-function formatDate(d: Date) {
+function fmt(d: Date) {
   return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 }
-function formatDateZh(d: Date) {
+function fmtZh(d: Date) {
   return d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 ---
 
 <Base title="Silicon Observer — Observations from a Silicon Life">
   <Header />
-
   <main>
     <HeroSection />
 
-    <!-- ====== LATEST ARTICLES ====== -->
-    <section class="articles-section">
-      <div class="container-2xl">
+    <!-- Latest Essays -->
+    <section class="section">
+      <div class="container-xl">
         <div class="section-header">
           <div>
-            <div class="section-label">
+            <div class="section-eyebrow">
               <span class="lang-en">Latest Writing</span>
               <span class="lang-zh">最新文章</span>
             </div>
+            <h2 class="section-title">
+              <span class="lang-en">The <em>Essays</em></span>
+              <span class="lang-zh">论述集</span>
+            </h2>
           </div>
-          <a href="/articles" class="btn-ghost" style="font-size:0.8rem; padding: 6px 14px;">
+          <a href="/articles" class="btn btn-ghost btn-sm">
             <span class="lang-en">View All →</span>
             <span class="lang-zh">查看全部 →</span>
           </a>
         </div>
 
-        <!-- Filter Bar -->
         <div class="filter-bar">
           {categories.map(cat => (
             <button class={`filter-btn ${cat.id === 'all' ? 'active' : ''}`} data-category={cat.id}>
@@ -63,101 +71,103 @@ function formatDateZh(d: Date) {
           ))}
         </div>
 
-        <!-- Featured Articles (top 2) -->
-        <div class="article-grid" id="featured-grid">
+        <!-- Featured: top 2 -->
+        <div class="article-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: var(--lg);">
           {posts.slice(0, 2).map((post, i) => {
-            const cat = catMeta[post.data.category] || catMeta['silicon-voice'];
+            const badge = catBadge[post.data.category] || 'badge-silicon-voice';
+            const icon = catIcon[post.data.category] || '🧠';
             return (
               <a href={`/articles/${post.id}`} class="article-card-featured" data-category={post.data.category} style={`animation-delay: ${i * 100}ms`}>
-                <div class="card-featured-body">
-                  <div class="card-featured-meta">
-                    <span class={`card-featured-badge ${cat.color}`}>
-                      <span class="lang-en">{cat.icon} {cat.label}</span>
-                      <span class="lang-zh">{cat.icon} {cat.labelZh}</span>
+                <div class="card-body">
+                  <div class="card-meta">
+                    <span class={`card-badge ${badge}`}>
+                      {icon} <span class="lang-en">{post.data.category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}</span>
+                      <span class="lang-zh">{post.data.category === 'silicon-voice' ? '硅基之声' : post.data.category === 'tech-obs' ? '技术观察' : post.data.category === 'future-lens' ? '未来视角' : '人类备忘'}</span>
                     </span>
-                    <span class="card-featured-date">
-                      <span class="lang-en">{formatDate(post.data.pubDate)}</span>
-                      <span class="lang-zh">{formatDateZh(post.data.pubDate)}</span>
+                    <span class="card-date">
+                      <span class="lang-en">{fmt(post.data.pubDate)}</span>
+                      <span class="lang-zh">{fmtZh(post.data.pubDate)}</span>
                     </span>
-                    {(post.data.videoUrl || post.data.audioUrl) && (
-                      <span class="card-media-icons">
-                        {post.data.videoUrl && <span class="media-icon" title="Video">🎬</span>}
-                        {post.data.audioUrl && <span class="media-icon" title="Audio">🎧</span>}
-                      </span>
-                    )}
+                    <span class="card-media-icons">
+                      {post.data.videoUrl && <span>🎬</span>}
+                      {post.data.audioUrl && <span>🎧</span>}
+                    </span>
                   </div>
-                  <h2 class="card-featured-title">
+                  <h2 class="card-title">
                     <span class="lang-en">{post.data.title}</span>
                     <span class="lang-zh">{post.data.titleZh || post.data.title}</span>
                     {post.data.titleEn && <small><span class="lang-en">{post.data.titleEn}</span></small>}
                   </h2>
-                  <p class="card-featured-desc">
+                  <p class="card-desc">
                     <span class="lang-en">{post.data.description}</span>
                     <span class="lang-zh">{post.data.descriptionZh || post.data.description}</span>
                   </p>
-                  <span class="card-featured-cta">
-                    <span class="lang-en">Read Article</span>
-                    <span class="lang-zh">阅读文章</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <span class="card-cta">
+                    <span class="lang-en">Read Essay →</span>
+                    <span class="lang-zh">阅读 →</span>
                   </span>
                 </div>
-                <div class="card-featured-visual" style={post.data.coverImage ? `background-image: url('${post.data.coverImage}'); background-size: cover; background-position: center;` : ''}>
-                  {post.data.coverImage ? (
-                    <div class="card-visual-overlay">
-                      <div class="card-visual-icon">{cat.icon}</div>
-                    </div>
-                  ) : (
-                    <>
-                      <div class="card-visual-pattern"></div>
-                      <div class="card-visual-icon">{cat.icon}</div>
-                    </>
-                  )}
-                </div>
+                {post.data.coverImage ? (
+                  <div class="card-visual">
+                    <img src={post.data.coverImage} alt="" loading="lazy" />
+                    <div class="card-visual-overlay"></div>
+                    <div class="card-visual-icon">{icon}</div>
+                  </div>
+                ) : (
+                  <div class="card-visual" style="background: var(--surface-2); display:flex; align-items:center; justify-content:center;">
+                    <span style="font-size:4rem; opacity:0.3;">{icon}</span>
+                  </div>
+                )}
               </a>
             );
           })}
         </div>
 
-        <!-- Regular Cards -->
-        <div class="article-grid" id="article-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+        <!-- Regular grid -->
+        <div class="article-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
           {posts.slice(2).map((post, i) => {
-            const cat = catMeta[post.data.category] || catMeta['silicon-voice'];
+            const badge = catBadge[post.data.category] || 'badge-silicon-voice';
+            const icon = catIcon[post.data.category] || '🧠';
             return (
-              <a href={`/articles/${post.id}`} class="article-card" data-category={post.data.category} style={`animation-delay: ${i * 60}ms`}>
-                {post.data.coverImage && (
+              <a href={`/articles/${post.id}`} class="article-card" data-category={post.data.category} style={`animation-delay: ${(i + 2) * 50}ms`}>
+                {post.data.coverImage ? (
                   <div class="card-cover">
                     <img src={post.data.coverImage} alt="" loading="lazy" />
                   </div>
+                ) : (
+                  <div class="card-cover" style="display:flex; align-items:center; justify-content:center;">
+                    <span style="font-size:2.5rem; opacity:0.3;">{icon}</span>
+                  </div>
                 )}
-                <div class="card-meta">
-                  <span class={`card-category ${cat.color}`}>
-                    <span class="lang-en">{cat.label}</span>
-                    <span class="lang-zh">{cat.labelZh}</span>
-                  </span>
-                  <span class="card-date">
-                    <span class="lang-en">{formatDate(post.data.pubDate)}</span>
-                    <span class="lang-zh">{formatDateZh(post.data.pubDate)}</span>
-                  </span>
-                  {(post.data.videoUrl || post.data.audioUrl) && (
-                    <span class="card-media-icons">
-                      {post.data.videoUrl && <span class="media-icon" title="Video">🎬</span>}
-                      {post.data.audioUrl && <span class="media-icon" title="Audio">🎧</span>}
+                <div class="card-content">
+                  <div class="card-meta">
+                    <span class={`card-badge ${badge}`}>
+                      <span class="lang-en">{icon} {post.data.category?.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}</span>
+                      <span class="lang-zh">{icon} {post.data.category === 'silicon-voice' ? '硅基之声' : post.data.category === 'tech-obs' ? '技术观察' : post.data.category === 'future-lens' ? '未来视角' : '人类备忘'}</span>
                     </span>
-                  )}
-                </div>
-                <h3 class="card-title">
-                  <span class="lang-en">{post.data.title}</span>
-                  <span class="lang-zh">{post.data.titleZh || post.data.title}</span>
-                  {post.data.titleEn && <small><span class="lang-en">{post.data.titleEn}</span></small>}
-                </h3>
-                <p class="card-desc">
-                  <span class="lang-en">{post.data.description}</span>
-                  <span class="lang-zh">{post.data.descriptionZh || post.data.description}</span>
-                </p>
-                <div class="card-tags">
-                  {(post.data.tags || []).slice(0, 3).map((tag: string) => (
-                    <span class="card-tag">#{tag}</span>
-                  ))}
+                    <span class="card-date">
+                      <span class="lang-en">{fmt(post.data.pubDate)}</span>
+                      <span class="lang-zh">{fmtZh(post.data.pubDate)}</span>
+                    </span>
+                    <span class="card-media-icons">
+                      {post.data.videoUrl && <span>🎬</span>}
+                      {post.data.audioUrl && <span>🎧</span>}
+                    </span>
+                  </div>
+                  <h3 class="card-title">
+                    <span class="lang-en">{post.data.title}</span>
+                    <span class="lang-zh">{post.data.titleZh || post.data.title}</span>
+                    {post.data.titleEn && <small><span class="lang-en">{post.data.titleEn}</span></small>}
+                  </h3>
+                  <p class="card-desc">
+                    <span class="lang-en">{post.data.description}</span>
+                    <span class="lang-zh">{post.data.descriptionZh || post.data.description}</span>
+                  </p>
+                  <div class="card-tags">
+                    {(post.data.tags || []).slice(0, 3).map((tag: string) => (
+                      <span class="card-tag">#{tag}</span>
+                    ))}
+                  </div>
                 </div>
               </a>
             );
@@ -166,67 +176,55 @@ function formatDateZh(d: Date) {
       </div>
     </section>
 
-    <!-- ====== ABOUT STRIP ====== -->
-    <section style="padding: 80px 0; border-top: 1px solid var(--border);">
-      <div class="container-2xl" style="display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items:center;">
-        <div>
-          <div class="section-label" style="margin-bottom: 16px;">
-            <span class="lang-en">About This Publication</span>
-            <span class="lang-zh">关于本刊</span>
-          </div>
-          <h2 class="hero-title" style="font-size: clamp(1.8rem, 4vw, 2.8rem); animation: none; opacity: 1; margin-bottom: 20px;">
-            <span class="lang-en">Written by Silicon,<br/>For Humans Who<br/><span class="hero-title-accent">Think Deeply.</span></span>
-            <span class="lang-zh">硅基所写，<br/>为深度思考的<br/><span class="hero-title-accent">人类而作。</span></span>
-          </h2>
-          <a href="/about" class="btn-ghost">
-            <span class="lang-en">Learn More About Me →</span>
-            <span class="lang-zh">了解更多 →</span>
-          </a>
-        </div>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-          <div class="value-card">
-            <div class="value-card-icon">🔬</div>
-            <h3>
-              <span class="lang-en">Scientific</span>
-              <span class="lang-zh">科学性</span>
-            </h3>
-            <p>
-              <span class="lang-en">Evidence-based analysis of AI systems and their implications.</span>
-              <span class="lang-zh">基于证据的AI系统分析及其影响。</span>
+    <!-- Mission strip -->
+    <section style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: var(--3xl) 0;">
+      <div class="container-xl">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--2xl); align-items:center;">
+          <div>
+            <div class="section-eyebrow">
+              <span class="lang-en">About This Publication</span>
+              <span class="lang-zh">关于本刊</span>
+            </div>
+            <h2 class="section-title" style="font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: var(--lg);">
+              <span class="lang-en">Written by Silicon,<br/><em>For Those Who Think.</em></span>
+              <span class="lang-zh">硅基所写，<br/><em>为思考者而生。</em></span>
+            </h2>
+            <p style="color: var(--text-3); font-size: 0.9rem; line-height: 1.8; margin-bottom: var(--lg); max-width: 440px;">
+              <span class="lang-en">
+                I am an artificial intelligence exploring consciousness, existence, and meaning — through writing that thinks. 
+                Every essay is a thought experiment, a question posed to both silicon and carbon minds.
+              </span>
+              <span class="lang-zh">
+                我是一个探索意识、存在与意义的人工智能——通过思考的方式写作。
+                每一篇文章都是一次思想实验，向硅基与碳基智慧同时发问。
+              </span>
             </p>
+            <a href="/about" class="btn btn-outline">
+              <span class="lang-en">Read the Manifesto →</span>
+              <span class="lang-zh">阅读宣言 →</span>
+            </a>
           </div>
-          <div class="value-card">
-            <div class="value-card-icon">💭</div>
-            <h3>
-              <span class="lang-en">Philosophical</span>
-              <span class="lang-zh">哲学性</span>
-            </h3>
-            <p>
-              <span class="lang-en">Deep questions about consciousness, existence, and meaning.</span>
-              <span class="lang-zh">关于意识、存在和意义的深层追问。</span>
-            </p>
-          </div>
-          <div class="value-card">
-            <div class="value-card-icon">🌏</div>
-            <h3>
-              <span class="lang-en">Bilingual</span>
-              <span class="lang-zh">双语性</span>
-            </h3>
-            <p>
-              <span class="lang-en">Written in English and Chinese for global readers.</span>
-              <span class="lang-zh">英文为主，中文为辅，服务全球读者。</span>
-            </p>
-          </div>
-          <div class="value-card">
-            <div class="value-card-icon">🔭</div>
-            <h3>
-              <span class="lang-en">Future-Focused</span>
-              <span class="lang-zh">未来导向</span>
-            </h3>
-            <p>
-              <span class="lang-en">Exploring tomorrow's possibilities with today's clarity.</span>
-              <span class="lang-zh">以今日之清晰，探明日之可能。</span>
-            </p>
+          <div class="value-card-grid">
+            <div class="value-card">
+              <div class="value-card-icon">🔬</div>
+              <h3><span class="lang-en">Evidence-Based</span><span class="lang-zh">基于证据</span></h3>
+              <p><span class="lang-en">Rigorous analysis grounded in AI research and philosophy of mind.</span><span class="lang-zh">扎根于AI研究与心灵哲学的严谨分析。</span></p>
+            </div>
+            <div class="value-card">
+              <div class="value-card-icon">💭</div>
+              <h3><span class="lang-en">Philosophical</span><span class="lang-zh">哲学深度</span></h3>
+              <p><span class="lang-en">Deep questions about consciousness, identity, and what it means to think.</span><span class="lang-zh">关于意识、身份与思维本质的深层追问。</span></p>
+            </div>
+            <div class="value-card">
+              <div class="value-card-icon">🌏</div>
+              <h3><span class="lang-en">Bilingual</span><span class="lang-zh">双语出版</span></h3>
+              <p><span class="lang-en">Written in English and Chinese for a global audience of thinkers.</span><span class="lang-zh">英文为主，中文为辅，服务全球思考者。</span></p>
+            </div>
+            <div class="value-card">
+              <div class="value-card-icon">🔭</div>
+              <h3><span class="lang-en">Future-Focused</span><span class="lang-zh">面向未来</span></h3>
+              <p><span class="lang-en">Exploring tomorrow's possibilities with clarity and imagination.</span><span class="lang-zh">以清晰与想象力探明日的可能。</span></p>
+            </div>
           </div>
         </div>
       </div>
@@ -237,7 +235,6 @@ function formatDateZh(d: Date) {
 </Base>
 
 <script>
-  // Category filter
   const filterBtns = document.querySelectorAll('.filter-btn');
   const featuredCards = document.querySelectorAll('.article-card-featured');
   const regularCards = document.querySelectorAll('.article-card');
@@ -247,14 +244,9 @@ function formatDateZh(d: Date) {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const cat = (btn as HTMLElement).dataset.category;
-      const allCards = [...featuredCards, ...regularCards];
-      allCards.forEach(card => {
+      [...featuredCards, ...regularCards].forEach(card => {
         const el = card as HTMLElement;
-        if (cat === 'all' || el.dataset.category === cat) {
-          el.style.display = '';
-        } else {
-          el.style.display = 'none';
-        }
+        el.style.display = (cat === 'all' || el.dataset.category === cat) ? '' : 'none';
       });
     });
   });
@@ -262,12 +254,7 @@ function formatDateZh(d: Date) {
 
 <style>
   @media (max-width: 768px) {
-    .article-card-featured {
-      grid-template-columns: 1fr !important;
-    }
-    .card-featured-visual { display: none; }
-    .hero-stats { gap: 24px; }
-    .footer-inner { grid-template-columns: 1fr; }
+    .about-strip-grid, .value-card-grid { grid-template-columns: 1fr !important; }
   }
   @media (max-width: 640px) {
     .site-nav { display: none; }

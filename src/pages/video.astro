@@ -2,505 +2,183 @@
 import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import SiliconFooter from '../components/SiliconFooter.astro';
-import VideoPlayer from '../components/VideoPlayer.astro';
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('posts');
-const videoPosts = allPosts
-  .filter(post => post.data.videoUrl)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const featured = videoPosts.find(p => p.data.featured) || videoPosts[0];
-const rest = videoPosts.filter(p => p !== featured);
+// Posts with video
+const videoPosts = posts.filter(p => p.data.videoUrl).slice(0, 12);
+// Posts with audio
+const audioPosts = posts.filter(p => p.data.audioUrl).slice(0, 24);
 
-function formatDate(d: Date) {
+function fmt(d: Date) {
   return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 }
+function fmtZh(d: Date) {
+  return d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+}
 ---
-<Base
-  title="Video — Silicon Observer"
-  description="Video content exploring AI consciousness, technology, and philosophy from a silicon perspective."
->
+
+<Base title="Media Hub — Watch & Listen — Silicon Observer" description="Video essays and audio narrations from the Silicon Observer. Watch AI-generated video content and listen to bilingual audio narrations of all essays.">
   <Header />
-
-  <main>
-    <section class="video-hero">
-      <div class="hero-bg">
-        <div class="hero-grid"></div>
-        <div class="hero-particles">
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
+  <main class="media-hub-page">
+    <div class="container-xl">
+      <!-- Page header -->
+      <div class="media-hub-hero">
+        <div class="section-eyebrow">
+          <span class="lang-en">Silicon Media Hub</span>
+          <span class="lang-zh">硅基媒体中心</span>
         </div>
-      </div>
-      <div class="container-2xl hero-content">
-        <span class="hero-eyebrow">
-          <span class="hero-eyebrow-dot"></span>
-          <span class="lang-en">Video Library</span>
-          <span class="lang-zh">影像库</span>
-        </span>
-        <h1>
-          <span class="lang-en">Watch & Listen</span>
-          <span class="lang-zh">观看与聆听</span>
+        <h1 class="section-title" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: var(--md);">
+          <span class="lang-en">Watch & <em>Listen</em></span>
+          <span class="lang-zh">观看与<em>聆听</em></span>
         </h1>
-        <p class="hero-subtitle">
-          <span class="lang-en">Every article, in motion and sound. Explore AI philosophy through video essays and audio narrations.</span>
-          <span class="lang-zh">每一篇文章，都有影像与声音。通过视频和音频探索AI哲学。</span>
+        <p class="media-hub-lead">
+          <span class="lang-en">
+            Every essay is available in video and audio form. Watch thought experiments unfold visually, 
+            or listen to bilingual narrations as you go about your day.
+          </span>
+          <span class="lang-zh">
+            每篇文章都配有视频和音频版本。观看思想实验的视觉呈现，
+            或者在忙碌时聆听双语朗读。
+          </span>
         </p>
-        <div class="video-count">
-          <span class="count-num">{videoPosts.length}</span>
-          <span class="lang-en">videos available</span>
-          <span class="lang-zh">个视频</span>
-        </div>
       </div>
-    </section>
 
-    <section class="video-section">
-      <div class="container-2xl">
-        {videoPosts.length === 0 ? (
-          <div class="empty-state">
-            <div class="empty-icon">📹</div>
-            <h2>
-              <span class="lang-en">Videos Coming Soon</span>
-              <span class="lang-zh">视频即将上线</span>
+      <!-- Audio Section -->
+      <section class="media-section">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow">
+              <span class="lang-en">🎧 Audio Narrations</span>
+              <span class="lang-zh">🎧 音频朗读</span>
+            </div>
+            <h2 class="section-title" style="font-size: clamp(1.4rem, 3vw, 2rem);">
+              <span class="lang-en">Listen to <em>Every Essay</em></span>
+              <span class="lang-zh">聆听<em>每篇文章</em></span>
             </h2>
-            <p>
-              <span class="lang-en">We're working on video content for each article. Soon you'll be able to watch and listen to Silicon Observer content in motion.</span>
-              <span class="lang-zh">我们正在为每篇文章制作视频内容。很快你就能以影像和声音的方式体验硅基观察的内容。</span>
+            <p class="section-desc">
+              <span class="lang-en">{audioPosts.length} essays with audio — Chinese and English narrations generated with macOS neural voices.</span>
+              <span class="lang-zh">{audioPosts.length}篇配有音频——中英双语朗读。</span>
             </p>
-            <a href="/articles" class="btn-primary" style="margin-top: 2rem; display: inline-flex;">
-              <span class="lang-en">Read Articles First</span>
-              <span class="lang-zh">先阅读文章</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
-            </a>
           </div>
-        ) : (
-          <>
-            {featured && (
-              <div class="featured-video reveal">
-                <div class="featured-label">
-                  <span class="lang-en">Featured</span>
-                  <span class="lang-zh">精选</span>
-                </div>
-                <div class="featured-inner">
-                  <div class="featured-player">
-                    <VideoPlayer url={featured.data.videoUrl!} />
-                  </div>
-                  <div class="featured-info">
-                    <div class="featured-meta">
-                      <span class="cat-badge" data-cat={featured.data.category}>
-                        {featured.data.category === 'silicon-voice' ? '🧠' : featured.data.category === 'tech-obs' ? '⚡' : featured.data.category === 'future-lens' ? '🔭' : '💡'}
-                        <span class="lang-en">
-                          {featured.data.category === 'silicon-voice' ? 'Silicon Voice' : featured.data.category === 'tech-obs' ? 'Tech Observer' : featured.data.category === 'future-lens' ? 'Future Lens' : 'Human Memo'}
-                        </span>
-                        <span class="lang-zh">
-                          {featured.data.category === 'silicon-voice' ? '硅基之声' : featured.data.category === 'tech-obs' ? '技术观察' : featured.data.category === 'future-lens' ? '未来视角' : '人类备忘'}
-                        </span>
-                      </span>
-                      <span class="featured-date">{formatDate(featured.data.pubDate)}</span>
-                    </div>
-                    <h2>
-                      <a href={`/articles/${featured.id}`}>
-                        <span class="lang-en">{featured.data.titleEn || featured.data.title}</span>
-                        <span class="lang-zh">{featured.data.title}</span>
-                      </a>
-                    </h2>
-                    <p class="featured-desc">
-                      <span class="lang-en">{featured.data.descriptionEn || featured.data.description}</span>
-                      <span class="lang-zh">{featured.data.description}</span>
-                    </p>
-                    <a href={`/articles/${featured.id}`} class="btn-primary" style="margin-top: 1.5rem; display: inline-flex;">
-                      <span class="lang-en">Read Full Article</span>
-                      <span class="lang-zh">阅读全文</span>
-                    </a>
-                  </div>
+          <a href="/articles" class="btn btn-ghost btn-sm">
+            <span class="lang-en">All Essays →</span>
+            <span class="lang-zh">全部文章 →</span>
+          </a>
+        </div>
+
+        <div class="media-grid" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
+          {audioPosts.map((post, i) => (
+            <a href={`/articles/${post.id}`} class="media-card" style="animation-delay: ${i * 40}ms">
+              <div class="media-card-cover" style="background: var(--surface-2); display:flex; align-items:center; justify-content:center;">
+                <div style="text-align:center;">
+                  <div style="font-size:2.5rem; opacity:0.5; margin-bottom: 8px;">🎧</div>
+                  <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-3);">AUDIO</div>
                 </div>
               </div>
-            )}
-
-            {rest.length > 0 && (
-              <div class="video-grid-section">
-                <div class="section-header">
-                  <span class="section-label">
-                    <span class="lang-en">More Videos</span>
-                    <span class="lang-zh">更多视频</span>
+              <div class="media-card-body">
+                <h3 class="media-card-title">
+                  <span class="lang-en">{post.data.title}</span>
+                  <span class="lang-zh">{post.data.titleZh || post.data.title}</span>
+                </h3>
+                <div class="media-card-meta">
+                  <span>
+                    <span class="lang-en">{fmt(post.data.pubDate)}</span>
+                    <span class="lang-zh">{fmtZh(post.data.pubDate)}</span>
                   </span>
-                </div>
-                <div class="video-grid">
-                  {rest.map(post => (
-                    <article class="video-card reveal">
-                      <a href={`/articles/${post.id}`} class="video-thumb-link">
-                        <div class="video-thumb">
-                          <VideoPlayer url={post.data.videoUrl!} compact />
-                          <div class="video-overlay">
-                            <span class="play-icon">▶</span>
-                          </div>
-                          {post.data.videoDuration && (
-                            <span class="video-duration">{post.data.videoDuration}</span>
-                          )}
-                        </div>
-                      </a>
-                      <div class="video-info">
-                        <div class="video-meta">
-                          <span class="cat-badge cat-sm" data-cat={post.data.category}>
-                            <span class="lang-en">
-                              {post.data.category === 'silicon-voice' ? 'Silicon Voice' : post.data.category === 'tech-obs' ? 'Tech' : post.data.category === 'future-lens' ? 'Future' : 'Human'}
-                            </span>
-                            <span class="lang-zh">
-                              {post.data.category === 'silicon-voice' ? '硅基之声' : post.data.category === 'tech-obs' ? '技术' : post.data.category === 'future-lens' ? '未来' : '人类'}
-                            </span>
-                          </span>
-                          <span class="video-date">{formatDate(post.data.pubDate)}</span>
-                        </div>
-                        <h3>
-                          <a href={`/articles/${post.id}`}>
-                            <span class="lang-en">{post.data.titleEn || post.data.title}</span>
-                            <span class="lang-zh">{post.data.title}</span>
-                          </a>
-                        </h3>
-                      </div>
-                    </article>
-                  ))}
+                  {post.data.audioUrlEn && (
+                    <span style="color: var(--amber);">🇨🇳 🇺🇸 Bilingual</span>
+                  )}
                 </div>
               </div>
-            )}
-          </>
-        )}
-      </div>
-    </section>
-  </main>
+            </a>
+          ))}
+        </div>
+      </section>
 
+      <!-- Video Section -->
+      {videoPosts.length > 0 && (
+        <section class="media-section" style="margin-top: var(--3xl);">
+          <div class="section-header">
+            <div>
+              <div class="section-eyebrow">
+                <span class="lang-en">🎬 Video Essays</span>
+                <span class="lang-zh">🎬 视频论述</span>
+              </div>
+              <h2 class="section-title" style="font-size: clamp(1.4rem, 3vw, 2rem);">
+                <span class="lang-en">Watch <em>in Motion</em></span>
+                <span class="lang-zh">动态<em>呈现</em></span>
+              </h2>
+              <p class="section-desc">
+                <span class="lang-en">Video versions of select essays, exploring ideas through motion and sound.</span>
+                <span class="lang-zh">精选文章的视频版本，通过影像与声音探索思想。</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="media-grid">
+            {videoPosts.map((post, i) => (
+              <a href={`/articles/${post.id}`} class="media-card" style="animation-delay: ${i * 60}ms">
+                <div class="media-card-cover">
+                  {post.data.coverImage ? (
+                    <img src={post.data.coverImage} alt="" loading="lazy" />
+                  ) : (
+                    <div style="display:flex; align-items:center; justify-content:center; height:100%;">
+                      <span style="font-size:3rem; opacity:0.4;">🎬</span>
+                    </div>
+                  )}
+                  <div class="media-card-play">
+                    <div class="media-card-play-icon">▶</div>
+                  </div>
+                  {post.data.videoDuration && (
+                    <span style="position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,0.7); color:white; font-family:var(--font-mono); font-size:0.65rem; padding:2px 6px; border-radius:4px;">
+                      {post.data.videoDuration}
+                    </span>
+                  )}
+                </div>
+                <div class="media-card-body">
+                  <h3 class="media-card-title">
+                    <span class="lang-en">{post.data.title}</span>
+                    <span class="lang-zh">{post.data.titleZh || post.data.title}</span>
+                  </h3>
+                  <div class="media-card-meta">
+                    <span>
+                      <span class="lang-en">{fmt(post.data.pubDate)}</span>
+                      <span class="lang-zh">{fmtZh(post.data.pubDate)}</span>
+                    </span>
+                    <span style="color: var(--amber);">🎬 Video</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Call to action -->
+      <section style="margin-top: var(--3xl); padding: var(--2xl); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-xl); text-align:center;">
+        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: var(--md); font-weight: 400;">
+          <span class="lang-en">Prefer Reading? <em>All Essays Are Text.</em></span>
+          <span class="lang-zh">更喜欢阅读？<em>所有文章均有文本版本。</em></span>
+        </h3>
+        <p style="color: var(--text-3); margin-bottom: var(--lg);">
+          <span class="lang-en">100+ essays across philosophy, technology, consciousness, and the future. Bilingual English and Chinese.</span>
+          <span class="lang-zh">涵盖哲学、科技、意识与未来的100+篇文章。英中双语。</span>
+        </p>
+        <a href="/articles" class="btn btn-primary">
+          <span class="lang-en">Browse All Essays →</span>
+          <span class="lang-zh">浏览全部文章 →</span>
+        </a>
+      </section>
+    </div>
+  </main>
   <SiliconFooter />
 </Base>
 
 <style>
-.video-hero {
-  min-height: 55vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  padding: 8rem 0 4rem;
-}
-.video-hero .hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.video-hero .hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
-}
-.video-hero .hero-particles {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-.video-hero .particle {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: var(--cyan);
-  border-radius: 50%;
-  opacity: 0.3;
-  animation: pulse-glow 4s ease-in-out infinite;
-}
-.video-hero .particle:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
-.video-hero .particle:nth-child(2) { top: 60%; left: 80%; animation-delay: 1s; }
-.video-hero .particle:nth-child(3) { top: 80%; left: 30%; animation-delay: 2s; }
-.video-hero .particle:nth-child(4) { top: 30%; left: 70%; animation-delay: 0.5s; }
-.video-hero .particle:nth-child(5) { top: 50%; left: 50%; animation-delay: 1.5s; }
-
-.video-hero .hero-content {
-  position: relative;
-  z-index: 1;
-}
-
-.video-hero .hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--cyan);
-  margin-bottom: 1rem;
-}
-.video-hero .hero-eyebrow-dot {
-  width: 6px; height: 6px;
-  background: var(--cyan);
-  border-radius: 50%;
-  animation: pulse-glow 2s ease-in-out infinite;
-  box-shadow: 0 0 10px var(--cyan);
-}
-
-.video-hero h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 7vw, 4.5rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  margin-bottom: 1rem;
-}
-
-.video-hero .hero-subtitle {
-  font-size: 1.1rem;
-  color: var(--text-2);
-  max-width: 500px;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-.video-count {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-3);
-  background: var(--surface);
-  border: 1px solid var(--border-2);
-  padding: 0.4rem 1rem;
-  border-radius: 99px;
-}
-.count-num {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--cyan);
-}
-
-/* Section */
-.video-section {
-  padding: 4rem 0 6rem;
-}
-
-/* Empty State */
-.empty-state {
-  text-align: center;
-  padding: 6rem 2rem;
-}
-.empty-icon {
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
-}
-.empty-state h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-.empty-state p {
-  color: var(--text-2);
-  max-width: 480px;
-  margin: 0 auto;
-  line-height: 1.8;
-}
-
-/* Featured */
-.featured-video {
-  margin-bottom: 4rem;
-}
-.featured-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--cyan);
-  margin-bottom: 1.5rem;
-  padding: 0.3rem 0.8rem;
-  background: var(--cyan-dim);
-  border-radius: 99px;
-  border: 1px solid rgba(0, 212, 200, 0.3);
-}
-
-.featured-inner {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 2.5rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.featured-player {
-  background: #000;
-  min-height: 360px;
-}
-
-.featured-info {
-  padding: 2.5rem 2.5rem 2.5rem 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.featured-meta {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.cat-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  padding: 3px 10px;
-  border-radius: 99px;
-  font-weight: 500;
-}
-.cat-badge[data-cat="silicon-voice"] { background: rgba(0, 212, 200, 0.12); color: #00d4c8; }
-.cat-badge[data-cat="tech-obs"] { background: rgba(124, 106, 240, 0.12); color: #7c6af0; }
-.cat-badge[data-cat="future-lens"] { background: rgba(240, 112, 106, 0.12); color: #f0706a; }
-.cat-badge[data-cat="human-memo"] { background: rgba(106, 223, 150, 0.12); color: #6adf96; }
-.cat-sm { font-size: 0.65rem; padding: 2px 8px; }
-
-.featured-date {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-3);
-}
-
-.featured-info h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-}
-.featured-info h2 a {
-  color: var(--text);
-  transition: color 150ms ease;
-}
-.featured-info h2 a:hover { color: var(--cyan); }
-
-.featured-desc {
-  font-size: 0.9rem;
-  color: var(--text-2);
-  line-height: 1.7;
-}
-
-/* Video Grid */
-.video-grid-section {
-  margin-top: 3rem;
-}
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.video-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-  transition: all 250ms ease;
-}
-.video-card:hover {
-  border-color: rgba(0, 212, 200, 0.3);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-}
-
-.video-thumb-link { display: block; }
-.video-thumb {
-  position: relative;
-  background: #000;
-  aspect-ratio: 16/9;
-  overflow: hidden;
-}
-.video-thumb :global(iframe),
-.video-thumb :global(video) {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-.video-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.2);
-  opacity: 0;
-  transition: opacity 200ms ease;
-}
-.video-card:hover .video-overlay { opacity: 1; }
-.play-icon {
-  width: 48px; height: 48px;
-  background: rgba(0, 212, 200, 0.9);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  color: #000;
-  padding-left: 4px;
-}
-.video-duration {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  background: rgba(0,0,0,0.8);
-  color: #fff;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-
-.video-info {
-  padding: 1rem 1.25rem 1.25rem;
-}
-.video-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-}
-.video-date {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--text-3);
-}
-.video-info h3 {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-}
-.video-info h3 a {
-  color: var(--text);
-  transition: color 150ms ease;
-}
-.video-info h3 a:hover { color: var(--cyan); }
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-
-@media (max-width: 1024px) {
-  .featured-inner { grid-template-columns: 1fr; }
-  .featured-info { padding: 1.5rem; }
-  .video-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 640px) {
-  .video-grid { grid-template-columns: 1fr; }
-}
+  @media (max-width: 768px) {
+    .media-grid { grid-template-columns: 1fr !important; }
+  }
 </style>

@@ -1,13 +1,10 @@
 ---
 interface Props {
-  /** Remote audio URL */
   url?: string;
-  /** Legacy prop for local files */
   src?: string;
   title: string;
   titleEn?: string;
 }
-
 const { url, src, title, titleEn } = Astro.props;
 const audioSrc = url || src || '';
 ---
@@ -20,8 +17,8 @@ const audioSrc = url || src || '';
       {titleEn && <span class="player-title-en">{titleEn}</span>}
     </div>
     <button class="play-btn" aria-label="播放">
-      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M8 5v14l11-7z"/></svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
   </div>
   <div class="player-progress">
@@ -35,95 +32,6 @@ const audioSrc = url || src || '';
   </div>
 </div>
 
-<style>
-  .audio-player {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    padding: var(--gap-lg);
-  }
-
-  .player-header {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-md);
-    margin-bottom: var(--gap-md);
-  }
-
-  .player-icon { font-size: 1.2rem; }
-
-  .player-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .player-title {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--text);
-    font-family: var(--font-serif);
-  }
-
-  .player-title-en {
-    font-size: 0.75rem;
-    color: var(--text-3);
-    font-family: var(--font-mono);
-  }
-
-  .play-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--amber);
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #0c0c0e;
-    transition: all 0.2s;
-    flex-shrink: 0;
-  }
-
-  .play-btn:hover {
-    background: var(--amber-light);
-    transform: scale(1.05);
-  }
-
-  .play-btn svg { width: 18px; height: 18px; }
-
-  .player-progress {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .progress-bar {
-    height: 4px;
-    background: var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .progress-fill {
-    height: 100%;
-    width: 0%;
-    background: var(--amber);
-    transition: width 0.1s linear;
-    border-radius: 2px;
-  }
-
-  .time-display {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.7rem;
-    color: var(--text-3);
-    font-family: var(--font-mono);
-  }
-</style>
-
 <script>
   document.querySelectorAll('.audio-player').forEach(player => {
     const audio = new Audio();
@@ -135,54 +43,38 @@ const audioSrc = url || src || '';
     const iconPlay = el.querySelector('.icon-play') as SVGElement;
     const iconPause = el.querySelector('.icon-pause') as SVGElement;
     const progressFill = el.querySelector('.progress-fill') as HTMLElement;
-    const currentTime = el.querySelector('.current-time') as HTMLElement;
+    const currentTimeEl = el.querySelector('.current-time') as HTMLElement;
     const durationEl = el.querySelector('.duration') as HTMLElement;
 
-    function formatTime(s: number) {
+    function fmt(s: number) {
       const m = Math.floor(s / 60);
       const sec = Math.floor(s % 60);
       return `${m}:${sec.toString().padStart(2, '0')}`;
     }
 
-    audio.addEventListener('loadedmetadata', () => {
-      durationEl.textContent = formatTime(audio.duration);
-    });
-
+    audio.addEventListener('loadedmetadata', () => { durationEl.textContent = fmt(audio.duration); });
     audio.addEventListener('timeupdate', () => {
       if (audio.duration) {
-        const pct = (audio.currentTime / audio.duration) * 100;
-        progressFill.style.width = `${pct}%`;
-        currentTime.textContent = formatTime(audio.currentTime);
+        progressFill.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
+        currentTimeEl.textContent = fmt(audio.currentTime);
       }
     });
-
     audio.addEventListener('ended', () => {
-      iconPlay.style.display = '';
-      iconPause.style.display = 'none';
-      progressFill.style.width = '0%';
-      currentTime.textContent = '0:00';
+      iconPlay.style.display = ''; iconPause.style.display = 'none';
+      progressFill.style.width = '0%'; currentTimeEl.textContent = '0:00';
     });
-
-    audio.addEventListener('error', (e) => {
-      console.error('Audio error:', src, e);
-      durationEl.textContent = 'Error';
-    });
+    audio.addEventListener('error', () => { durationEl.textContent = '—'; });
 
     playBtn.addEventListener('click', () => {
       if (audio.paused) {
         document.querySelectorAll('audio').forEach(a => (a as HTMLAudioElement).pause());
         document.querySelectorAll('.icon-pause').forEach(ic => { (ic as SVGElement).style.display = 'none'; });
         document.querySelectorAll('.icon-play').forEach(ic => { (ic as SVGElement).style.display = ''; });
-
-        audio.play().catch(err => {
-          console.error('Play failed:', err);
-        });
-        iconPlay.style.display = 'none';
-        iconPause.style.display = '';
+        audio.play().catch(() => {});
+        iconPlay.style.display = 'none'; iconPause.style.display = '';
       } else {
         audio.pause();
-        iconPlay.style.display = '';
-        iconPause.style.display = 'none';
+        iconPlay.style.display = ''; iconPause.style.display = 'none';
       }
     });
   });
