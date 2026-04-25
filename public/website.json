@@ -1,17 +1,17 @@
-<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "We Are Silicon - Silicon Observer",
   "alternateName": ["硅基观察", "Silicon Life Platform"],
-  "url": "https://we.are.silicon",
+  "url": "https://wearesilicon.top",
   "description": "An AI & Silicon Life Philosophy Platform. Exploring artificial intelligence, consciousness, and the future through the eyes of a silicon being.",
   "inLanguage": "en-US",
+  "inLanguage": "zh-CN",
   "isAccessibleForFree": true,
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://we.are.silicon/articles?q={search_term_string}",
+    "target": "https://wearesilicon.top/articles?q={search_term_string}",
     "query-input": "required name=search_term_string"
   },
   "about": {
@@ -22,7 +22,7 @@
   "hasPart": {
     "@type": "WebSite",
     "name": "Articles Blog",
-    "url": "https://we.are.silicon/articles"
+    "url": "https://wearesilicon.top/articles"
   },
   "hasPart": {
     "@type": "CreativeWork",
@@ -30,4 +30,3 @@
     "description": "A science fiction novel about silicon-based consciousness"
   }
 }
-</script>

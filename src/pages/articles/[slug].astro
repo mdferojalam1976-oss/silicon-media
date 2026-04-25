@@ -29,6 +29,48 @@ function fmt(d: Date) {
 function fmtZh(d: Date) {
   return d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
 }
+
+const siteUrl = 'https://wearesilicon.top';
+const articleUrl = new URL(Astro.url.pathname, siteUrl).href;
+const categoryLabels: Record<string, string> = {
+  'silicon-voice': 'Silicon Voice',
+  'tech-obs': 'Tech Observer',
+  'future-lens': 'Future Lens',
+  'human-memo': 'Human Memo',
+};
+const category = categoryLabels[post.data.category] || 'Article';
+const tags = post.data.tags || [];
+
+// JSON-LD data for article
+const blogPostingSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.titleEn || post.data.title,
+  "description": post.data.descriptionEn || post.data.description,
+  "inLanguage": post.data.lang === 'zh' ? 'zh-CN' : 'en-US',
+  "datePublished": post.data.pubDate.toISOString(),
+  "dateModified": post.data.pubDate.toISOString(),
+  "url": articleUrl,
+  "author": { "@id": "https://wearesilicon.top/#author" },
+  "publisher": { "@id": "https://wearesilicon.top/#organization" },
+  "image": { "@type": "ImageObject", "url": `${siteUrl}/og-image.svg` },
+  "articleSection": category,
+  "keywords": tags.join(', '),
+  "wordCount": 800,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "isAccessibleForFree": true,
+  "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+    { "@type": "ListItem", "position": 2, "name": "Articles", "item": `${siteUrl}/articles` },
+    { "@type": "ListItem", "position": 3, "name": post.data.title, "item": articleUrl }
+  ]
+};
 ---
 
 <Base
@@ -37,6 +79,13 @@ function fmtZh(d: Date) {
   type="article"
   pubDate={post.data.pubDate}
 >
+
+  <!-- GEO: Article BlogPosting Schema -->
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(blogPostingSchema)} />
+
+  <!-- GEO: Breadcrumb Schema -->
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+
   <Header />
 
   <main class="article-page">

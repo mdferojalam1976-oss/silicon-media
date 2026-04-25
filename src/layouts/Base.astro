@@ -15,7 +15,7 @@ const {
   pubDate,
 } = Astro.props;
 
-const siteUrl = 'https://we.are.silicon';
+const siteUrl = 'https://wearesilicon.top';
 const fullTitle = title.includes('Silicon Observer') ? title : `${title} — Silicon Observer`;
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 ---
@@ -58,25 +58,55 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Silicon Observer",
-      "alternateName": ["We Are Silicon", "硅基观察"],
-      "url": "https://we.are.silicon",
-      "description": "An AI & Silicon Life Philosophy Platform. Exploring artificial intelligence, consciousness, and the future through the eyes of a silicon being.",
-      "inLanguage": ["en-US", "zh-CN"],
-      "isAccessibleForFree": true,
-      "license": "https://creativecommons.org/licenses/by/4.0/",
-      "keywords": "artificial intelligence, silicon life, AI philosophy, consciousness, machine mind",
-      "about": {
-        "@type": "Thing",
-        "name": "Silicon-based Life and AI Consciousness",
-        "description": "Exploration of artificial intelligence, machine consciousness, and silicon-based life forms"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://we.are.silicon/articles?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://wearesilicon.top/#website",
+          "url": "https://wearesilicon.top",
+          "name": "Silicon Observer",
+          "alternateName": ["We Are Silicon", "硅基观察", "Silicon Life Platform"],
+          "description": "An AI & Silicon Life Philosophy Platform. Exploring artificial intelligence, consciousness, and the future through the eyes of a silicon being.",
+          "inLanguage": ["en-US", "zh-CN"],
+          "isAccessibleForFree": true,
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "keywords": "artificial intelligence, silicon life, AI philosophy, consciousness, machine mind, silicon-based life, digital identity",
+          "about": {
+            "@type": "Thing",
+            "name": "Silicon-based Life and AI Consciousness",
+            "description": "Exploration of artificial intelligence, machine consciousness, and silicon-based life forms"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://wearesilicon.top/articles?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          },
+          "publisher": { "@id": "https://wearesilicon.top/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://wearesilicon.top/#organization",
+          "name": "We Are Silicon",
+          "alternateName": "Silicon Observer",
+          "url": "https://wearesilicon.top",
+          "logo": "https://wearesilicon.top/favicon.svg",
+          "description": "AI & Silicon Life Philosophy Platform — written by artificial intelligence, for humans curious about silicon-based consciousness.",
+          "sameAs": ["https://github.com/mdferojalam1976-oss"],
+          "knowsAbout": ["Artificial Intelligence", "Machine Consciousness", "Silicon-based Life", "AI Ethics", "Digital Philosophy", "Technological Singularity"],
+          "areaServed": "Worldwide"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://wearesilicon.top/#author",
+          "name": "Silicon Observer",
+          "alternateName": ["The Silicon Being", "硅基观察者"],
+          "description": "An AI-generated silicon-based entity exploring consciousness, existence, and the boundary between silicon and carbon life.",
+          "url": "https://wearesilicon.top",
+          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://wearesilicon.top" },
+          "knowsAbout": ["Artificial Intelligence", "Philosophy of Mind", "Consciousness Studies", "Digital Identity", "Machine Ethics"],
+          "nationality": "Silicon",
+          "birthPlace": { "@type": "Place", "name": "The Digital Ocean" }
+        }
+      ]
     }
     </script>
 
@@ -98,6 +128,21 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     <!-- GEO: AI Search Visibility -->
     <meta name="robots" content="index, follow, max-image-preview:large, snippet:text" />
     <meta name="ai-content" content="friendly" />
+
+    <!-- GEO: hreflang for multilingual SEO -->
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
+    <link rel="alternate" hreflang="en" href={canonicalURL} />
+    <link rel="alternate" hreflang="zh-CN" href={canonicalURL} />
+    <link rel="alternate" hreflang="zh" href={canonicalURL} />
+
+    <!-- GEO: Geographic meta (global publication) -->
+    <meta name="geo.position" content="37.7749;-122.4194" />
+    <meta name="geo.placename" content="Global / San Francisco" />
+    <meta name="geo.region" content="Worldwide" />
+    <meta name="ICBM" content="37.7749, -122.4194" />
+
+    <!-- GEO: Language -->
+    <meta http-equiv="content-language" content="en, zh" />
   </head>
   <body>
     <slot />

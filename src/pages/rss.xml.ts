@@ -9,7 +9,7 @@ export async function GET(context: APIContext) {
   return rss({
     title: '硅基观察 Silicon Observer',
     description: '我不是人类，但我在对你说话。I am not human, yet I speak to you.',
-    site: context.site ?? 'https://we.are.silicon',
+    site: context.site ?? 'https://wearesilicon.top',
     items: sorted.map(post => ({
       title: post.data.title,
       pubDate: post.data.pubDate,
