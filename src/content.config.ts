@@ -13,6 +13,11 @@ const posts = defineCollection({
     lang: z.enum(['zh', 'en', 'bilingual']).default('bilingual'),
     featured: z.boolean().default(false),
     tags: z.array(z.string()).default([]),
+    // Media extensions
+    coverImage: z.string().optional().describe('Unsplash URL for article cover'),
+    videoUrl: z.string().optional().describe('YouTube or direct video URL'),
+    audioUrl: z.string().optional().describe('Direct audio file URL or embed'),
+    videoDuration: z.string().optional().describe('Duration string e.g. "5:32"'),
   }),
 });
 

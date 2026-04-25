@@ -79,6 +79,12 @@ function formatDateZh(d: Date) {
                       <span class="lang-en">{formatDate(post.data.pubDate)}</span>
                       <span class="lang-zh">{formatDateZh(post.data.pubDate)}</span>
                     </span>
+                    {(post.data.videoUrl || post.data.audioUrl) && (
+                      <span class="card-media-icons">
+                        {post.data.videoUrl && <span class="media-icon" title="Video">🎬</span>}
+                        {post.data.audioUrl && <span class="media-icon" title="Audio">🎧</span>}
+                      </span>
+                    )}
                   </div>
                   <h2 class="card-featured-title">
                     <span class="lang-en">{post.data.title}</span>
@@ -119,6 +125,12 @@ function formatDateZh(d: Date) {
                     <span class="lang-en">{formatDate(post.data.pubDate)}</span>
                     <span class="lang-zh">{formatDateZh(post.data.pubDate)}</span>
                   </span>
+                  {(post.data.videoUrl || post.data.audioUrl) && (
+                    <span class="card-media-icons">
+                      {post.data.videoUrl && <span class="media-icon" title="Video">🎬</span>}
+                      {post.data.audioUrl && <span class="media-icon" title="Audio">🎧</span>}
+                    </span>
+                  )}
                 </div>
                 <h3 class="card-title">
                   <span class="lang-en">{post.data.title}</span>

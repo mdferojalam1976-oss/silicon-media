@@ -1244,3 +1244,35 @@ body::before {
   );
   z-index: 1;
 }
+
+/* ====== Media Icons on Cards ====== */
+.card-media-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+.media-icon {
+  font-size: 0.85rem;
+  filter: saturate(0.8);
+  transition: transform 150ms ease;
+}
+.article-card:hover .media-icon,
+.article-card-featured:hover .media-icon {
+  transform: scale(1.15);
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.card-featured-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}

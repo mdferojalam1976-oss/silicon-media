@@ -1,14 +1,18 @@
 ---
 interface Props {
-  src: string;
+  /** Remote audio URL (YouTube music, direct .mp3, etc.) */
+  url?: string;
+  /** Legacy prop for local files */
+  src?: string;
   title: string;
   titleEn?: string;
 }
 
-const { src, title, titleEn } = Astro.props;
+const { url, src, title, titleEn } = Astro.props;
+const audioSrc = url || src || '';
 ---
 
-<div class="audio-player" data-src={src}>
+<div class="audio-player" data-src={audioSrc}>
   <div class="player-header">
     <span class="player-icon">🔊</span>
     <div class="player-info">

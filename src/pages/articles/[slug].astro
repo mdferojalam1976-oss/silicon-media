@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import Footer from '../../components/SiliconFooter.astro';
 import AudioPlayer from '../../components/AudioPlayer.astro';
 import VideoPlayer from '../../components/VideoPlayer.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
@@ -124,25 +124,39 @@ const breadcrumbSchema = {
         )}
       </header>
 
-      <!-- Multimedia -->
-      <div style="margin-bottom: 2rem;">
-        <VideoPlayer src={`/video/${post.id}.mp4`} title={post.data.title} titleEn={post.data.titleEn} />
-      </div>
+      <!-- Multimedia: Video -->
+      {post.data.videoUrl && (
+        <div class="article-media-section">
+          <div class="media-label">
+            <span class="lang-en">🎬 Video</span>
+            <span class="lang-zh">🎬 视频</span>
+          </div>
+          <VideoPlayer url={post.data.videoUrl} title={post.data.title} />
+          {post.data.videoDuration && (
+            <span class="media-duration">{post.data.videoDuration}</span>
+          )}
+        </div>
+      )}
 
-      <div class="audio-section">
-        <div class="audio-toggle">
-          <button class="audio-tab active" data-lang="zh">🔊 中文音频</button>
-          <button class="audio-tab" data-lang="en">🔊 English Audio</button>
-        </div>
-        <div class="audio-content">
-          <div class="audio-zh">
-            <AudioPlayer src={`/audio/${post.id}_zh.m4a`} title={post.data.title} />
+      <!-- Multimedia: Audio -->
+      {(post.data.audioUrl || post.data.lang === 'bilingual') && (
+        <div class="audio-section">
+          <div class="media-label">
+            <span class="lang-en">🎧 Audio Narration</span>
+            <span class="lang-zh">🎧 音频朗读</span>
           </div>
-          <div class="audio-en" style="display:none">
-            <AudioPlayer src={`/audio/${post.id}_en.m4a`} title={post.data.titleEn ?? post.data.title} />
-          </div>
+          {post.data.audioUrl ? (
+            <AudioPlayer url={post.data.audioUrl} title={post.data.title} />
+          ) : (
+            <div class="audio-placeholder">
+              <p>
+                <span class="lang-en">Audio narration coming soon for this article.</span>
+                <span class="lang-zh">本文音频朗读即将上线。</span>
+              </p>
+            </div>
+          )}
         </div>
-      </div>
+      )}
 
       <!-- Body -->
       <article class="article-body">
