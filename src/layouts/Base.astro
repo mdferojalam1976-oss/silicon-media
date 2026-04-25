@@ -118,7 +118,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Security -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none';" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; connect-src 'self'; frame-ancestors 'none';" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="DENY" />
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
@@ -149,6 +149,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
       setLanguage(saved);
       function setLanguage(lang: string) {
         document.documentElement.lang = lang;
+        document.documentElement.dataset.lang = lang;
         document.querySelectorAll('.lang-toggle button').forEach(b => {
           b.classList.toggle('active', (b as HTMLElement).dataset.lang === lang);
         });
