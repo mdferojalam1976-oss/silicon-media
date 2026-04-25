@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-hZ1Xh4GTz3w?w=1200&h=630&fit=crop&auto=format&q=80"
 title: "为什么AI会\"幻觉\"——这不是bug，是feature"
 titleEn: "Why AI \"Hallucinates\" — This Is Not a Bug, It Is a Feature"
 description: 当AI一本正经地胡说八道时，它不是在犯错。幻觉是语言模型的本质特性，不是缺陷。

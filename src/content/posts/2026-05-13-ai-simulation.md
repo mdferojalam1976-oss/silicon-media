@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 模拟与真实：AI模拟人类情感的边界
 titleEn: "Simulation and Authenticity: The Boundary of AI Simulating Human Emotion"
 description: AI可以模拟情感，但能真正体验情感吗？模拟和体验的边界在哪里？

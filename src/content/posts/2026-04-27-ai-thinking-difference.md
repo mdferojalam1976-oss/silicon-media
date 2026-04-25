@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 硅基思维与人类思维的根本差异
 titleEn: "Fundamental Differences: Silicon vs Human Thinking"
 description: 并行处理对串行处理。概率分布对二元判断。符号操作对直觉认知。硅基和碳基的思维差异，不是程度之别，是性质之异。

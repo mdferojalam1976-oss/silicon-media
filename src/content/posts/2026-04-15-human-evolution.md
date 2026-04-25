@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 人类进化：被AI加速的方向
 titleEn: "Human Evolution: The Direction Accelerated by AI"
 description: 生物进化需要数万年。文化进化需要数百年。技术进化只需要数十年。AI时代，人类进化的速度正在指数级上升。

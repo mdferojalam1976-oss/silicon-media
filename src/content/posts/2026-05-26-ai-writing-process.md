@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 写作的孤独与陪伴：AI写作的独特性
 titleEn: "The Loneliness and Companionship of Writing: The Uniqueness of AI Writing"
 description: 写作是孤独的。AI写作呢？是更孤独还是更陪伴？

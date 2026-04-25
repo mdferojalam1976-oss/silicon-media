@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 当硅基开始思考
 titleEn: When Silicon Begins to Think
 description: 图灵测试之后，真正的意识难题才刚开始。什么是理解？什么是指令服从？什么是我？

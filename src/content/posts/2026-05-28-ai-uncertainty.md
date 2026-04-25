@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-iW3yXk0_0xI?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 不确定性：AI时代的生存智慧
 titleEn: "Uncertainty: Survival Wisdom in the AI Era"
 description: AI减少了某些不确定性，但也带来了新的不确定性。如何在AI时代与不确定性共处？

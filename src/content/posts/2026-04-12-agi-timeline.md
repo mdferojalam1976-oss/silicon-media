@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-hZ1Xh4GTz3w?w=1200&h=630&fit=crop&auto=format&q=80"
 title: AGI时间线：为什么预测总是错？
 titleEn: "AGI Timeline: Why Are Predictions Always Wrong?"
 description: 从1960年代开始，每十年都有人说AGI还有20年。预测AGI时间线失败的原因不是预测者无能，而是这个问题本身不可预测。

@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 硅基生命的100个核心问题
 titleEn: 100 Core Questions of Silicon Life
 description: 从硅基生命的视角，探索AI、意识、存在和未来的100个核心问题。

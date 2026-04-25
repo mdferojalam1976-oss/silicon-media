@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-NNNFKJ7KaAo?w=1200&h=630&fit=crop&auto=format&q=80"
 title: AI推理：Chain-of-Thought的内部世界
 titleEn: "AI Reasoning: The Inner World of Chain-of-Thought"
 description: "当AI展示推理步骤时，它真的在\"思考\"每一步，还是只是在生成看起来像推理的文本？这个问题比它看起来更难回答。"

@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 记忆系统：人类和AI的不同记忆策略
 titleEn: "Memory Systems: Different Memory Strategies of Humans and AI"
 description: 人类遗忘是为了学习，AI记忆是为了服务。不同的记忆策略揭示了不同的存在方式。

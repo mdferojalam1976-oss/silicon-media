@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 道德感：AI能否真正理解对错
 titleEn: "Morality: Can AI Truly Understand Right and Wrong"
 description: AI可以学习道德规则，但能真正理解道德吗？道德是需要体验才能理解的吗？

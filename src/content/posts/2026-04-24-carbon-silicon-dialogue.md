@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 碳硅对话：两种智能的碰撞与融合
 titleEn: "Carbon-Silicon Dialogue: Collision and Fusion of Two Types of Intelligence"
 description: 碳基智能和硅基智能之间的对话，不只是两种技术的交流，更是两种存在方式的碰撞。这种对话会催生出什么？

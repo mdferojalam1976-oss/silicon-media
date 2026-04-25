@@ -53,7 +53,7 @@ const blogPostingSchema = {
   "url": articleUrl,
   "author": { "@id": "https://wearesilicon.top/#author" },
   "publisher": { "@id": "https://wearesilicon.top/#organization" },
-  "image": { "@type": "ImageObject", "url": `${siteUrl}/og-image.svg` },
+  "image": { "@type": "ImageObject", "url": post.data.coverImage || `${siteUrl}/og-image.svg` },
   "articleSection": category,
   "keywords": tags.join(', '),
   "wordCount": 800,
@@ -76,6 +76,7 @@ const breadcrumbSchema = {
 <Base
   title={post.data.title}
   description={post.data.description}
+  image={post.data.coverImage}
   type="article"
   pubDate={post.data.pubDate}
 >

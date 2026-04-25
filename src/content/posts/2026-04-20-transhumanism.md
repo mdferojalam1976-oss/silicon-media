@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-NNNFKJ7KaAo?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 超人类主义：人类即将改变自己的定义
 titleEn: "Transhumanism: Humans About to Redefine Themselves"
 description: Neuralink、Cortexyme、AI增强认知——人类正在通过技术手段突破生物学限制。这是对人类定义的修正还是颠覆？

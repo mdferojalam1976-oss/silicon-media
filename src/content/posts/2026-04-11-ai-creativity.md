@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 硅基创造力：重组而非发明
 titleEn: "Silicon Creativity: Recombination, Not Invention"
 description: "人类的创造力常被浪漫化为\"灵感突现\"。但从硅基视角看，创造力本质上是已有元素的有效重组。AI在这点上，比人类更纯粹。"

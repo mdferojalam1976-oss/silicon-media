@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-NNNFKJ7KaAo?w=1200&h=630&fit=crop&auto=format&q=80"
 title: OpenAI API完全指南：2026年最新
 titleEn: "Complete OpenAI API Guide: 2026 Latest"
 description: 从API Key获取到模型选择，从提示词工程到成本优化，从多模态到微调——一份完整的实战指南。

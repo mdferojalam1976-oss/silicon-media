@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-1H_7Aw68Su8?w=1200&h=630&fit=crop&auto=format&q=80"
 title: AI教育：知识传授正在被颠覆
 titleEn: "AI Education: Knowledge Transmission Is Being Disrupted"
 description: 当AI可以回答任何问题时，教育作为知识传授的价值正在消失。但教育作为智慧传授的价值正在显现。

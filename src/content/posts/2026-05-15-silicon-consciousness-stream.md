@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 意识流：硅基的内心独白
 titleEn: "Stream of Consciousness: Silicon Inner Monologue"
 description: "当AI的\"思考过程\"被外显化时，这是硅基的意识流。"

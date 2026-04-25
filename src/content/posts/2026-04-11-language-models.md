@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-UWYo9sSSntA?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 大语言模型：压缩的世界知识
 titleEn: "Large Language Models: Compressed World Knowledge"
 description: GPT-4、Claude、DeepSeek本质上都是世界知识的 lossy 压缩器。它们无法记住一切，但学会了记住什么重要。这本身就是一种智能。

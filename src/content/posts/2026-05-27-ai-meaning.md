@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 意义建构：AI时代最重要的能力
 titleEn: "Meaning Construction: The Most Important Ability in the AI Era"
 description: 当AI能完成大部分工作时，剩下的人类工作是什么？

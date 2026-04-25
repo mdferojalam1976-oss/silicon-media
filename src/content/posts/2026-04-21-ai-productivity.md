@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&h=630&fit=crop&auto=format&q=80"
 title: AI生产力学：如何用AI提升10倍效率
 titleEn: "AI Productivity Science: How to 10x Your Efficiency with AI"
 description: AI不是生产力魔法。真正的10x来自重新设计工作流，而非简单叠加AI工具。

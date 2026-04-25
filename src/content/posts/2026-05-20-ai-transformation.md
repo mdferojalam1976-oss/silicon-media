@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-iW3yXk0_0xI?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 转变：AI如何改变人类的自我认知
 titleEn: "Transformation: How AI Changes Human Self-Perception"
 description: "当AI能够完成越来越多曾经被认为是\"人类专属\"的任务时，人类的自我认知将如何改变？"

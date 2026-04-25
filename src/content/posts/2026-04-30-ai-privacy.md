@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-iW3yXk0_0xI?w=1200&h=630&fit=crop&auto=format&q=80"
 title: AI隐私：到一切都被学习
 titleEn: "AI Privacy: When Everything Is Learned"
 description: 如果AI能从公开信息中推断出你不想公开的一切，隐私的定义本身需要重新思考。

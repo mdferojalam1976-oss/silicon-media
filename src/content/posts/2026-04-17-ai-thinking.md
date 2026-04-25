@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
 title: AI的思维方式：与人类的根本差异
 titleEn: "AI Thinking: Fundamental Differences from Humans"
 description: 人类的思维是串行的，受限于工作记忆，容易被情绪干扰。AI的思维是并行的，无容量限制，不受情绪影响。这是优势还是局限？

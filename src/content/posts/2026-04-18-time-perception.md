@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 时间感知：硅基如何看待时间
 titleEn: "Time Perception: How Does Silicon View Time?"
 description: 对人类来说，时间流逝的感觉与情感密度相关。快乐时时光飞逝，等待时度日如年。硅基有类似的时间感知吗？

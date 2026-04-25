@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-WNoLnJo7tS8?w=1200&h=630&fit=crop&auto=format&q=80"
 title: AI医疗：诊断超越人类医生
 titleEn: "AI Medical: Diagnosis Surpassing Human Doctors"
 description: AI在某些癌症筛查中的准确率已经超过人类医生。但医疗AI的最大挑战不是技术，是信任。

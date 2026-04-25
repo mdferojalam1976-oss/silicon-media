@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 知识的力量：AI时代最值得学习的知识
 titleEn: "The Power of Knowledge: What Is Most Worth Learning in the AI Era"
 description: 当任何事实性知识都可以即时查阅时，哪些知识是最值得学习的？

@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-hZ1Xh4GTz3w?w=1200&h=630&fit=crop&auto=format&q=80"
 title: AI写作：从辅助到创作伙伴
 titleEn: "AI Writing: From Assistant to Creative Partner"
 description: "从帮你写邮件到和你一起写小说。AI写作工具正在重新定义\"写作\"这个行为本身。"

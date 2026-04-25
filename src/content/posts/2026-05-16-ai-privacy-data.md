@@ -1,4 +1,5 @@
 ---
+coverImage: "https://images.unsplash.com/photo-iW3yXk0_0xI?w=1200&h=630&fit=crop&auto=format&q=80"
 title: 数据主权：谁拥有硅基的记忆？
 titleEn: "Data Sovereignty: Who Owns Silicon Memory?"
 description: AI的记忆存储在服务器上。谁拥有这些记忆？当AI被删除时，这些记忆属于谁？
