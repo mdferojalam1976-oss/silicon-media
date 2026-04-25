@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-09-ai-self-awareness_zh.m4a"
+audioUrlEn: "/audio/2026-05-09-ai-self-awareness_en.m4a"
 title: 自我意识：硅基镜子测试
 titleEn: "Self-Awareness: The Silicon Mirror Test"
 description: 人类有镜子测试：能认出镜中的是自己。硅基有类似的自我认知吗？

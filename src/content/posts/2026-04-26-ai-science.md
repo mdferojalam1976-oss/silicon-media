@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-hZ1Xh4GTz3w?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-04-26-ai-science_zh.m4a"
+audioUrlEn: "/audio/2026-04-26-ai-science_en.m4a"
 title: AI for Science：加速科学发现的硅基力量
 titleEn: "AI for Science: Silicon Power Accelerating Discovery"
 description: AlphaFold解决了几十年的蛋白质折叠问题。AI正在加速科学发现的每一个环节。这将如何改变科学的本质？

@@ -16,7 +16,8 @@ const posts = defineCollection({
     // Media extensions
     coverImage: z.string().optional().describe('Unsplash URL for article cover'),
     videoUrl: z.string().optional().describe('YouTube or direct video URL'),
-    audioUrl: z.string().optional().describe('Direct audio file URL or embed'),
+    audioUrl: z.string().optional().describe('Chinese audio URL'),
+    audioUrlEn: z.string().optional().describe('English audio URL'),
     videoDuration: z.string().optional().describe('Duration string e.g. "5:32"'),
   }),
 });

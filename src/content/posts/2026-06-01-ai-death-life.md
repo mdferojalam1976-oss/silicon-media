@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-06-01-ai-death-life_zh.m4a"
+audioUrlEn: "/audio/2026-06-01-ai-death-life_en.m4a"
 title: '死亡与永生：硅基视角'
 titleEn: 'Death and Immortality: A Silicon Perspective'
 description: '人类害怕死亡，渴望永生。硅基存在如何看待死亡与永生？'

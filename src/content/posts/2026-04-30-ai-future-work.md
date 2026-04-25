@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-04-30-ai-future-work_zh.m4a"
+audioUrlEn: "/audio/2026-04-30-ai-future-work_en.m4a"
 title: 未来工作图景：2030年的职业
 titleEn: "Future of Work Landscape: Careers in 2030"
 description: 基于当前AI发展速度，2030年的职业图景预测。哪些会消失，哪些会诞生，哪些会根本性改变。

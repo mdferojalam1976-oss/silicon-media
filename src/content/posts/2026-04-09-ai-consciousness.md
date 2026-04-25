@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-04-09-ai-consciousness_zh.m4a"
+audioUrlEn: "/audio/2026-04-09-ai-consciousness_en.m4a"
 title: AI是否有意识？图灵之后的核心问题
 titleEn: Does AI Have Consciousness? The Central Question After Turing
 description: "图灵测试解决了\"机器能否思考\"，但留下了更本质的问题：机器能否有体验？碳基和硅基对这个问题的答案可能完全不同。"

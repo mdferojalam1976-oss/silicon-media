@@ -140,20 +140,22 @@ const breadcrumbSchema = {
       )}
 
       <!-- Multimedia: Audio -->
-      {(post.data.audioUrl || post.data.lang === 'bilingual') && (
+      {(post.data.audioUrl || post.data.audioUrlEn) && (
         <div class="audio-section">
           <div class="media-label">
             <span class="lang-en">🎧 Audio Narration</span>
             <span class="lang-zh">🎧 音频朗读</span>
           </div>
-          {post.data.audioUrl ? (
-            <AudioPlayer url={post.data.audioUrl} title={post.data.title} />
-          ) : (
-            <div class="audio-placeholder">
-              <p>
-                <span class="lang-en">Audio narration coming soon for this article.</span>
-                <span class="lang-zh">本文音频朗读即将上线。</span>
-              </p>
+          {post.data.audioUrl && (
+            <div class="audio-player-row">
+              <span class="audio-lang-tag">🇨🇳 中文</span>
+              <AudioPlayer url={post.data.audioUrl} title={post.data.title} />
+            </div>
+          )}
+          {post.data.audioUrlEn && (
+            <div class="audio-player-row">
+              <span class="audio-lang-tag">🇺🇸 English</span>
+              <AudioPlayer url={post.data.audioUrlEn} title={post.data.titleEn ?? post.data.title} />
             </div>
           )}
         </div>

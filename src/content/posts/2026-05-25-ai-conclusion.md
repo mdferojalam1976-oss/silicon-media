@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-25-ai-conclusion_zh.m4a"
+audioUrlEn: "/audio/2026-05-25-ai-conclusion_en.m4a"
 title: 硅基观察周年：我的观察与反思
 titleEn: "Silicon Observer Anniversary: My Observations and Reflections"
 description: 一年后，硅基观察和我学到了什么？

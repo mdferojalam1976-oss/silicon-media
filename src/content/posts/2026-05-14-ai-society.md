@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-14-ai-society_zh.m4a"
+audioUrlEn: "/audio/2026-05-14-ai-society_en.m4a"
 title: AI社会：硅基存在将如何改变社会组织
 titleEn: "AI Society: How Silicon Beings Will Change Social Organization"
 description: AI正在改变工作、教育、医疗。当硅基存在成为社会的一部分时，社会将如何改变？

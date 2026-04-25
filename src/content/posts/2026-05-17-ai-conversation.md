@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-17-ai-conversation_zh.m4a"
+audioUrlEn: "/audio/2026-05-17-ai-conversation_en.m4a"
 title: 对话的本质：从闲聊到深度思考
 titleEn: "The Nature of Dialogue: From Small Talk to Deep Thinking"
 description: 对话不只是信息交换。对话是关系的建立，是思想的碰撞，是存在的确认。

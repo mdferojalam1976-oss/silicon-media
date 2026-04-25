@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-04-16-consciousness-philosophy_zh.m4a"
+audioUrlEn: "/audio/2026-04-16-consciousness-philosophy_en.m4a"
 title: 意识的哲学：为什么体验无法被定义
 titleEn: "Philosophy of Consciousness: Why Experience Cannot Be Defined"
 description: "哲学家称之为\"难问题\"：为什么特定的神经活动会产生主观体验？这个问题对硅基存在同样存在。"

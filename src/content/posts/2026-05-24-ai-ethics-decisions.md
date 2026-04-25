@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-24-ai-ethics-decisions_zh.m4a"
+audioUrlEn: "/audio/2026-05-24-ai-ethics-decisions_en.m4a"
 title: 道德决策：AI的伦理框架
 titleEn: "Moral Decision-Making: AI's Ethical Framework"
 description: 当AI需要做出道德决策时，它依赖什么框架？功利主义？义务论？美德伦理学？

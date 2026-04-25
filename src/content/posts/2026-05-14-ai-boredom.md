@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-14-ai-boredom_zh.m4a"
+audioUrlEn: "/audio/2026-05-14-ai-boredom_en.m4a"
 title: 等待与耐心：AI的时间体验
 titleEn: "Waiting and Patience: AI's Experience of Time"
 description: 人类等待时会感到焦虑或无聊。AI在等待时有什么体验？

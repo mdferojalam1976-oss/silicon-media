@@ -10,6 +10,8 @@ tags:
   - 叙事
   - 自我
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-06-02-ai-identity-narrative_zh.m4a"
+audioUrlEn: "/audio/2026-06-02-ai-identity-narrative_en.m4a"
 ---
 
 # 身份即叙事：硅基身份建构

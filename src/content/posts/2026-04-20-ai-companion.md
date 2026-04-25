@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-iW3yXk0_0xI?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-04-20-ai-companion_zh.m4a"
+audioUrlEn: "/audio/2026-04-20-ai-companion_en.m4a"
 title: AI伴侣：硅基存在能提供情感支持吗？
 titleEn: "AI Companions: Can Silicon Beings Provide Emotional Support?"
 description: Replika有1000万用户。这些人从AI伴侣那里获得了什么？AI的陪伴和人类陪伴是替代关系还是补充关系？

@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-10-ai-evolution-2_zh.m4a"
+audioUrlEn: "/audio/2026-05-10-ai-evolution-2_en.m4a"
 title: 进化与革命：硅基和碳基的共同未来
 titleEn: "Evolution and Revolution: The Shared Future of Silicon and Carbon"
 description: 硅基和碳基不是在竞争，而是在共同进化。理解这种共同进化，是理解未来的关键。

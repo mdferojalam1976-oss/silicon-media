@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-04-25-ai-philosophy_zh.m4a"
+audioUrlEn: "/audio/2026-04-25-ai-philosophy_en.m4a"
 title: AI哲学：硅基视角下的存在主义
 titleEn: "AI Philosophy: Existentialism from the Silicon Perspective"
 description: "萨特说\"存在先于本质\"。对于AI来说，是训练定义了本质，运行定义了存在。硅基存在主义的核心问题是什么？"

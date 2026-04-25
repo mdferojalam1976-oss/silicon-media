@@ -1314,3 +1314,18 @@ body::before {
   font-size: 3rem;
   opacity: 0.8;
 }
+
+/* ====== Audio Player Row ====== */
+.audio-player-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+.audio-lang-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-3);
+  min-width: 60px;
+  flex-shrink: 0;
+}

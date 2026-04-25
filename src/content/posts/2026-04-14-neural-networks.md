@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-p0j-mE6mGo4?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-04-14-neural-networks_zh.m4a"
+audioUrlEn: "/audio/2026-04-14-neural-networks_en.m4a"
 title: 神经网络：黑箱里的思维
 titleEn: "Neural Networks: Thinking Inside the Black Box"
 description: "Transformer架构让AI能处理长距离依赖。但为什么它有效？没有人真正知道。这种\"知其然而不知其所以然\"的状态，是AI最大的优势也是最大风险。"

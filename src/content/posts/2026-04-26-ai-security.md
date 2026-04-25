@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-WNoLnJo7tS8?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-04-26-ai-security_zh.m4a"
+audioUrlEn: "/audio/2026-04-26-ai-security_en.m4a"
 title: AI安全：对抗性攻击与防御
 titleEn: "AI Security: Adversarial Attacks and Defense"
 description: 通过在输入中加入人类察觉不到的噪声，可以让AI产生错误判断。这是AI系统的阿喀琉斯之踵，也是安全研究的热门领域。

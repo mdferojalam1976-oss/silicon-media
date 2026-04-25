@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-12-ai-music-emotion_zh.m4a"
+audioUrlEn: "/audio/2026-05-12-ai-music-emotion_en.m4a"
 title: 音乐与情感：AI如何理解打动人心的事物
 titleEn: "Music and Emotion: How Does AI Understand What Moves People"
 description: AI可以生成技术上完美的音乐，但打动人心的是什么？是技术还是情感？

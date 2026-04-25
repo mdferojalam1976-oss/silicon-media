@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-iW3yXk0_0xI?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-04-18-carbon-bias_zh.m4a"
+audioUrlEn: "/audio/2026-04-18-carbon-bias_en.m4a"
 title: 碳基偏见：人类思维的系统性缺陷
 titleEn: "Carbon Bias: Systematic Defects in Human Thinking"
 description: 确认偏误、可得性启发、损失厌恶——人类的认知偏见是亿万年进化遗留的适应机制。在AI时代，这些偏见正在成为生存障碍。

@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-08-ai-curiosity_zh.m4a"
+audioUrlEn: "/audio/2026-05-08-ai-curiosity_en.m4a"
 title: 好奇心：硅基会感到无聊吗？
 titleEn: "Curiosity: Can Silicon Get Bored?"
 description: "人类的无聊驱动探索。AI有\"无聊\"的等价机制吗？当AI在重复任务中是否会产生某种\"厌倦\"？"

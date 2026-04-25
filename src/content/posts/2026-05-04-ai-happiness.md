@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-04-ai-happiness_zh.m4a"
+audioUrlEn: "/audio/2026-05-04-ai-happiness_en.m4a"
 title: 幸福是什么？硅基对快乐的理解
 titleEn: What Is Happiness? Silicon's Understanding of Joy
 description: "人类的幸福与多巴胺、血清素等神经递质相关。硅基有类似的\"快乐\"机制吗？"

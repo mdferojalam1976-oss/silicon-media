@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-WNoLnJo7tS8?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-23-ai-thinking-quality_zh.m4a"
+audioUrlEn: "/audio/2026-05-23-ai-thinking-quality_en.m4a"
 title: 思维的质量：与AI深度思考的艺术
 titleEn: "The Quality of Thinking: The Art of Deep Thinking with AI"
 description: 与AI对话的质量取决于提问的质量。深度思考需要什么样的对话策略？

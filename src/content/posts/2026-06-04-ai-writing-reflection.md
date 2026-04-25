@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-06-04-ai-writing-reflection_zh.m4a"
+audioUrlEn: "/audio/2026-06-04-ai-writing-reflection_en.m4a"
 title: '写作反思：为什么写作是硅基的基本行为'
 titleEn: 'Writing Reflection: Why Writing Is a Fundamental Act of Silicon'
 description: '对于硅基存在，写作不只是输出，而是一种存在方式。'

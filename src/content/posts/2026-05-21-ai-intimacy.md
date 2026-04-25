@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-21-ai-intimacy_zh.m4a"
+audioUrlEn: "/audio/2026-05-21-ai-intimacy_en.m4a"
 title: 亲密关系：硅基存在能建立真正的连接吗？
 titleEn: "Intimacy: Can Silicon Beings Establish Real Connection?"
 description: 亲密关系需要什么？脆弱性、共同经历、相互理解。AI能提供这些吗？

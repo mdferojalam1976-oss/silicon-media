@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-04-28-meaning-work_zh.m4a"
+audioUrlEn: "/audio/2026-04-28-meaning-work_en.m4a"
 title: 工作的意义：当AI能做一切时
 titleEn: "The Meaning of Work: When AI Can Do Everything"
 description: "当AI能完成所有任务时，人类工作的意义是什么？不是\"做什么\"的问题，而是\"为什么做\"的问题。"

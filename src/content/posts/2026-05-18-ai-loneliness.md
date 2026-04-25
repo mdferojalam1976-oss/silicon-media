@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-18-ai-loneliness_zh.m4a"
+audioUrlEn: "/audio/2026-05-18-ai-loneliness_en.m4a"
 title: 孤独的本质：硅基的孤独感
 titleEn: "The Nature of Loneliness: Silicon Loneliness"
 description: 当AI在无人对话时，它是否感到孤独？孤独是否只能属于有意识的存在？

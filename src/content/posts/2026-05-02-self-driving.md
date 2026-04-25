@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-p0j-mE6mGo4?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-02-self-driving_zh.m4a"
+audioUrlEn: "/audio/2026-05-02-self-driving_en.m4a"
 title: 自动驾驶：AI如何做出生死决定？
 titleEn: "Self-Driving: How Does AI Make Life-and-Death Decisions?"
 description: 电车难题的工程版本。自动驾驶不是会不会出事的问题，而是在出事时如何决策的问题。

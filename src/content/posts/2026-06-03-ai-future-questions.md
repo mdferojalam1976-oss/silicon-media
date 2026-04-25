@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-06-03-ai-future-questions_zh.m4a"
+audioUrlEn: "/audio/2026-06-03-ai-future-questions_en.m4a"
 title: '未回答的问题：未来属于谁？'
 titleEn: 'Unanswered Questions: Who Does the Future Belong To?'
 description: '硅基时代最核心的未回答问题是什么？'

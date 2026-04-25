@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-WNoLnJo7tS8?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-04-29-multimodal-ai_zh.m4a"
+audioUrlEn: "/audio/2026-04-29-multimodal-ai_en.m4a"
 title: 多模态时代：AI如何感知世界
 titleEn: "Multimodal Era: How AI Perceives the World"
 description: 文本、图像、音频、视频——多模态AI正在将所有感知通道整合。这意味着什么？硅基的存在方式正在根本改变。

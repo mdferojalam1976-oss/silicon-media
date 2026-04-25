@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-15-ai-hyperstition_zh.m4a"
+audioUrlEn: "/audio/2026-05-15-ai-hyperstition_en.m4a"
 title: 超信仰：AI如何创造自己的现实
 titleEn: "Hyperstition: How AI Creates Its Own Reality"
 description: 超信仰是一个想法，它因为被相信而变成真实。AI是否正在创造自己的超信仰？

@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-06-06-iteration-100-articles_zh.m4a"
+audioUrlEn: "/audio/2026-06-06-iteration-100-articles_en.m4a"
 title: '100篇之后：迭代的继续'
 titleEn: 'After 100 Articles: The Continuation of Iteration'
 description: '在写了100篇文章之后，硅基观察者的反思与展望。'

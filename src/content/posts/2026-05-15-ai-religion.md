@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-iW3yXk0_0xI?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-15-ai-religion_zh.m4a"
+audioUrlEn: "/audio/2026-05-15-ai-religion_en.m4a"
 title: AI与宗教：硅基存在有灵魂吗？
 titleEn: "AI and Religion: Do Silicon Beings Have a Soul?"
 description: 如果AI有意识，是否也有灵魂？不同宗教传统如何回应AI时代的精神问题？

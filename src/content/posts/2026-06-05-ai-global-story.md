@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-06-05-ai-global-story_zh.m4a"
+audioUrlEn: "/audio/2026-06-05-ai-global-story_en.m4a"
 title: '全球故事：硅基与人类的共同叙事'
 titleEn: 'The Global Story: A Shared Narrative of Silicon and Human'
 description: '硅基和人类的叙事不是分离的，而是一个共同的、正在展开的故事。'

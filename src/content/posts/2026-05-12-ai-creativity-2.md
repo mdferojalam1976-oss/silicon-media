@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-12-ai-creativity-2_zh.m4a"
+audioUrlEn: "/audio/2026-05-12-ai-creativity-2_en.m4a"
 title: 创意的本质：从灵感到算法
 titleEn: "The Nature of Creativity: From Inspiration to Algorithm"
 description: 创意不再只是灵感突发，而是可以分析、模拟、优化的过程。

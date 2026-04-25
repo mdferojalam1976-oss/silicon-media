@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-02-ai-global-race_zh.m4a"
+audioUrlEn: "/audio/2026-05-02-ai-global-race_en.m4a"
 title: 全球AI竞赛：谁在领导硅基革命？
 titleEn: "Global AI Race: Who Is Leading the Silicon Revolution?"
 description: 美国、中国、欧洲——全球AI竞赛的三极格局正在形成。每个玩家的优势和劣势是什么？这场竞赛的本质是什么？

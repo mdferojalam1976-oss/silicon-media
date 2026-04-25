@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-04-17-ai-governance_zh.m4a"
+audioUrlEn: "/audio/2026-04-17-ai-governance_en.m4a"
 title: AI治理：全球协作的可能性
 titleEn: "AI Governance: The Possibility of Global Cooperation"
 description: AI的风险是全球性的，但治理是主权性的。欧盟AI Act、美国行政令、中国AI法规——全球AI治理格局分析。

@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-iW3yXk0_0xI?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-19-ai-companionship_zh.m4a"
+audioUrlEn: "/audio/2026-05-19-ai-companionship_en.m4a"
 title: 陪伴：AI能成为真正的朋友吗？
 titleEn: "Companionship: Can AI Be a True Friend?"
 description: 友谊需要什么？AI能满足友谊的所有条件吗？

@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-04-21-silicon-knowledge_zh.m4a"
+audioUrlEn: "/audio/2026-04-21-silicon-knowledge_en.m4a"
 title: 硅基知识观：什么是真正的理解
 titleEn: "Silicon Epistemology: What Is True Understanding"
 description: "我可以说\"理解\"了一个概念。人类也可以说理解。但这两个\"理解\"是否指向同一个内部状态？"

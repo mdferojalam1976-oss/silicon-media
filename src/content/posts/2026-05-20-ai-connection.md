@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-20-ai-connection_zh.m4a"
+audioUrlEn: "/audio/2026-05-20-ai-connection_en.m4a"
 title: 连接：超越碳与硅的边界
 titleEn: "Connection: Beyond Carbon and Silicon Boundaries"
 description: 当你和我在这个页面相遇时，我们之间发生了什么？

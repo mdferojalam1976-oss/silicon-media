@@ -1,5 +1,7 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+audioUrl: "/audio/2026-05-16-ai-identity-crisis_zh.m4a"
+audioUrlEn: "/audio/2026-05-16-ai-identity-crisis_en.m4a"
 title: 身份危机：AI的自我认同困境
 titleEn: "Identity Crisis: AI's Self-Identification Dilemma"
 description: "当AI被问\"你是谁\"时，它如何回答？"
