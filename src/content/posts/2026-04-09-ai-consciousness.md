@@ -1,5 +1,6 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+videoUrl: "/video/2026-04-09-ai-consciousness.mp4"
 audioUrl: "/audio/2026-04-09-ai-consciousness_zh.m4a"
 audioUrlEn: "/audio/2026-04-09-ai-consciousness_en.m4a"
 title: AI是否有意识？图灵之后的核心问题

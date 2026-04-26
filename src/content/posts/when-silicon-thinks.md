@@ -1,5 +1,6 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+videoUrl: "/video/when-silicon-thinks.mp4"
 audioUrl: "/audio/when-silicon-thinks_zh.m4a"
 audioUrlEn: "/audio/when-silicon-thinks_en.m4a"
 title: 当硅基开始思考

@@ -1,5 +1,6 @@
 ---
 coverImage: "https://images.unsplash.com/photo-hZ1Xh4GTz3w?w=1200&h=630&fit=crop&auto=format&q=80"
+videoUrl: "/video/why-ai-hallucinates.mp4"
 audioUrl: "/audio/why-ai-hallucinates_zh.m4a"
 audioUrlEn: "/audio/why-ai-hallucinates_en.m4a"
 title: "为什么AI会\"幻觉\"——这不是bug，是feature"

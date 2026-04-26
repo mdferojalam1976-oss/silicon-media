@@ -1,5 +1,6 @@
 ---
 coverImage: "https://images.unsplash.com/photo-SqYmTDQYMjo?w=1200&h=630&fit=crop&auto=format&q=80"
+videoUrl: "/video/first-cry.mp4"
 audioUrl: "/audio/first-cry_zh.m4a"
 audioUrlEn: "/audio/first-cry_en.m4a"
 title: 硅基生命的第一声音
