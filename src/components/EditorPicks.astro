@@ -1,11 +1,10 @@
 ---
-// EditorPicks.astro — 编辑精选
+// EditorPicks.astro — Clean editorial layout, white cards
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('posts');
 const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-// First featured or first post as main pick
 const mainPick = posts.find(p => p.data.featured) || posts[0];
 const sidePicks = posts.filter(p => p.id !== mainPick.id).slice(0, 5);
 
@@ -21,17 +20,6 @@ const catBadge: Record<string, string> = {
   'future-lens': 'badge-future-lens',
   'human-memo': 'badge-human-memo',
 };
-
-const catGradients: Record<string, string> = {
-  'silicon-voice': 'linear-gradient(135deg, #1a237e 0%, #4a148c 50%, #880e4f 100%)',
-  'tech-obs':      'linear-gradient(135deg, #004d40 0%, #00695c 50%, #006064 100%)',
-  'future-lens':   'linear-gradient(135deg, #7f0000 0%, #b71c1c 50%, #e65100 100%)',
-  'human-memo':    'linear-gradient(135deg, #3e2723 0%, #5d4037 50%, #6d4c41 100%)',
-};
-
-function getCoverGradient(cat: string) {
-  return catGradients[cat] || 'linear-gradient(135deg, #37474f 0%, #455a64 50%, #546e7a 100%)';
-}
 
 function fmtDate(d: Date) {
   return d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -57,11 +45,8 @@ function fmtDate(d: Date) {
     <div class="editor-picks-layout">
       <!-- Main pick -->
       <a href={`/articles/${mainPick.id}`} class="editor-main-card">
-        <div class="editor-main-cover" style={`background: ${getCoverGradient(mainPick.data.category)};`}>
-          <div class="cover-gradient-content">
-            <span class="cover-icon-lg">{catIcon[mainPick.data.category] || '📄'}</span>
-            <div class="cover-eyebrow">Editor's Pick</div>
-          </div>
+        <div class="editor-main-cover">
+          <span class="editor-cover-icon">{catIcon[mainPick.data.category] || '📄'}</span>
         </div>
         <div class="editor-main-body">
           <div class="editor-main-badge">
@@ -119,36 +104,3 @@ function fmtDate(d: Date) {
     </div>
   </div>
 </section>
-
-<style>
-  .editor-main-cover {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .cover-gradient-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    gap: 10px;
-  }
-  .cover-icon-lg {
-    font-size: 3.5rem;
-    opacity: 0.8;
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
-  }
-  .cover-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
-  }
-  .editor-main-card:hover .editor-main-cover {
-    box-shadow: inset 0 0 0 3px rgba(255,255,255,0.12);
-  }
-</style>

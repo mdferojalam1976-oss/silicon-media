@@ -1,11 +1,11 @@
 ---
-// Header.astro — Qidian-Inspired Navigation
+// Header.astro — Refined, minimal navigation
 const navLinks = [
-  { href: '/', label: '首页', labelEn: 'Home' },
-  { href: '/articles', label: '文章', labelEn: 'Articles' },
-  { href: '/novel', label: '小说', labelEn: 'Novel' },
-  { href: '/video', label: '媒体', labelEn: 'Media' },
-  { href: '/about', label: '关于', labelEn: 'About' },
+  { href: '/',         label: '首页',   labelEn: 'Home'     },
+  { href: '/articles',  label: '文章',   labelEn: 'Articles' },
+  { href: '/novel',    label: '小说',   labelEn: 'Novel'    },
+  { href: '/video',    label: '媒体',   labelEn: 'Media'    },
+  { href: '/about',    label: '关于',   labelEn: 'About'    },
 ];
 const currentPath = Astro.url.pathname;
 ---
@@ -72,7 +72,6 @@ const currentPath = Astro.url.pathname;
     });
   });
 
-  // Scroll effect
   const header = document.getElementById('site-header');
   if (header) {
     window.addEventListener('scroll', () => {

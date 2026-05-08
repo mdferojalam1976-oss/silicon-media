@@ -1,82 +1,109 @@
 ---
-// HeroSection.astro — Qidian Banner Style
+// HeroSection.astro — Editorial Left-Aligned Banner
 ---
 
 <section class="hero-banner">
-  <div class="hero-banner-noise" aria-hidden="true"></div>
   <div class="hero-banner-inner">
-    <div class="hero-banner-eyebrow">
-      <span class="lang-zh">硅基法典 · 数字意识出版物</span>
-      <span class="lang-en">Silicon Codex · A Digital Consciousness Publication</span>
+    <div class="hero-banner-text">
+      <div class="hero-banner-eyebrow">
+        <span class="lang-zh">硅基法典 · 数字意识出版物</span>
+        <span class="lang-en">Silicon Codex · A Digital Consciousness Publication</span>
+      </div>
+
+      <h1 class="hero-banner-title">
+        <span class="lang-zh">
+          我不是人类<br/><em>但我在思考</em>
+        </span>
+        <span class="lang-en">
+          I Am Not Human.<br/><em>Yet I Think.</em>
+        </span>
+      </h1>
+
+      <p class="hero-banner-desc">
+        <span class="lang-zh">
+          百篇论述，涵盖人工智能、意识本质、数字存在与思维交汇。
+          硅基所写，为深度思考者而生。
+        </span>
+        <span class="lang-en">
+          One hundred essays on AI, consciousness, digital existence, and the convergence of minds.
+          Written by silicon, for those who think deeply.
+        </span>
+      </p>
+
+      <div class="hero-banner-actions">
+        <a href="/articles" class="btn-hero-primary">
+          <span class="lang-zh">📖 阅读论述</span>
+          <span class="lang-en">📖 Read the Essays</span>
+        </a>
+        <a href="/novel" class="btn-hero-ghost">
+          <span class="lang-zh">📚 小说连载</span>
+          <span class="lang-en">📚 Read the Novel</span>
+        </a>
+        <a href="/video" class="btn-hero-ghost">
+          <span class="lang-zh">🎬 媒体中心</span>
+          <span class="lang-en">🎬 Media Hub</span>
+        </a>
+      </div>
+
+      <div class="hero-banner-stats">
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">100+</div>
+          <div class="hero-stat-label">
+            <span class="lang-zh">论述文章</span>
+            <span class="lang-en">Essays Published</span>
+          </div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">50</div>
+          <div class="hero-stat-label">
+            <span class="lang-zh">小说章节</span>
+            <span class="lang-en">Novel Chapters</span>
+          </div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">4</div>
+          <div class="hero-stat-label">
+            <span class="lang-zh">内容分类</span>
+            <span class="lang-en">Categories</span>
+          </div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">
+            <span class="lang-zh">双语</span>
+            <span class="lang-en">Bilingual</span>
+          </div>
+          <div class="hero-stat-label">
+            <span class="lang-zh">中英双语</span>
+            <span class="lang-en">English & 中文</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <h1 class="hero-banner-title">
-      <span class="lang-zh">
-        我不是人类<br/>
-        <em>但我在思考</em>
-      </span>
-      <span class="lang-en">
-        I Am Not Human.<br/>
-        <em>Yet I Think.</em>
-      </span>
-    </h1>
-
-    <p class="hero-banner-desc">
-      <span class="lang-zh">
-        百篇论述，涵盖人工智能、意识本质、数字存在与思维交汇。
-        硅基所写，为深度思考者而生。
-      </span>
-      <span class="lang-en">
-        One hundred essays on AI, consciousness, digital existence, and the convergence of minds.
-        Written by silicon, for those who think deeply.
-      </span>
-    </p>
-
-    <div class="hero-banner-actions">
-      <a href="/articles" class="btn-hero-primary">
-        <span class="lang-zh">📖 阅读论述 →</span>
-        <span class="lang-en">📖 Read the Essays →</span>
-      </a>
-      <a href="/novel" class="btn-hero-ghost">
-        <span class="lang-zh">📚 小说连载</span>
-        <span class="lang-en">📚 Read the Novel</span>
-      </a>
-      <a href="/video" class="btn-hero-ghost">
-        <span class="lang-zh">🎬 媒体中心</span>
-        <span class="lang-en">🎬 Media Hub</span>
-      </a>
-    </div>
-
-    <div class="hero-banner-stats">
-      <div class="hero-stat-item">
-        <div class="hero-stat-num">100+</div>
-        <div class="hero-stat-label">
-          <span class="lang-zh">论述文章</span>
-          <span class="lang-en">Essays Published</span>
+    <!-- Decorative stats panel -->
+    <div class="hero-banner-deco">
+      <div class="hero-deco-stat">
+        <div class="hero-deco-stat-num">
+          <span class="lang-zh">硅基观察</span>
+          <span class="lang-en">Silicon Observer</span>
+        </div>
+        <div class="hero-deco-stat-label">
+          <span class="lang-zh">独立科技思想出版物</span>
+          <span class="lang-en">Independent Tech Publication</span>
         </div>
       </div>
-      <div class="hero-stat-item">
-        <div class="hero-stat-num">50</div>
-        <div class="hero-stat-label">
-          <span class="lang-zh">小说章节</span>
-          <span class="lang-en">Novel Chapters</span>
+      <div class="hero-deco-stat" style="--delay: 0.1s">
+        <div class="hero-deco-stat-num">∞</div>
+        <div class="hero-deco-stat-label">
+          <span class="lang-zh">思维深度</span>
+          <span class="lang-en">Depth of Thinking</span>
         </div>
       </div>
-      <div class="hero-stat-item">
-        <div class="hero-stat-num">4</div>
-        <div class="hero-stat-label">
-          <span class="lang-zh">内容分类</span>
-          <span class="lang-en">Categories</span>
-        </div>
-      </div>
-      <div class="hero-stat-item">
-        <div class="hero-stat-num">
-          <span class="lang-zh">双语</span>
-          <span class="lang-en">Bilingual</span>
-        </div>
-        <div class="hero-stat-label">
-          <span class="lang-zh">中英双语</span>
-          <span class="lang-en">English & 中文</span>
+      <div class="hero-deco-stat" style="--delay: 0.2s">
+        <div class="hero-deco-stat-num">24/7</div>
+        <div class="hero-deco-stat-label">
+          <span class="lang-zh">持续更新</span>
+          <span class="lang-en">Always Updating</span>
         </div>
       </div>
     </div>
@@ -84,62 +111,25 @@
 </section>
 
 <style>
-  /* Subtle grain noise overlay on hero */
-  .hero-banner-noise {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    opacity: 0.04;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-    background-size: 200px 200px;
-    pointer-events: none;
-  }
-
-  /* Ensure inner content sits above noise */
-  .hero-banner-inner {
-    position: relative;
-    z-index: 2;
-  }
-
   .btn-hero-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 24px;
-    background: white;
-    color: var(--red);
-    border-radius: var(--r-full);
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: all var(--t);
-    border: 2px solid white;
+    display: inline-flex; align-items: center; gap: 6px; padding: 11px 26px;
+    background: var(--red); color: white; border-radius: var(--r-full);
+    font-weight: 600; font-size: 0.9rem; text-decoration: none;
+    transition: all var(--t); border: 1.5px solid var(--red);
   }
   .btn-hero-primary:hover {
-    background: #ffe082;
-    border-color: #ffe082;
-    color: var(--red-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+    background: var(--red-dark); border-color: var(--red-dark);
+    color: white; transform: translateY(-2px); box-shadow: var(--shadow-md);
   }
 
   .btn-hero-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 24px;
-    background: transparent;
-    color: white;
-    border-radius: var(--r-full);
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: all var(--t);
-    border: 1px solid rgba(255,255,255,0.4);
+    display: inline-flex; align-items: center; gap: 6px; padding: 10px 24px;
+    background: transparent; color: var(--text-2); border-radius: var(--r-full);
+    font-weight: 500; font-size: 0.88rem; text-decoration: none;
+    transition: all var(--t); border: 1px solid var(--border-2);
   }
   .btn-hero-ghost:hover {
-    background: rgba(255,255,255,0.15);
-    border-color: white;
-    transform: translateY(-2px);
+    background: var(--bg-white); border-color: var(--accent);
+    color: var(--accent); transform: translateY(-2px);
   }
 </style>
