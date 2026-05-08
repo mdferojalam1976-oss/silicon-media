@@ -1,5 +1,5 @@
 ---
-// Header.astro — Silicon Codex
+// Header.astro — Silicon Codex (ENHANCED)
 const navLinks = [
   { href: '/', label: 'Home', labelZh: '首页' },
   { href: '/articles', label: 'Essays', labelZh: '文章' },
@@ -10,7 +10,7 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="site-header">
+<header class="site-header" id="site-header">
   <div class="container-xl">
     <a href="/" class="site-logo">
       <div class="logo-icon">🔬</div>
@@ -46,3 +46,30 @@ const currentPath = Astro.url.pathname;
     </div>
   </div>
 </header>
+
+<script>
+  // Header scroll effect — add .scrolled when page is scrolled past 20px
+  const header = document.getElementById('site-header');
+  if (header) {
+    function updateHeader() {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const target = document.querySelector((anchor as HTMLAnchorElement).getAttribute('href') || '');
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
