@@ -1,0 +1,80 @@
+---
+// HotArticles.astro — 热门文章排行
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Show featured first, then by date — take top 5
+const hotPosts = posts
+  .sort((a, b) => {
+    if (a.data.featured && !b.data.featured) return -1;
+    if (!a.data.featured && b.data.featured) return 1;
+    return 0;
+  })
+  .slice(0, 5);
+
+const catIcon: Record<string, string> = {
+  'silicon-voice': '🧠',
+  'tech-obs': '⚡',
+  'future-lens': '🔭',
+  'human-memo': '💡',
+};
+
+function fmtDate(d: Date) {
+  return d.toLocaleDateString('zh-CN', { month: 'short', day: 'numeric' });
+}
+---
+
+<section class="hot-articles">
+  <div class="container-xl">
+    <div class="section-header">
+      <div class="section-title-group">
+        <span class="section-icon">🔥</span>
+        <h2 class="section-title">
+          <span class="lang-zh">热门文章</span>
+          <span class="lang-en">Hot Articles</span>
+        </h2>
+      </div>
+      <a href="/articles" class="section-more">
+        <span class="lang-zh">查看全部 →</span>
+        <span class="lang-en">View All →</span>
+      </a>
+    </div>
+
+    <div class="hot-articles-grid">
+      {hotPosts.map((post, i) => {
+        const icon = catIcon[post.data.category] || '📄';
+        return (
+          <a href={`/articles/${post.id}`} class="hot-article-card">
+            <div class="hot-card-cover">
+              {post.data.coverImage ? (
+                <img src={post.data.coverImage} alt="" loading="lazy" />
+              ) : (
+                <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--surface-3);">
+                  <span style="font-size:2rem;opacity:0.4;">{icon}</span>
+                </div>
+              )}
+              <span class="hot-rank-badge">#{i + 1}</span>
+            </div>
+            <div class="hot-card-body">
+              <div class="hot-card-title">
+                <span class="lang-zh">{post.data.titleZh || post.data.title}</span>
+                <span class="lang-en">{post.data.title}</span>
+              </div>
+              <div class="hot-card-meta">
+                <span>{icon}</span>
+                <span>{fmtDate(post.data.pubDate)}</span>
+                <span>·</span>
+                <span>
+                  <span class="lang-zh">{post.data.category === 'silicon-voice' ? '硅基之声' : post.data.category === 'tech-obs' ? '技术观察' : post.data.category === 'future-lens' ? '未来视角' : '人类备忘'}</span>
+                  <span class="lang-en">{post.data.category?.replace(/-/g, ' ')}</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>

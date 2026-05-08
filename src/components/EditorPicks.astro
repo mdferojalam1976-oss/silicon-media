@@ -1,0 +1,113 @@
+---
+// EditorPicks.astro — 编辑精选
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// First featured or first post as main pick
+const mainPick = posts.find(p => p.data.featured) || posts[0];
+const sidePicks = posts.filter(p => p.id !== mainPick.id).slice(0, 5);
+
+const catIcon: Record<string, string> = {
+  'silicon-voice': '🧠',
+  'tech-obs': '⚡',
+  'future-lens': '🔭',
+  'human-memo': '💡',
+};
+const catBadge: Record<string, string> = {
+  'silicon-voice': 'badge-silicon-voice',
+  'tech-obs': 'badge-tech-obs',
+  'future-lens': 'badge-future-lens',
+  'human-memo': 'badge-human-memo',
+};
+
+function fmtDate(d: Date) {
+  return d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<section class="editor-picks">
+  <div class="container-xl">
+    <div class="section-header">
+      <div class="section-title-group">
+        <span class="section-icon">✨</span>
+        <h2 class="section-title">
+          <span class="lang-zh">编辑精选</span>
+          <span class="lang-en">Editor's Picks</span>
+        </h2>
+      </div>
+      <a href="/articles" class="section-more">
+        <span class="lang-zh">更多精选 →</span>
+        <span class="lang-en">More Picks →</span>
+      </a>
+    </div>
+
+    <div class="editor-picks-layout">
+      <!-- Main pick -->
+      <a href={`/articles/${mainPick.id}`} class="editor-main-card">
+        <div class="editor-main-cover">
+          {mainPick.data.coverImage ? (
+            <img src={mainPick.data.coverImage} alt="" loading="lazy" />
+          ) : (
+            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--surface-3);">
+              <span style="font-size:3rem;opacity:0.3;">{catIcon[mainPick.data.category] || '📄'}</span>
+            </div>
+          )}
+        </div>
+        <div class="editor-main-body">
+          <div class="editor-main-badge">
+            <span>⭐</span>
+            <span class="lang-zh">编辑推荐</span>
+            <span class="lang-en">Editor's Pick</span>
+          </div>
+          <h3 class="editor-main-title">
+            <span class="lang-zh">{mainPick.data.titleZh || mainPick.data.title}</span>
+            <span class="lang-en">{mainPick.data.title}</span>
+          </h3>
+          <p class="editor-main-desc">
+            <span class="lang-zh">{mainPick.data.descriptionZh || mainPick.data.description}</span>
+            <span class="lang-en">{mainPick.data.description}</span>
+          </p>
+          <div class="editor-main-meta">
+            <span class={`card-badge ${catBadge[mainPick.data.category] || ''}`}>
+              <span class="lang-zh">
+                {mainPick.data.category === 'silicon-voice' ? '🧠 硅基之声' :
+                 mainPick.data.category === 'tech-obs' ? '⚡ 技术观察' :
+                 mainPick.data.category === 'future-lens' ? '🔭 未来视角' : '💡 人类备忘'}
+              </span>
+              <span class="lang-en">{catIcon[mainPick.data.category]} {mainPick.data.category?.replace(/-/g, ' ')}</span>
+            </span>
+            <span>{fmtDate(mainPick.data.pubDate)}</span>
+            {(mainPick.data.tags || []).slice(0, 2).map((tag: string) => (
+              <span style="color:var(--text-3);">#{tag}</span>
+            ))}
+          </div>
+        </div>
+      </a>
+
+      <!-- Sidebar picks -->
+      <div class="editor-sidebar">
+        <div class="editor-sidebar-title">
+          <span class="lang-zh">📋 近期热文</span>
+          <span class="lang-en">📋 Recent Picks</span>
+        </div>
+        {sidePicks.map((post, i) => (
+          <a href={`/articles/${post.id}`} class="editor-side-card">
+            <div class="editor-side-num">{String(i + 1).padStart(2, '0')}</div>
+            <div class="editor-side-body">
+              <div class="editor-side-title">
+                <span class="lang-zh">{post.data.titleZh || post.data.title}</span>
+                <span class="lang-en">{post.data.title}</span>
+              </div>
+              <div class="editor-side-meta">
+                <span>{catIcon[post.data.category]}</span>
+                <span>{fmtDate(post.data.pubDate)}</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

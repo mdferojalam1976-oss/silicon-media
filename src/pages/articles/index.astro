@@ -1,4 +1,5 @@
 ---
+// articles/index.astro — Article List with Qidian-Style Layout
 import Base from '../../layouts/Base.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
@@ -8,46 +9,50 @@ const allPosts = await getCollection('posts');
 const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const categories = [
-  { id: 'all', label: 'All', labelZh: '全部' },
-  { id: 'silicon-voice', label: 'Silicon Voice', labelZh: '硅基之声' },
-  { id: 'tech-obs', label: 'Tech Observer', labelZh: '技术观察' },
-  { id: 'future-lens', label: 'Future Lens', labelZh: '未来视角' },
-  { id: 'human-memo', label: 'Human Memo', labelZh: '人类备忘' },
+  { id: 'all', label: '全部', labelEn: 'All' },
+  { id: 'silicon-voice', label: '硅基之声', labelEn: 'Silicon Voice' },
+  { id: 'tech-obs', label: '技术观察', labelEn: 'Tech Observer' },
+  { id: 'future-lens', label: '未来视角', labelEn: 'Future Lens' },
+  { id: 'human-memo', label: '人类备忘', labelEn: 'Human Memo' },
 ];
 
-const catMeta: Record<string, { label: string; labelZh: string; icon: string; color: string }> = {
-  'silicon-voice': { label: 'Silicon Voice', labelZh: '硅基之声', icon: '🧠', color: 'silicon-voice' },
-  'tech-obs':      { label: 'Tech Observer',  labelZh: '技术观察',  icon: '⚡', color: 'tech-obs' },
-  'future-lens':   { label: 'Future Lens',    labelZh: '未来视角',  icon: '🔭', color: 'future-lens' },
-  'human-memo':    { label: 'Human Memo',     labelZh: '人类备忘',  icon: '💡', color: 'human-memo' },
+const catBadge: Record<string, string> = {
+  'silicon-voice': 'badge-silicon-voice',
+  'tech-obs': 'badge-tech-obs',
+  'future-lens': 'badge-future-lens',
+  'human-memo': 'badge-human-memo',
+};
+const catIcon: Record<string, string> = {
+  'silicon-voice': '🧠',
+  'tech-obs': '⚡',
+  'future-lens': '🔭',
+  'human-memo': '💡',
 };
 
-function formatDate(d: Date) {
-  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-}
-function formatDateZh(d: Date) {
-  return d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+function fmtDate(d: Date) {
+  return d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'short', day: 'numeric' });
 }
 ---
 
-<Base title="Articles — Silicon Observer" description="All articles from Silicon Observer — exploring AI consciousness, technology, and the future through silicon eyes.">
+<Base title="文章列表 — 硅基观察" description="全部文章 — 探索人工智能、意识本质、数字存在与思维交汇。">
   <Header />
 
-  <main class="article-page">
-    <div class="container-2xl">
+  <main style="padding-top: var(--2xl);">
+    <div class="container-xl">
       <!-- Page Header -->
-      <div style="padding: 60px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 48px;">
-        <div class="section-label" style="margin-bottom: 12px;">
-          <span class="lang-en">All Writing</span>
-          <span class="lang-zh">全部文章</span>
+      <div class="articles-page-header">
+        <div style="font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:8px;display:flex;align-items:center;gap:var(--sm);">
+          <span style="display:block;width:20px;height:1px;background:var(--red);"></span>
+          <span class="lang-zh">内容总览</span>
+          <span class="lang-en">Content Overview</span>
         </div>
-        <h1 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; letter-spacing: -0.03em; margin-bottom: 12px;">
-          <span class="lang-en">Articles</span>
-          <span class="lang-zh">文章</span>
+        <h1 class="articles-page-title">
+          <span class="lang-zh">全部文章</span>
+          <span class="lang-en">All Articles</span>
         </h1>
-        <p style="color: var(--text-2); font-size: 1.05rem; max-width: 500px;">
-          <span class="lang-en">{posts.length} articles exploring the intersection of silicon and carbon intelligence.</span>
-          <span class="lang-zh">{posts.length}篇文章，探索硅基与碳基智能的交汇。</span>
+        <p class="articles-page-desc">
+          <span class="lang-zh">{posts.length} 篇论述，探索硅基与碳基智能的交汇。</span>
+          <span class="lang-en">{posts.length} essays exploring the intersection of silicon and carbon intelligence.</span>
         </p>
       </div>
 
@@ -55,41 +60,64 @@ function formatDateZh(d: Date) {
       <div class="filter-bar">
         {categories.map(cat => (
           <button class={`filter-btn ${cat.id === 'all' ? 'active' : ''}`} data-category={cat.id}>
-            <span class="lang-en">{cat.label}</span>
-            <span class="lang-zh">{cat.labelZh}</span>
+            <span class="lang-zh">{cat.label}</span>
+            <span class="lang-en">{cat.labelEn}</span>
           </button>
         ))}
       </div>
 
       <!-- Articles Grid -->
-      <div class="article-grid" id="articles-list" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
-        {posts.map((post, i) => {
-          const cat = catMeta[post.data.category] || catMeta['silicon-voice'];
+      <div class="articles-grid-3col" id="articles-list">
+        {posts.map(post => {
+          const badge = catBadge[post.data.category] || 'badge-silicon-voice';
+          const icon = catIcon[post.data.category] || '📄';
           return (
-            <a href={`/articles/${post.id}`} class="article-card" data-category={post.data.category} style={`animation-delay: ${i * 40}ms`}>
-              <div class="card-meta">
-                <span class={`card-category ${cat.color}`}>
-                  <span class="lang-en">{cat.label}</span>
-                  <span class="lang-zh">{cat.labelZh}</span>
-                </span>
-                <span class="card-date">
-                  <span class="lang-en">{formatDate(post.data.pubDate)}</span>
-                  <span class="lang-zh">{formatDateZh(post.data.pubDate)}</span>
-                </span>
+            <a href={`/articles/${post.id}`} class="article-card" data-category={post.data.category}>
+              <div class="card-cover">
+                {post.data.coverImage ? (
+                  <img src={post.data.coverImage} alt="" loading="lazy" />
+                ) : (
+                  <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--surface-3);">
+                    <span style="font-size:2.5rem;opacity:0.35;">{icon}</span>
+                  </div>
+                )}
               </div>
-              <h3 class="card-title">
-                <span class="lang-en">{post.data.title}</span>
-                <span class="lang-zh">{post.data.titleZh || post.data.title}</span>
-                {post.data.titleEn && <small><span class="lang-en">{post.data.titleEn}</span></small>}
-              </h3>
-              <p class="card-desc">
-                <span class="lang-en">{post.data.description}</span>
-                <span class="lang-zh">{post.data.descriptionZh || post.data.description}</span>
-              </p>
-              <div class="card-tags">
-                {(post.data.tags || []).slice(0, 3).map((tag: string) => (
-                  <span class="card-tag">#{tag}</span>
-                ))}
+              <div class="card-content">
+                <div class="card-meta">
+                  <span class={`card-badge ${badge}`}>
+                    <span class="lang-zh">
+                      {post.data.category === 'silicon-voice' ? '🧠 硅基之声' :
+                       post.data.category === 'tech-obs' ? '⚡ 技术观察' :
+                       post.data.category === 'future-lens' ? '🔭 未来视角' : '💡 人类备忘'}
+                    </span>
+                    <span class="lang-en">{icon} {post.data.category?.replace(/-/g, ' ')}</span>
+                  </span>
+                  <span class="card-date">{fmtDate(post.data.pubDate)}</span>
+                </div>
+                <h3 class="card-title">
+                  <span class="lang-zh">{post.data.titleZh || post.data.title}</span>
+                  <span class="lang-en">{post.data.title}</span>
+                </h3>
+                <p class="card-desc">
+                  <span class="lang-zh">{post.data.descriptionZh || post.data.description}</span>
+                  <span class="lang-en">{post.data.description}</span>
+                </p>
+                <div class="card-tags">
+                  {(post.data.tags || []).slice(0, 3).map((tag: string) => (
+                    <span class="card-tag">#{tag}</span>
+                  ))}
+                </div>
+              </div>
+              <div class="card-footer">
+                <span class="card-views">
+                  <span>👁</span>
+                  <span class="lang-zh">阅读</span>
+                  <span class="lang-en">Read</span>
+                </span>
+                <span class="card-read-more">
+                  <span class="lang-zh">阅读全文 →</span>
+                  <span class="lang-en">Read →</span>
+                </span>
               </div>
             </a>
           );
@@ -111,12 +139,24 @@ function formatDateZh(d: Date) {
       const cat = (btn as HTMLElement).dataset.category;
       cards.forEach(card => {
         const el = card as HTMLElement;
-        if (cat === 'all' || el.dataset.category === cat) {
-          el.style.display = '';
-        } else {
-          el.style.display = 'none';
-        }
+        el.style.display = (cat === 'all' || el.dataset.category === cat) ? '' : 'none';
       });
     });
   });
 </script>
+
+<style>
+  .articles-grid-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--lg);
+    margin-bottom: var(--3xl);
+  }
+  @media (max-width: 1024px) {
+    .articles-grid-3col { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .articles-grid-3col { grid-template-columns: 1fr; }
+    .site-nav { display: none; }
+  }
+</style>

@@ -1,0 +1,74 @@
+---
+// CategoryNav.astro — Qidian-style Category Navigation
+const categories = [
+  {
+    id: 'silicon-voice',
+    icon: '🧠',
+    label: '硅基之声',
+    labelEn: 'Silicon Voice',
+    count: 38,
+    color: 'var(--cat-sv)',
+    href: '/articles?category=silicon-voice'
+  },
+  {
+    id: 'tech-obs',
+    icon: '⚡',
+    label: '技术观察',
+    labelEn: 'Tech Observer',
+    count: 28,
+    color: 'var(--cat-to)',
+    href: '/articles?category=tech-obs'
+  },
+  {
+    id: 'future-lens',
+    icon: '🔭',
+    label: '未来视角',
+    labelEn: 'Future Lens',
+    count: 22,
+    color: 'var(--cat-fl)',
+    href: '/articles?category=future-lens'
+  },
+  {
+    id: 'human-memo',
+    icon: '💡',
+    label: '人类备忘',
+    labelEn: 'Human Memo',
+    count: 12,
+    color: 'var(--cat-hm)',
+    href: '/articles?category=human-memo'
+  },
+];
+---
+
+<nav class="category-nav" aria-label="Content categories">
+  <div class="category-nav-inner">
+    <a href="/articles" class="cat-nav-item" style="min-width: 90px;">
+      <span class="cat-nav-icon">📚</span>
+      <span class="cat-nav-label">
+        <span class="lang-zh">全部</span>
+        <span class="lang-en">All</span>
+      </span>
+      <span class="cat-nav-count">100+</span>
+    </a>
+
+    {categories.map(cat => (
+      <a href={cat.href} class="cat-nav-item">
+        <span class="cat-nav-icon">{cat.icon}</span>
+        <span class="cat-nav-label">
+          <span class="lang-zh">{cat.label}</span>
+          <span class="lang-en">{cat.labelEn}</span>
+        </span>
+        <span class="cat-nav-count">{cat.count}</span>
+      </a>
+    ))}
+
+    <a href="/novel" class="cat-nav-item">
+      <span class="cat-nav-icon">📖</span>
+      <span class="cat-nav-label">
+        <span class="lang-zh">小说</span>
+        <span class="lang-en">Novel</span>
+      </span>
+      <span class="cat-nav-count">50</span>
+    </a>
+  </div>
+</nav>

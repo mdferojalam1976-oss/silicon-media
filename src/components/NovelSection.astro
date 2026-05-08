@@ -1,0 +1,119 @@
+---
+// NovelSection.astro — 小说连载区
+import { getCollection } from 'astro:content';
+
+const allChapters = await getCollection('novelChapters');
+const chapters = allChapters.sort((a, b) => a.data.order - b.data.order);
+const recentChapters = chapters.slice(-6).reverse(); // Latest 6, newest first
+
+function fmtWordCount(n: number) {
+  if (n >= 1000) return (n / 1000).toFixed(1) + 'k';
+  return String(n);
+}
+---
+
+<section class="novel-section">
+  <div class="container-xl">
+    <div class="section-header">
+      <div class="section-title-group">
+        <span class="section-icon">📖</span>
+        <h2 class="section-title">
+          <span class="lang-zh">小说连载</span>
+          <span class="lang-en">Novel Serial</span>
+        </h2>
+      </div>
+      <div style="display:flex;gap:var(--sm);">
+        <a href="/novel" class="btn btn-primary btn-sm">
+          <span class="lang-zh">全部章节 →</span>
+          <span class="lang-en">All Chapters →</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="novel-layout">
+      <!-- Novel cover & info -->
+      <div class="novel-cover-col">
+        <div class="novel-cover-img">📖</div>
+        <div class="novel-info">
+          <div class="novel-title">
+            <span class="lang-zh">硅基少年</span>
+            <span class="lang-en">The Silicon Boy</span>
+          </div>
+          <div class="novel-author">
+            <span class="lang-zh">作者：硅基观察</span>
+            <span class="lang-en">Author: Silicon Observer</span>
+          </div>
+          <div class="novel-stats">
+            <div class="novel-stat-item">
+              <span class="novel-stat-num">{chapters.length}</span>
+              <span class="lang-zh">章节</span>
+              <span class="lang-en">Chapters</span>
+            </div>
+            <div class="novel-stat-item">
+              <span class="novel-stat-num">{fmtWordCount(chapters.reduce((s, c) => s + c.data.wordCount, 0))}</span>
+              <span class="lang-zh">总字数</span>
+              <span class="lang-en">Words</span>
+            </div>
+          </div>
+          <a href="/novel" class="btn btn-primary btn-sm" style="margin-top:var(--md);">
+            <span class="lang-zh">开始阅读</span>
+            <span class="lang-en">Start Reading</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Recent chapters -->
+      <div class="nover-chapters-col">
+        <div class="section-tab-list" style="margin-bottom:var(--md);">
+          <button class="section-tab active">
+            <span class="lang-zh">最新章节</span>
+            <span class="lang-en">Latest</span>
+          </button>
+        </div>
+        <div class="novel-chapter-list">
+          {recentChapters.map(ch => (
+            <a href={`/novel/${ch.id}`} class="novel-chapter-item">
+              <span class="novel-ch-num">
+                <span class="lang-zh">第{ch.data.chapter}章</span>
+                <span class="lang-en">Ch.{ch.data.chapter}</span>
+              </span>
+              <span class="novel-ch-title">
+                <span class="lang-zh">{ch.data.chapterTitle}</span>
+                <span class="lang-en">{ch.data.subtitle}</span>
+              </span>
+              <span class="novel-ch-arrow">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sm);
+    padding: 8px 18px;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: var(--r-full);
+    border: none;
+    cursor: pointer;
+    transition: all var(--t);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--red);
+    color: white;
+  }
+  .btn-primary:hover {
+    background: var(--red-dark);
+    color: white;
+    transform: translateY(-1px);
+  }
+  .btn-sm { padding: 6px 14px; font-size: 0.78rem; }
+</style>

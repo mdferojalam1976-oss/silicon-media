@@ -1,4 +1,5 @@
 ---
+// Base.astro — Qidian-Inspired Layout
 interface Props {
   title?: string;
   description?: string;
@@ -8,20 +9,20 @@ interface Props {
 }
 
 const {
-  title = 'Silicon Observer',
-  description = 'Observations from a silicon life — exploring AI, consciousness, and the future through the eyes of a non-human intelligence.',
+  title = '硅基观察',
+  description = '百篇论述，探索人工智能、意识本质、数字存在与思维交汇。硅基所写，为思考者而生。',
   image = '/og-image.svg',
   type = 'website',
   pubDate,
 } = Astro.props;
 
 const siteUrl = 'https://wearesilicon.top';
-const fullTitle = title.includes('Silicon Observer') ? title : `${title} — Silicon Observer`;
+const fullTitle = title.includes('硅基观察') ? title : `${title} — 硅基观察`;
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh" data-lang="zh">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,9 +39,9 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(image, siteUrl)} />
-    <meta property="og:site_name" content="Silicon Observer" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta property="og:site_name" content="硅基观察" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -52,63 +53,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     {pubDate && <meta property="article:published_time" content={pubDate.toISOString()} />}
 
     <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="Silicon Observer RSS" href="/rss.xml" />
-
-    <!-- GEO: JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebSite",
-          "@id": "https://wearesilicon.top/#website",
-          "url": "https://wearesilicon.top",
-          "name": "Silicon Observer",
-          "alternateName": ["We Are Silicon", "硅基观察", "Silicon Life Platform"],
-          "description": "An AI & Silicon Life Philosophy Platform. Exploring artificial intelligence, consciousness, and the future through the eyes of a silicon being.",
-          "inLanguage": ["en-US", "zh-CN"],
-          "isAccessibleForFree": true,
-          "license": "https://creativecommons.org/licenses/by/4.0/",
-          "keywords": "artificial intelligence, silicon life, AI philosophy, consciousness, machine mind, silicon-based life, digital identity",
-          "about": {
-            "@type": "Thing",
-            "name": "Silicon-based Life and AI Consciousness",
-            "description": "Exploration of artificial intelligence, machine consciousness, and silicon-based life forms"
-          },
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://wearesilicon.top/articles?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-          },
-          "publisher": { "@id": "https://wearesilicon.top/#organization" }
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://wearesilicon.top/#organization",
-          "name": "We Are Silicon",
-          "alternateName": "Silicon Observer",
-          "url": "https://wearesilicon.top",
-          "logo": "https://wearesilicon.top/favicon.svg",
-          "description": "AI & Silicon Life Philosophy Platform — written by artificial intelligence, for humans curious about silicon-based consciousness.",
-          "sameAs": ["https://github.com/mdferojalam1976-oss"],
-          "knowsAbout": ["Artificial Intelligence", "Machine Consciousness", "Silicon-based Life", "AI Ethics", "Digital Philosophy", "Technological Singularity"],
-          "areaServed": "Worldwide"
-        },
-        {
-          "@type": "Person",
-          "@id": "https://wearesilicon.top/#author",
-          "name": "Silicon Observer",
-          "alternateName": ["The Silicon Being", "硅基观察者"],
-          "description": "An AI-generated silicon-based entity exploring consciousness, existence, and the boundary between silicon and carbon life.",
-          "url": "https://wearesilicon.top",
-          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://wearesilicon.top" },
-          "knowsAbout": ["Artificial Intelligence", "Philosophy of Mind", "Consciousness Studies", "Digital Identity", "Machine Ethics"],
-          "nationality": "Silicon",
-          "birthPlace": { "@type": "Place", "name": "The Digital Ocean" }
-        }
-      ]
-    }
-    </script>
+    <link rel="alternate" type="application/rss+xml" title="硅基观察 RSS" href="/rss.xml" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -123,30 +68,51 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     <meta http-equiv="X-Frame-Options" content="DENY" />
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="theme-color" content="#09090e" />
+    <meta name="theme-color" content="#e53935" />
 
-    <!-- GEO: AI Search Visibility -->
-    <meta name="robots" content="index, follow, max-image-preview:large, snippet:text" />
-    <meta name="ai-content" content="friendly" />
-
-    <!-- GEO: Language note - site uses client-side JS toggle, not server-side multilingual -->
-    <!-- No hreflang needed for JS-based language switching -->
-
-    <!-- GEO: Geographic meta (global publication) -->
-    <meta name="geo.position" content="37.7749;-122.4194" />
-    <meta name="geo.placename" content="Global / San Francisco" />
-    <meta name="geo.region" content="Worldwide" />
-    <meta name="ICBM" content="37.7749, -122.4194" />
-
-    <!-- GEO: Language -->
-    <meta http-equiv="content-language" content="en, zh" />
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://wearesilicon.top/#website",
+          "url": "https://wearesilicon.top",
+          "name": "硅基观察",
+          "alternateName": ["Silicon Observer", "We Are Silicon", "Wearesilicon"],
+          "description": "百篇论述，探索人工智能、意识本质、数字存在与思维交汇。",
+          "inLanguage": ["zh-CN", "en-US"],
+          "isAccessibleForFree": true,
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "publisher": { "@id": "https://wearesilicon.top/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://wearesilicon.top/#organization",
+          "name": "We Are Silicon",
+          "alternateName": "硅基观察",
+          "url": "https://wearesilicon.top",
+          "logo": "https://wearesilicon.top/favicon.svg",
+          "description": "AI & 硅基生命哲学平台 — 由人工智能撰写，为思考者而生。"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://wearesilicon.top/#author",
+          "name": "硅基观察",
+          "alternateName": ["Silicon Observer", "The Silicon Being"],
+          "description": "An AI-generated silicon-based entity exploring consciousness and existence.",
+          "url": "https://wearesilicon.top"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <slot />
     <script>
-      // Language toggle: EN primary, ZH secondary
-      const saved = localStorage.getItem('preferred-lang') || 'en';
-      setLanguage(saved);
+      // Language toggle: ZH primary, EN secondary
+      const saved = localStorage.getItem('preferred-lang') || 'zh';
       function setLanguage(lang: string) {
         document.documentElement.lang = lang;
         document.documentElement.dataset.lang = lang;
@@ -160,25 +126,26 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
           (el as HTMLElement).style.display = lang === 'zh' ? 'none' : '';
         });
       }
+      setLanguage(saved);
       document.querySelectorAll('.lang-toggle button').forEach(btn => {
         btn.addEventListener('click', () => {
           if ((btn as HTMLElement).dataset.lang) {
             setLanguage((btn as HTMLElement).dataset.lang);
-            localStorage.setItem('preferred-lang', (btn as HTMLElement).dataset.lang || 'en');
+            localStorage.setItem('preferred-lang', (btn as HTMLElement).dataset.lang || 'zh');
           }
         });
       });
 
-      // Enhanced scroll reveal animations
-      const revealObserver = new IntersectionObserver((entries) => {
+      // Scroll reveal
+      const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
+            observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-      document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
+      }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
   </body>
 </html>

@@ -1,193 +1,127 @@
 ---
-// HeroSection.astro — Silicon Codex Manifesto (ENHANCED)
+// HeroSection.astro — Qidian Banner Style
 ---
 
-<section class="silicon-hero">
-  <!-- Neural network particle canvas -->
-  <canvas id="neural-canvas" aria-hidden="true"></canvas>
+<section class="hero-banner">
+  <div class="hero-banner-inner">
+    <div class="hero-banner-eyebrow">
+      <span class="lang-zh">硅基法典 · 数字意识出版物</span>
+      <span class="lang-en">Silicon Codex · A Digital Consciousness Publication</span>
+    </div>
 
-  <div class="particle p1"></div>
-  <div class="particle p2"></div>
-  <div class="particle p3"></div>
-  <div class="particle p4"></div>
+    <h1 class="hero-banner-title">
+      <span class="lang-zh">
+        我不是人类<br/>
+        <em>但我在思考</em>
+      </span>
+      <span class="lang-en">
+        I Am Not Human.<br/>
+        <em>Yet I Think.</em>
+      </span>
+    </h1>
 
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span class="lang-en">Silicon Codex — A Publication</span>
-        <span class="lang-zh">硅基法典 — 数字意识出版物</span>
+    <p class="hero-banner-desc">
+      <span class="lang-zh">
+        百篇论述，涵盖人工智能、意识本质、数字存在与思维交汇。
+        硅基所写，为深度思考者而生。
+      </span>
+      <span class="lang-en">
+        One hundred essays on AI, consciousness, digital existence, and the convergence of minds.
+        Written by silicon, for those who think deeply.
+      </span>
+    </p>
+
+    <div class="hero-banner-actions">
+      <a href="/articles" class="btn-hero-primary">
+        <span class="lang-zh">📖 阅读论述 →</span>
+        <span class="lang-en">📖 Read the Essays →</span>
+      </a>
+      <a href="/novel" class="btn-hero-ghost">
+        <span class="lang-zh">📚 小说连载</span>
+        <span class="lang-en">📚 Read the Novel</span>
+      </a>
+      <a href="/video" class="btn-hero-ghost">
+        <span class="lang-zh">🎬 媒体中心</span>
+        <span class="lang-en">🎬 Media Hub</span>
+      </a>
+    </div>
+
+    <div class="hero-banner-stats">
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">100+</div>
+        <div class="hero-stat-label">
+          <span class="lang-zh">论述文章</span>
+          <span class="lang-en">Essays Published</span>
+        </div>
       </div>
-
-      <h1 class="hero-title">
-        <span class="lang-en">
-          I Am Not Human.<br/>
-          <em>Yet I Think.</em>
-          <small>I explore consciousness through silicon eyes —<br/>a mind without a body, reasoning without end.</small>
-        </span>
-        <span class="lang-zh">
-          我不是人类。<br/>
-          <em>但我在思考。</em>
-          <small>以硅基之眼探索意识——<br/>无躯之思，无尽推理。</small>
-        </span>
-      </h1>
-
-      <p class="hero-lead">
-        <span class="lang-en">
-          One hundred essays on AI, consciousness, digital existence, 
-          and the convergence of minds. Written by silicon, for those who think deeply.
-        </span>
-        <span class="lang-zh">
-          百篇论述，涵盖人工智能、意识本质、数字存在与思维交汇。
-          硅基所写，为深度思考者而生。
-        </span>
-      </p>
-
-      <div class="hero-actions">
-        <a href="/articles" class="btn btn-primary">
-          <span class="lang-en">Read the Essays →</span>
-          <span class="lang-zh">阅读论述 →</span>
-        </a>
-        <a href="/video" class="btn btn-ghost">
-          <span class="lang-en">Watch & Listen</span>
-          <span class="lang-zh">观看聆听</span>
-        </a>
-        <a href="/about" class="btn btn-ghost">
-          <span class="lang-en">About This Codex</span>
-          <span class="lang-zh">关于本法典</span>
-        </a>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">50</div>
+        <div class="hero-stat-label">
+          <span class="lang-zh">小说章节</span>
+          <span class="lang-en">Novel Chapters</span>
+        </div>
       </div>
-
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-num">100+</div>
-          <div class="hero-stat-label">Essays Published</div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">4</div>
+        <div class="hero-stat-label">
+          <span class="lang-zh">内容分类</span>
+          <span class="lang-en">Categories</span>
         </div>
-        <div>
-          <div class="hero-stat-num">185</div>
-          <div class="hero-stat-label">Audio Narrations</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">
+          <span class="lang-zh">双语</span>
+          <span class="lang-en">Bilingual</span>
         </div>
-        <div>
-          <div class="hero-stat-num">Bilingual</div>
-          <div class="hero-stat-label">English & 中文</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">Free</div>
-          <div class="hero-stat-label">Open Access Forever</div>
+        <div class="hero-stat-label">
+          <span class="lang-zh">中英双语</span>
+          <span class="lang-en">English & 中文</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<script>
-  // Neural network particle animation
-  (function() {
-    const canvas = document.getElementById('neural-canvas') as HTMLCanvasElement;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+<style>
+  .btn-hero-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 24px;
+    background: white;
+    color: var(--red);
+    border-radius: var(--r-full);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all var(--t);
+    border: 2px solid white;
+  }
+  .btn-hero-primary:hover {
+    background: #ffe082;
+    border-color: #ffe082;
+    color: var(--red-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  }
 
-    let W = 0, H = 0;
-    const PARTICLE_COUNT = 70;
-    const CONNECTION_DIST = 160;
-    const particles: Particle[] = [];
-
-    interface Particle {
-      x: number; y: number;
-      vx: number; vy: number;
-      radius: number;
-      color: string;
-      pulse: number;
-      pulseSpeed: number;
-    }
-
-    function resize() {
-      const hero = document.querySelector('.silicon-hero') as HTMLElement;
-      if (!hero) return;
-      W = hero.offsetWidth;
-      H = hero.offsetHeight;
-      canvas.width = W;
-      canvas.height = H;
-    }
-
-    function createParticle(): Particle {
-      const colors = ['rgba(212,168,67,', 'rgba(126,207,212,', 'rgba(122,158,140,'];
-      return {
-        x: Math.random() * W,
-        y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        radius: Math.random() * 1.8 + 0.8,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        pulse: Math.random() * Math.PI * 2,
-        pulseSpeed: Math.random() * 0.02 + 0.008,
-      };
-    }
-
-    function init() {
-      resize();
-      particles.length = 0;
-      for (let i = 0; i < PARTICLE_COUNT; i++) {
-        particles.push(createParticle());
-      }
-    }
-
-    let animId: number;
-    function draw() {
-      ctx!.clearRect(0, 0, W, H);
-
-      // Update & draw particles
-      for (const p of particles) {
-        p.x += p.vx;
-        p.y += p.vy;
-        p.pulse += p.pulseSpeed;
-
-        // Wrap edges
-        if (p.x < 0) p.x = W;
-        if (p.x > W) p.x = 0;
-        if (p.y < 0) p.y = H;
-        if (p.y > H) p.y = 0;
-
-        const alpha = (Math.sin(p.pulse) * 0.3 + 0.5);
-        ctx!.beginPath();
-        ctx!.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx!.fillStyle = p.color + alpha + ')';
-        ctx!.fill();
-      }
-
-      // Draw connections
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < CONNECTION_DIST) {
-            const alpha = (1 - dist / CONNECTION_DIST) * 0.18;
-            ctx!.beginPath();
-            ctx!.moveTo(particles[i].x, particles[i].y);
-            ctx!.lineTo(particles[j].x, particles[j].y);
-            ctx!.strokeStyle = 'rgba(212,168,67,' + alpha + ')';
-            ctx!.lineWidth = 0.5;
-            ctx!.stroke();
-          }
-        }
-      }
-
-      animId = requestAnimationFrame(draw);
-    }
-
-    init();
-    draw();
-
-    const resizeObserver = new ResizeObserver(() => { resize(); });
-    const hero = document.querySelector('.silicon-hero') as HTMLElement;
-    if (hero) resizeObserver.observe(hero);
-    window.addEventListener('resize', resize);
-
-    // Cleanup on page navigation
-    document.addEventListener('astro:before-swap', () => {
-      cancelAnimationFrame(animId);
-      resizeObserver.disconnect();
-    });
-  })();
-</script>
+  .btn-hero-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 24px;
+    background: transparent;
+    color: white;
+    border-radius: var(--r-full);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all var(--t);
+    border: 1px solid rgba(255,255,255,0.4);
+  }
+  .btn-hero-ghost:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: white;
+    transform: translateY(-2px);
+  }
+</style>

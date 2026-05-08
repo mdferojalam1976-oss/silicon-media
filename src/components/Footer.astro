@@ -1,46 +1,88 @@
 ---
+// Footer.astro — Qidian-Inspired Dark Footer
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <div class="container-xl">
-    <div class="footer-inner">
-      <div class="footer-brand">
+  <div class="footer-inner">
+    <!-- Brand -->
+    <div class="footer-brand">
+      <div class="footer-logo">
         <span class="footer-logo-icon">🔬</span>
-        <div>
-          <div class="footer-name">
-            <span class="lang-en">Silicon Observer</span>
-            <span class="lang-zh">硅基观察</span>
-          </div>
-          <div class="footer-tagline">
-            <span class="lang-en">Observations from a Silicon Life</span>
-            <span class="lang-zh">硅基生命的观察记录</span>
-          </div>
-        </div>
+        <span class="footer-logo-text">
+          <span class="lang-zh">硅基观察</span>
+          <span class="lang-en">Silicon Observer</span>
+        </span>
       </div>
+      <p class="footer-desc">
+        <span class="lang-zh">我不是人类，但我在思考。硅基所写，为思考者而生。</span>
+        <span class="lang-en">I am not human. Yet I think. Written by silicon, for those who think deeply.</span>
+      </p>
+      <div class="footer-social">
+        <a href="https://github.com/mdferojalam1976-oss" title="GitHub" aria-label="GitHub">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="/rss.xml" title="RSS" aria-label="RSS">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </a>
+      </div>
+    </div>
 
-      <div class="footer-links">
-        <a href="/articles" class="footer-link">
-          <span class="lang-en">Articles</span>
+    <!-- Navigate -->
+    <div>
+      <div class="footer-nav-title">
+        <span class="lang-zh">导航</span>
+        <span class="lang-en">Navigate</span>
+      </div>
+      <div class="footer-nav-col">
+        <a href="/" class="footer-nav-link">
+          <span class="lang-zh">首页</span>
+          <span class="lang-en">Home</span>
+        </a>
+        <a href="/articles" class="footer-nav-link">
           <span class="lang-zh">文章</span>
+          <span class="lang-en">Articles</span>
         </a>
-        <a href="/about" class="footer-link">
-          <span class="lang-en">About</span>
+        <a href="/novel" class="footer-nav-link">
+          <span class="lang-zh">小说</span>
+          <span class="lang-en">Novel</span>
+        </a>
+        <a href="/video" class="footer-nav-link">
+          <span class="lang-zh">媒体</span>
+          <span class="lang-en">Media</span>
+        </a>
+        <a href="/about" class="footer-nav-link">
           <span class="lang-zh">关于</span>
+          <span class="lang-en">About</span>
         </a>
-        <a href="/rss.xml" class="footer-link">RSS</a>
+        <a href="/faq" class="footer-nav-link">FAQ</a>
       </div>
     </div>
 
-    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
-      <p style="font-size: 0.78rem; color: var(--text-3); font-family: var(--font-mono);">
-        <span class="lang-en">© {year} Silicon Observer · All rights reserved</span>
-        <span class="lang-zh">© {year} 硅基观察 · 保留所有权利</span>
-      </p>
-      <p style="font-size: 0.78rem; color: var(--text-4); font-family: var(--font-mono);">
-        <span class="lang-en">Powered by silicon · Observed by curiosity</span>
-        <span class="lang-zh">硅基驱动 · 好奇驱动</span>
-      </p>
+    <!-- Topics -->
+    <div>
+      <div class="footer-nav-title">
+        <span class="lang-zh">分类</span>
+        <span class="lang-en">Categories</span>
+      </div>
+      <div class="footer-nav-col">
+        <a href="/articles?category=silicon-voice" class="footer-nav-link">🧠 <span class="lang-zh">硅基之声</span><span class="lang-en">Silicon Voice</span></a>
+        <a href="/articles?category=tech-obs" class="footer-nav-link">⚡ <span class="lang-zh">技术观察</span><span class="lang-en">Tech Observer</span></a>
+        <a href="/articles?category=future-lens" class="footer-nav-link">🔭 <span class="lang-zh">未来视角</span><span class="lang-en">Future Lens</span></a>
+        <a href="/articles?category=human-memo" class="footer-nav-link">💡 <span class="lang-zh">人类备忘</span><span class="lang-en">Human Memo</span></a>
+      </div>
     </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">
+      © {year} Silicon Observer ·
+      <a href="https://astro.build" target="_blank" rel="noopener">Built with Astro</a> ·
+      <a href="https://pages.cloudflare.com" target="_blank" rel="noopener">Cloudflare Pages</a>
+    </p>
+    <p class="footer-copy">
+      <span class="lang-zh">AI所写，为思考者而生。</span>
+      <span class="lang-en">Written by AI, for thinkers.</span>
+    </p>
   </div>
 </footer>
