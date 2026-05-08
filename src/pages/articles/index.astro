@@ -28,6 +28,15 @@ const catIcon: Record<string, string> = {
   'future-lens': '🔭',
   'human-memo': '💡',
 };
+const catGradients: Record<string, string> = {
+  'silicon-voice': 'linear-gradient(135deg, #1a237e 0%, #4a148c 50%, #880e4f 100%)',
+  'tech-obs':      'linear-gradient(135deg, #004d40 0%, #00695c 50%, #006064 100%)',
+  'future-lens':   'linear-gradient(135deg, #7f0000 0%, #b71c1c 50%, #e65100 100%)',
+  'human-memo':    'linear-gradient(135deg, #3e2723 0%, #5d4037 50%, #6d4c41 100%)',
+};
+function getCoverGradient(cat: string) {
+  return catGradients[cat] || 'linear-gradient(135deg, #37474f 0%, #455a64 50%, #546e7a 100%)';
+}
 
 function fmtDate(d: Date) {
   return d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'short', day: 'numeric' });
@@ -73,14 +82,10 @@ function fmtDate(d: Date) {
           const icon = catIcon[post.data.category] || '📄';
           return (
             <a href={`/articles/${post.id}`} class="article-card" data-category={post.data.category}>
-              <div class="card-cover">
-                {post.data.coverImage ? (
-                  <img src={post.data.coverImage} alt="" loading="lazy" />
-                ) : (
-                  <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--surface-3);">
-                    <span style="font-size:2.5rem;opacity:0.35;">{icon}</span>
-                  </div>
-                )}
+              <div class="card-cover" style={`background: ${getCoverGradient(post.data.category)};`}>
+                <div class="cover-gradient-content">
+                  <span class="cover-icon">{icon}</span>
+                </div>
               </div>
               <div class="card-content">
                 <div class="card-meta">
@@ -158,5 +163,23 @@ function fmtDate(d: Date) {
   @media (max-width: 640px) {
     .articles-grid-3col { grid-template-columns: 1fr; }
     .site-nav { display: none; }
+  }
+
+  /* Gradient cover styles */
+  .cover-gradient-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  .cover-icon {
+    font-size: 2.8rem;
+    opacity: 0.7;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.35));
+  }
+  .article-card:hover .card-cover {
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,0.15);
   }
 </style>

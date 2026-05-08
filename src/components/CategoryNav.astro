@@ -38,6 +38,13 @@ const categories = [
     href: '/articles?category=human-memo'
   },
 ];
+
+const catGradients: Record<string, string> = {
+  'silicon-voice': 'linear-gradient(135deg, rgba(229,57,53,0.08) 0%, rgba(229,57,53,0.04) 100%)',
+  'tech-obs':      'linear-gradient(135deg, rgba(21,101,192,0.08) 0%, rgba(21,101,192,0.04) 100%)',
+  'future-lens':   'linear-gradient(135deg, rgba(106,27,154,0.08) 0%, rgba(106,27,154,0.04) 100%)',
+  'human-memo':    'linear-gradient(135deg, rgba(46,125,50,0.08) 0%, rgba(46,125,50,0.04) 100%)',
+};
 ---
 
 <nav class="category-nav" aria-label="Content categories">
@@ -52,7 +59,7 @@ const categories = [
     </a>
 
     {categories.map(cat => (
-      <a href={cat.href} class="cat-nav-item">
+      <a href={cat.href} class="cat-nav-item" data-cat={cat.id}>
         <span class="cat-nav-icon">{cat.icon}</span>
         <span class="cat-nav-label">
           <span class="lang-zh">{cat.label}</span>
@@ -72,3 +79,31 @@ const categories = [
     </a>
   </div>
 </nav>
+
+<style>
+  .cat-nav-item {
+    position: relative;
+    overflow: hidden;
+  }
+  .cat-nav-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity var(--t);
+  }
+  .cat-nav-item[data-cat="silicon-voice"]::before {
+    background: linear-gradient(135deg, rgba(229,57,53,0.12) 0%, rgba(229,57,53,0.04) 100%);
+  }
+  .cat-nav-item[data-cat="tech-obs"]::before {
+    background: linear-gradient(135deg, rgba(21,101,192,0.12) 0%, rgba(21,101,192,0.04) 100%);
+  }
+  .cat-nav-item[data-cat="future-lens"]::before {
+    background: linear-gradient(135deg, rgba(106,27,154,0.12) 0%, rgba(106,27,154,0.04) 100%);
+  }
+  .cat-nav-item[data-cat="human-memo"]::before {
+    background: linear-gradient(135deg, rgba(46,125,50,0.12) 0%, rgba(46,125,50,0.04) 100%);
+  }
+  .cat-nav-item:hover::before { opacity: 1; }
+</style>
